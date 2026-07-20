@@ -18,6 +18,7 @@ runner.py             uv run -m experiments.runner   -- extraction + timing
 similarity.py           fuzzy per-field comparators (title/authors/dates/agency/document_type)
 evaluate.py               uv run -m experiments.evaluate -- score a candidate run vs. ground truth
 results.py                  uv run -m experiments.results  -- summary table + plots
+results.ipynb                  interactive counterpart to results.py -- same DataFrame + plots, inline
 ```
 
 Outputs (all gitignored, regenerate on demand):
@@ -124,3 +125,9 @@ uv run -m experiments.results
 
 `results.py` picks the most recent run per model automatically; pass
 `--run <run_id>` (repeatable) to select specific runs explicitly.
+
+For interactive exploration (filtering/sorting the summary table, digging into a
+single model's raw per-document timings) instead of the one-shot CLI, open
+`results.ipynb`. It imports and reuses `results.py`'s functions directly, so its
+output never drifts from the CLI's -- run `uv sync --extra experiments` first
+(pulls in `ipykernel`).
