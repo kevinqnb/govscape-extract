@@ -216,3 +216,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Downloaded data samples (regenerate with data/build_sample.py)
+data/sample_ocr/*
+data/sample_pdfs/*
+!data/sample_ocr/.gitkeep
+!data/sample_pdfs/.gitkeep
+data/.ocr_shard_index.txt
+
+# Extraction results (regenerate with `uv run -m govscape_extract.cli`)
+data/extracted/
+
+# Claude
+CLAUDE.md
