@@ -102,7 +102,7 @@ MODEL_REGISTRY: dict[str, ModelConfig] = {
             notes="~120B params / ~5B active MoE; needs 80GB-class VRAM even quantized "
             "(A100/H100 80GB, or multi-GPU tensor-parallel).",
         ),
-        vllm_args=["--reasoning-parser", "openai-gptoss"],
+        vllm_args=["--reasoning-parser", "openai_gptoss"],
         extra_body={"reasoning_effort": "low"},
     ),
     "qwen3-0.6b": LLMModelConfig(

@@ -186,13 +186,20 @@ class LocalVLLMServer:
             raise
         self.startup_seconds = time.monotonic() - t0
 
+    def _output_hint(self) -> str:
+        if self.log_path:
+            return f"check {self.log_path}"
+        if self.inherit_stdio:
+            return "see vllm's output above"
+        return "stdout/stderr were discarded -- pass log_path=... to capture them"
+
     def _wait_healthy(self, t0: float) -> None:
         deadline = t0 + self.startup_timeout_s
         while time.monotonic() < deadline:
             if self._proc.poll() is not None:
                 raise ServerStartupError(
                     f"vllm serve exited early with code {self._proc.returncode} "
-                    f"(model={self.model!r}); check {self.log_path or 'stdout (discarded)'}"
+                    f"(model={self.model!r}); {self._output_hint()}"
                 )
             try:
                 resp = httpx.get(self._health_url, timeout=5.0)
