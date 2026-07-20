@@ -16,7 +16,7 @@ development. See `data/README.md`.
 
 ## Metadata extraction
 
-`govscape_extract/` extracts `title`, `authors`, `creation_date`, `publication_date`, `agency`,
+`govscape_extract/` extracts `title`, `authors`, `publication_date`, `agency`,
 and `document_type` from OCR text (field definitions in `govscape_extract/schema.py`), via two
 interchangeable backends:
 
@@ -30,6 +30,5 @@ uv run -m govscape_extract.cli --backend gliner
 
 Both read `data/sample_ocr/*.json` by default and write results to `data/extracted/`. The LLM
 backend generates/normalizes text (dates, full names); GLiNER2 returns literal spans from the
-document instead -- see the docstring in `govscape_extract/extractors/gliner.py` for the
-implications.
+document instead.
 

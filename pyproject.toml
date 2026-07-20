@@ -13,5 +13,23 @@ dependencies = [
     "python-dotenv>=1.2.2",
 ]
 
+[project.optional-dependencies]
+# CPU-only; needed for experiments/{similarity,evaluate,results}.py. Not required
+# by govscape_extract itself, so kept out of core dependencies.
+experiments = [
+    "rapidfuzz>=3.0",
+    "python-dateutil>=2.9",
+    "pandas>=2.2",
+    "matplotlib>=3.9",
+    "httpx>=0.27",
+]
+# NOTE: vllm is deliberately NOT declared as a dependency here. experiments/serving.py's
+# LocalVLLMServer only shells out to a `vllm serve ...` subprocess -- it never imports
+# vllm in-process -- and vllm's pinned torch/torchvision/transformers versions are
+# incompatible with govscape's (confirmed: `uv add --optional vllm vllm` fails to
+# resolve). Install vllm into its own separate environment on the GPU box (e.g.
+# `uv tool install vllm` or a dedicated venv) so its `vllm` CLI is on PATH; do not
+# add it to this project's dependencies.
+
 [tool.uv.sources]
 govscape = { git = "ssh://git@github.com/govscape/govscape.git" }

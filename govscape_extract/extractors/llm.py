@@ -66,10 +66,20 @@ class LLMExtractor(MetadataExtractor):
         api_key: str | None = None,
         instructions: str | None = None,
         query: str | None = None,
+        temperature: float = 0.0,
+        seed: int | None = None,
+        max_tokens: int | None = None,
+        top_p: float | None = None,
+        extra_body: dict | None = None,
     ):
         self.model = model or os.environ.get("GOVSCAPE_LLM_MODEL", "gpt-4o-mini")
         self.instructions = instructions
         self.query = query
+        self.temperature = temperature
+        self.seed = seed
+        self.max_tokens = max_tokens
+        self.top_p = top_p
+        self.extra_body = extra_body
         self.client = OpenAI(
             base_url=base_url or os.environ.get("GOVSCAPE_LLM_BASE_URL"),
             # vLLM and other local servers ignore the key but the SDK requires a non-empty string.
@@ -78,11 +88,23 @@ class LLMExtractor(MetadataExtractor):
 
     def extract(self, text: str) -> DocumentMetadata:
         prompt = build_prompt(text, self.instructions, self.query)
+        kwargs = {}
+        if self.seed is not None:
+            kwargs["seed"] = self.seed
+        if self.max_tokens is not None:
+            kwargs["max_tokens"] = self.max_tokens
+        if self.top_p is not None:
+            kwargs["top_p"] = self.top_p
+        if self.extra_body:
+            kwargs["extra_body"] = self.extra_body
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[{"role": "user", "content": prompt}],
             response_format={"type": "json_object"},
-            temperature=0,
+            temperature=self.temperature,
+            **kwargs,
         )
+        self.last_usage = response.usage.model_dump() if response.usage else None
+        self.last_finish_reason = response.choices[0].finish_reason
         data = json.loads(response.choices[0].message.content)
         return DocumentMetadata.model_validate(data)

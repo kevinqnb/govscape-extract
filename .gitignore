@@ -227,5 +227,11 @@ data/.ocr_shard_index.txt
 # Extraction results (regenerate with `uv run -m govscape_extract.cli`)
 data/extracted/
 
+# Experiment outputs (regenerate with experiments/{runner,evaluate,results}.py)
+experiments/runs/
+experiments/evaluations/
+experiments/reports/
+experiments/.endpoints.json
+
 # Claude
 CLAUDE.md
