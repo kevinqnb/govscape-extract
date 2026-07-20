@@ -14,7 +14,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import statistics
 from pathlib import Path
 from typing import Optional
 
@@ -107,37 +106,25 @@ def build_summary_rows(selected_runs: dict[str, Path], evaluations_root: Path) -
         model_cfg = manifest["config"]["model"]
         row = {
             "model_key": model_key,
-            "backend": manifest["backend"],
             "role": model_cfg.get("role", "ground_truth" if model_key == GROUND_TRUTH_KEY else "candidate"),
             "n_documents": summary["n_documents"],
+            "wall_seconds_total": summary["wall_seconds"]["total"],
             "wall_seconds_mean": summary["wall_seconds"]["mean"],
-            "wall_seconds_p50": summary["wall_seconds"]["median"],
-            "wall_seconds_p90": summary["wall_seconds"]["p90"],
-            "throughput_docs_per_sec": summary["throughput_docs_per_sec"],
-            "model_load_or_startup_seconds": summary["model_load_seconds"]
-            if summary["model_load_seconds"] is not None
-            else summary["serving_startup_seconds"],
-            "mean_prompt_tokens": summary["tokens"]["mean_prompt"],
-            "mean_completion_tokens": summary["tokens"]["mean_completion"],
+            "wall_seconds_stdev": summary["wall_seconds"]["stdev"],
             "overall_similarity_mean": None,
             "overall_similarity_stdev": None,
-            "overall_similarity_truth_nonnull": None,
             "title_similarity": None,
             "authors_similarity": None,
             "publication_date_similarity": None,
             "government_agency_similarity": None,
             "document_type_similarity": None,
-            "gpu_device": manifest["gpu"]["device_type"],
-            "hardware_notes": model_cfg.get("hardware", {}).get("notes", ""),
         }
         if model_key != GROUND_TRUTH_KEY and truth_run_id:
             eval_path = evaluations_root / f"{manifest['run_id']}__vs__{truth_run_id}" / "evaluation.json"
             if eval_path.exists():
                 agg = json.loads(eval_path.read_text())["aggregate"]
-                nonnull_means = [v for v in agg["per_field_mean_truth_nonnull"].values() if v is not None]
                 row["overall_similarity_mean"] = agg["overall_mean"]
                 row["overall_similarity_stdev"] = agg["overall_stdev"]
-                row["overall_similarity_truth_nonnull"] = statistics.mean(nonnull_means) if nonnull_means else None
                 row["title_similarity"] = agg["per_field_mean"]["title"]
                 row["authors_similarity"] = agg["per_field_mean"]["authors"]
                 row["publication_date_similarity"] = agg["per_field_mean"]["publication_date"]
