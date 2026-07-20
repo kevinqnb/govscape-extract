@@ -19,6 +19,7 @@ from typing import Iterator
 import boto3
 from botocore import UNSIGNED
 from botocore.config import Config
+from botocore.exceptions import ClientError
 
 OCR_BUCKET = "eot-pdf-archive"
 OCR_PREFIX = "ai2-olmocr/"
@@ -68,9 +69,22 @@ def document_digest(doc: dict) -> str:
     return Path(source_file).stem
 
 
-def download_pdf(digest: str, dest_dir: Path, s3=None) -> Path:
+def download_pdf(digest: str, dest_dir: Path, s3=None) -> Path | None:
+    """Download the source PDF for `digest`, or return None if it's not in the archive.
+
+    The OCR archive (`eot-pdf-archive`) and the public PDF mirror
+    (`eota-pdf-archive`) aren't perfectly aligned -- a small fraction of OCR'd
+    documents have no corresponding PDF. Treat that as expected (skip, don't
+    crash the whole batch) but let any other error (auth, network, etc.)
+    propagate.
+    """
     s3 = s3 or pdf_client()
     dest_dir.mkdir(parents=True, exist_ok=True)
     dest = dest_dir / f"{digest}.pdf"
-    s3.download_file(PDF_BUCKET, f"{PDF_PREFIX}{digest}.pdf", str(dest))
+    try:
+        s3.download_file(PDF_BUCKET, f"{PDF_PREFIX}{digest}.pdf", str(dest))
+    except ClientError as e:
+        if e.response.get("Error", {}).get("Code") == "404":
+            return None
+        raise
     return dest

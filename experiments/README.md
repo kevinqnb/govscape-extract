@@ -68,6 +68,27 @@ harmless -- it just falls through to option 2. If your setup is genuinely two
 separate machines with no shared filesystem, use option 2 instead (or copy
 `experiments/.endpoints.json` over yourself).
 
+**Serving from a Singularity/Apptainer image instead of a bare `vllm` on
+PATH** (common on HPC clusters): override the base launch command with
+`--vllm-command` (or `$GOVSCAPE_VLLM_COMMAND` to set it once and not repeat
+it per invocation) -- everything else (health check, endpoint file, teardown)
+works unchanged, since Singularity/Apptainer share the host's network
+namespace by default (unlike Docker, no `-p` port mapping needed):
+
+```bash
+uv run -m experiments.serve_model --model-key gpt-oss-120b \
+    --vllm-command "singularity exec --nv /path/to/vllm.sif vllm serve"
+
+# or set it once for the session:
+export GOVSCAPE_VLLM_COMMAND="apptainer exec --nv /path/to/vllm.sif vllm serve"
+uv run -m experiments.serve_model --model-key gpt-oss-120b
+```
+
+`--nv` passes the GPU through to the container. If your `.sif` image's model
+cache isn't already visible inside the container (Singularity mounts `$HOME`
+by default, so usually `~/.cache/huggingface` just works), add a `--bind
+<host-path>:<container-path>` into the `--vllm-command` string.
+
 **2. Env var fallback**, if you'd rather run `vllm serve` by hand or
 `serve_model.py`'s file cache isn't reachable from where the runner runs
 (add to a local `.env`, alongside the existing `GOVSCAPE_LLM_*` vars):

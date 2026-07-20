@@ -82,11 +82,17 @@ def write_ocr_sample(docs: list[dict], ocr_dir: Path) -> list[str]:
     return digests
 
 
-def download_pdfs(digests: list[str], pdf_dir: Path) -> None:
+def download_pdfs(digests: list[str], pdf_dir: Path) -> list[str]:
+    """Download each digest's source PDF, returning the digests with no matching PDF."""
     s3 = pdf_client()
+    missing = []
     for digest in digests:
-        download_pdf(digest, pdf_dir, s3)
-        print(f"  downloaded {digest}.pdf")
+        if download_pdf(digest, pdf_dir, s3) is None:
+            print(f"  no source PDF found for {digest}, skipping")
+            missing.append(digest)
+        else:
+            print(f"  downloaded {digest}.pdf")
+    return missing
 
 
 def main() -> None:
@@ -107,9 +113,17 @@ def main() -> None:
     digests = write_ocr_sample(docs, args.ocr_dir)
 
     print(f"Downloading {len(digests)} source PDFs to {args.pdf_dir}/...")
-    download_pdfs(digests, args.pdf_dir)
+    missing = download_pdfs(digests, args.pdf_dir)
 
-    print("Done.")
+    if missing:
+        print(
+            f"Done. {len(missing)}/{len(digests)} documents have no source PDF "
+            f"in the archive (OCR JSON was still kept):"
+        )
+        for digest in missing:
+            print(f"  {digest}")
+    else:
+        print("Done.")
 
 
 if __name__ == "__main__":

@@ -1,15 +1,22 @@
 """Optional local vLLM server management.
 
 Both models currently in config.py's MODEL_REGISTRY default to
-`serving="external"` -- served manually on a remote/persistent GPU box.
-Rather than re-exporting a base-url env var by hand every session,
-experiments/serve_model.py wraps `vllm serve` and records its endpoint in
-ENDPOINTS_FILE (a gitignored dotfile next to this module); endpoint_for()
-below checks that file first, before falling back to
-LLMModelConfig.base_url_env. This only helps when runner.py and
-serve_model.py can see the same ENDPOINTS_FILE -- same machine, or a shared/
-synced filesystem; across genuinely separate machines the env var (or
---base-url) remains the way to point at the server. See experiments/README.md.
+`serving="external"` -- served manually on a remote/persistent GPU box (e.g.
+one node of an HPC cluster allocated by a batch scheduler), typically from a
+different node than wherever runner.py runs. Rather than re-exporting a
+base-url env var by hand every session, experiments/serve_model.py wraps
+`vllm serve` and records its endpoint in ENDPOINTS_FILE (a gitignored dotfile
+next to this module); endpoint_for() below checks that file first, before
+falling back to LLMModelConfig.base_url_env. Two independent things have to
+actually reach across nodes for this to work, and both are handled below:
+  1. The *file* itself -- ENDPOINTS_FILE must be on a filesystem shared
+     between the server's node and the runner's node (true by default on
+     most HPC clusters' project/scratch storage; if genuinely unshared,
+     use the env var / --base-url instead).
+  2. The *network* -- LocalVLLMServer binds `--host 0.0.0.0` and advertises
+     the server node's real hostname (see host/public_host below), not
+     127.0.0.1, so another node can actually open the connection.
+See experiments/README.md.
 
 A cached endpoint is only trusted after a live GET to its /health endpoint
 succeeds, not just because the file has an entry -- this is what makes the
@@ -28,6 +35,7 @@ from __future__ import annotations
 import json
 import os
 import signal
+import socket
 import subprocess
 import time
 from contextlib import contextmanager
@@ -96,6 +104,28 @@ class LocalVLLMServer:
     # local_vllm path leaves this False (discard to DEVNULL) since nothing
     # is watching a live terminal there.
     inherit_stdio: bool = False
+    # The base command that starts vllm's server; `model`, `--served-model-name`,
+    # `--port`, and `extra_args` are appended after it -- so this must end
+    # exactly at a bare `vllm serve`, not a `bash -c "..."` wrapper (appended
+    # args would land as bash's positional params, not vllm's). To set env
+    # vars inside a container, use the container runtime's own --env flag
+    # rather than a shell wrapper, e.g.
+    # ["singularity", "exec", "--nv", "--env", "HF_HOME=/cache,FOO=bar",
+    #  "/path/to/vllm.sif", "vllm", "serve"].
+    vllm_command: list[str] = field(default_factory=lambda: ["vllm", "serve"])
+    # Bind address passed to vllm's own --host. "0.0.0.0" (default) listens
+    # on every interface, not just loopback -- required on a multi-node
+    # cluster where runner.py runs on a different node (login node, another
+    # job) than this server. Still reachable at 127.0.0.1 from this same
+    # node, so the internal health check below is unaffected.
+    host: str = "0.0.0.0"
+    # Hostname/IP advertised in base_url -- what *other* nodes use to reach
+    # this server. None (default) resolves to socket.gethostname(), which on
+    # a batch scheduler (SGE/Slurm/...) is the compute node's own hostname,
+    # resolvable from the login node and other nodes on the cluster's
+    # internal network. Override if your cluster needs a specific
+    # interface's hostname (e.g. an InfiniBand-specific name) instead.
+    public_host: Optional[str] = None
 
     _proc: Optional[subprocess.Popen] = field(default=None, init=False, repr=False)
     _log_fh: Any = field(default=None, init=False, repr=False)
@@ -103,20 +133,28 @@ class LocalVLLMServer:
 
     @property
     def base_url(self) -> str:
-        return f"http://127.0.0.1:{self.port}/v1"
+        # Externally-advertised address -- what runner.py, possibly on a
+        # different node, connects to. NOT 127.0.0.1 (see host/public_host
+        # field docs above).
+        return f"http://{self.public_host or socket.gethostname()}:{self.port}/v1"
 
     @property
     def _health_url(self) -> str:
+        # Always loopback: this check runs from the same node/process as
+        # the server itself, so it doesn't depend on the node's hostname
+        # resolving to something reachable (or on any firewall rule beyond
+        # loopback being open).
         return f"http://127.0.0.1:{self.port}/health"
 
     def start(self) -> None:
         served_name = self.served_model_name or self.model
         argv = [
-            "vllm",
-            "serve",
+            *self.vllm_command,
             self.model,
             "--served-model-name",
             served_name,
+            "--host",
+            self.host,
             "--port",
             str(self.port),
             *self.extra_args,

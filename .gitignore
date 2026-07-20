@@ -235,3 +235,5 @@ experiments/.endpoints.json
 
 # Claude
 CLAUDE.md
+
+*.DS_STORE
