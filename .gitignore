@@ -236,4 +236,7 @@ experiments/.endpoints.json
 # Claude
 CLAUDE.md
 
-*.DS_STORE
+# Experiments
+*.DS_Store
+experiments/out/*
+experiments/*.sh
