@@ -98,7 +98,7 @@ def download_pdfs(digests: list[str], pdf_dir: Path) -> list[str]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("-n", "--n-docs", type=int, default=10, help="number of documents to sample")
-    parser.add_argument("--seed", type=int, default=None, help="random seed for reproducible sampling")
+    parser.add_argument("--seed", type=int, default=342, help="random seed for reproducible sampling")
     parser.add_argument("--ocr-dir", type=Path, default=DATA_DIR / "sample_ocr")
     parser.add_argument("--pdf-dir", type=Path, default=DATA_DIR / "sample_pdfs")
     parser.add_argument("--refresh-index", action="store_true", help="re-list the OCR bucket instead of using the cached shard index")

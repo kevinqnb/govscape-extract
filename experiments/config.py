@@ -131,8 +131,8 @@ class ExperimentConfig:
     model_keys: list[str]
     input_dir: str = "data/sample_ocr"
     limit: Optional[int] = None
-    max_pages: int = 2
-    max_chars: int = 6000
+    max_pages: int = 3
+    max_chars: int = 9000
     seed: int = 0
     output_root: str = "experiments/runs"
 

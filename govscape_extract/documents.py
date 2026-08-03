@@ -12,8 +12,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-DEFAULT_MAX_PAGES = 2
-DEFAULT_MAX_CHARS = 6000
+DEFAULT_MAX_PAGES = 3
+DEFAULT_MAX_CHARS = 9000
 
 
 def load_document(path: Path) -> dict:

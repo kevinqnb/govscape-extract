@@ -41,7 +41,7 @@ def main() -> None:
     parser.add_argument("--input-dir", type=Path, default=DATA_DIR / "sample_ocr", help="directory of <digest>.json OCR documents")
     parser.add_argument("--output-dir", type=Path, default=DATA_DIR / "extracted", help="where to write <digest>.json metadata results")
     parser.add_argument("--limit", type=int, default=None, help="only process the first N documents")
-    parser.add_argument("--max-pages", type=int, default=2, help="how many leading pages of OCR text to feed the extractor")
+    parser.add_argument("--max-pages", type=int, default=3, help="how many leading pages of OCR text to feed the extractor")
 
     llm_group = parser.add_argument_group("llm backend")
     llm_group.add_argument("--model", help="chat model name (default: $GOVSCAPE_LLM_MODEL or gpt-4o-mini)")

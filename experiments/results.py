@@ -24,6 +24,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from experiments.config import GROUND_TRUTH_KEY, MODEL_REGISTRY
+from govscape_extract.schema import FIELDS
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_RUNS_ROOT = REPO_ROOT / "experiments" / "runs"
@@ -38,6 +39,11 @@ _CATEGORICAL_HUES = ["#2a78d6", "#008300", "#e87ba4", "#eda100", "#1baf7a", "#eb
 _MODEL_COLOR = {key: _CATEGORICAL_HUES[i % len(_CATEGORICAL_HUES)] for i, key in enumerate(MODEL_REGISTRY)}
 _INK = "#0b0b0b"
 _MUTED = "#898781"
+
+# Per-field summary columns are derived from schema.FIELDS rather than listed
+# by hand, so adding a field to the schema flows through to the table and the
+# per-field plot without another edit here.
+_FIELD_SIMILARITY_COLS = [(f"{f.name}_similarity", f.name) for f in FIELDS]
 _GRIDLINE = "#e1e0d9"
 _BASELINE = "#c3c2b7"
 
@@ -113,11 +119,7 @@ def build_summary_rows(selected_runs: dict[str, Path], evaluations_root: Path) -
             "wall_seconds_stdev": summary["wall_seconds"]["stdev"],
             "overall_similarity_mean": None,
             "overall_similarity_stdev": None,
-            "title_similarity": None,
-            "authors_similarity": None,
-            "publication_date_similarity": None,
-            "government_agency_similarity": None,
-            "document_type_similarity": None,
+            **{col: None for col, _ in _FIELD_SIMILARITY_COLS},
         }
         if model_key != GROUND_TRUTH_KEY and truth_run_id:
             eval_path = evaluations_root / f"{manifest['run_id']}__vs__{truth_run_id}" / "evaluation.json"
@@ -125,11 +127,10 @@ def build_summary_rows(selected_runs: dict[str, Path], evaluations_root: Path) -
                 agg = json.loads(eval_path.read_text())["aggregate"]
                 row["overall_similarity_mean"] = agg["overall_mean"]
                 row["overall_similarity_stdev"] = agg["overall_stdev"]
-                row["title_similarity"] = agg["per_field_mean"]["title"]
-                row["authors_similarity"] = agg["per_field_mean"]["authors"]
-                row["publication_date_similarity"] = agg["per_field_mean"]["publication_date"]
-                row["government_agency_similarity"] = agg["per_field_mean"]["government_agency"]
-                row["document_type_similarity"] = agg["per_field_mean"]["document_type"]
+                for col, field_name in _FIELD_SIMILARITY_COLS:
+                    # .get, not [...]: evaluations produced before a field was
+                    # added to the schema simply won't have a mean for it.
+                    row[col] = agg["per_field_mean"].get(field_name)
         rows.append(row)
     return rows
 
@@ -188,20 +189,14 @@ def plot_latency_distribution(selected_runs: dict[str, Path], output_path: Path)
 
 def plot_per_field_accuracy(rows: list[dict], output_path: Path) -> None:
     """Grouped bar chart, field x model, mean similarity. overall_similarity_mean
-    collapses 5 fields with very different comparison semantics into one
+    collapses every field's very different comparison semantics into one
     number; this shows *where* a model is weak (e.g. strong document_type,
     weak authors)."""
-    field_cols = [
-        ("title_similarity", "title"),
-        ("authors_similarity", "authors"),
-        ("publication_date_similarity", "publication_date"),
-        ("government_agency_similarity", "government_agency"),
-        ("document_type_similarity", "document_type"),
-    ]
+    field_cols = _FIELD_SIMILARITY_COLS
     candidates = [r for r in rows if r["model_key"] != GROUND_TRUTH_KEY and r["overall_similarity_mean"] is not None]
     if not candidates:
         return
-    fig, ax = plt.subplots(figsize=(9, 5), dpi=150)
+    fig, ax = plt.subplots(figsize=(max(9, 1.1 * len(field_cols)), 5), dpi=150)
     n_models = len(candidates)
     bar_width = 0.8 / n_models
     x = range(len(field_cols))

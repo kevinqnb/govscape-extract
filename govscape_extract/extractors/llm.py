@@ -15,16 +15,18 @@ import os
 from openai import OpenAI
 
 from govscape_extract.extractors.base import MetadataExtractor
-from govscape_extract.schema import DOCUMENT_TYPES, FIELDS, DocumentMetadata
+from govscape_extract.schema import FIELDS, DocumentMetadata
 
 DEFAULT_INSTRUCTIONS = """You are extracting bibliographic metadata from a US government document.
 
 Extract the following fields:
+
 {field_descriptions}
 
 Rules:
-- If a field can't be determined from the text, use null (or [] for authors).
-- document_type must be the closest match from this list: {doc_types}. If nothing fits, use "Other".
+- Extract only what the document itself supports. Do not guess a value that the text doesn't state or clearly imply.
+- If a field can't be determined from the text, use null -- or an empty list for {list_fields}.
+- For fields marked "one of", answer with exactly one label from that field's list, spelled exactly as shown. Use "other" if nothing fits.
 - Respond with a single JSON object with exactly these keys: {field_names}. No prose, no markdown fences."""
 
 DEFAULT_QUERY = (
@@ -42,10 +44,25 @@ DOCUMENT TEXT:
 {query}"""
 
 
+def _field_block(field) -> str:
+    """One field's entry in the instructions.
+
+    Fields with `choices` get their labels *and* the definition of each one
+    listed underneath, indented -- the labels alone ("guidance",
+    "public_information") aren't self-explanatory enough to classify against
+    reliably, and the definitions are already written in schema.py.
+    """
+    block = f"- {field.name} ({field.dtype}): {field.description}"
+    if field.choices:
+        block += "\n  One of:"
+        block += "".join(f"\n    - {label}: {meaning}" for label, meaning in field.choices.items())
+    return block
+
+
 def default_instructions() -> str:
     return DEFAULT_INSTRUCTIONS.format(
-        field_descriptions="\n".join(f"- {f.name} ({f.dtype}): {f.description}" for f in FIELDS),
-        doc_types=", ".join(DOCUMENT_TYPES),
+        field_descriptions="\n".join(_field_block(f) for f in FIELDS),
+        list_fields=" and ".join(f.name for f in FIELDS if f.dtype == "list"),
         field_names=", ".join(f.name for f in FIELDS),
     )
 

@@ -30,7 +30,7 @@ def _is_empty(s: Optional[str]) -> bool:
 
 
 def free_text_similarity(a: Optional[str], b: Optional[str]) -> float:
-    """title / government_agency.
+    """title / issuing_agency / performing_organization / series.
 
     Uses rapidfuzz.fuzz.token_set_ratio, specifically -- not plain ratio()
     and not partial_ratio(). GLiNER returns a literal document substring;
@@ -52,12 +52,18 @@ def free_text_similarity(a: Optional[str], b: Optional[str]) -> float:
     return fuzz.token_set_ratio(a, b) / 100.0
 
 
-def document_type_similarity(a: Optional[str], b: Optional[str]) -> float:
-    """document_type is closed-set classification against DOCUMENT_TYPES --
-    exact match only (case-insensitive), no partial credit. Fuzzy matching
-    would blur the classification signal itself: "Report" and "Technical or
-    Research Report" are both individually valid labels, not near-misses of
-    one another.
+def exact_match_similarity(a: Optional[str], b: Optional[str]) -> float:
+    """Case-insensitive exact match, no partial credit. Used for the two
+    kinds of field where near-misses are wrong answers rather than
+    harmless variation:
+
+    - Closed-set classification (document_type, jurisdiction_level).
+      Fuzzy matching would blur the classification signal itself:
+      "technical_report" and "oversight_report" are both individually valid
+      labels, not near-misses of one another.
+    - Identifiers (report_number). "EPA/600/R-15/047" and "EPA/600/R-15/048"
+      are ~97% similar as strings and refer to different documents; token
+      overlap would score a wrong number as nearly correct.
     """
     if _is_empty(a) and _is_empty(b):
         return 1.0
@@ -175,12 +181,31 @@ def authors_similarity(
     return 2 * precision * recall / (precision + recall)
 
 
+def place_list_similarity(a: Optional[list[str]], b: Optional[list[str]]) -> float:
+    """geographic_coverage. Same unordered-list F1 as authors_similarity --
+    place names have the same mismatch shape as personal names here, one
+    side often being a token superset of the other ("Chesapeake Bay" vs
+    "Chesapeake Bay watershed"), which token_set_ratio already absorbs. Kept
+    as a separate name because --match-threshold is calibrated on personal
+    names specifically and shouldn't silently retune place matching too.
+    """
+    return authors_similarity(a, b)
+
+
 FIELD_COMPARATORS = {
     "title": free_text_similarity,
     "authors": authors_similarity,
     "publication_date": date_similarity,
-    "government_agency": free_text_similarity,
-    "document_type": document_type_similarity,
+    # Verbatim by definition, but a raw string that fails to parse as a date
+    # still falls back to token overlap rather than scoring an automatic 0.
+    "publication_date_raw": date_similarity,
+    "issuing_agency": free_text_similarity,
+    "performing_organization": free_text_similarity,
+    "document_type": exact_match_similarity,
+    "report_number": exact_match_similarity,
+    "series": free_text_similarity,
+    "jurisdiction_level": exact_match_similarity,
+    "geographic_coverage": place_list_similarity,
 }
 
 # Guards against schema.py's FIELDS drifting out of sync with this module --
