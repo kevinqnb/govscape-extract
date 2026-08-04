@@ -244,7 +244,7 @@ class LocalVLLMServer:
 
 
 @contextmanager
-def endpoint_for(model_config: LLMModelConfig, base_url_override: Optional[str] = None) -> Iterator[tuple[str, Optional[float]]]:
+def endpoint_for(model_config: LLMModelConfig, base_url_override: Optional[str] = None) -> Iterator[tuple[Optional[str], Optional[float]]]:
     """Yield (base_url, startup_seconds).
 
     base_url_override (e.g. runner.py's --base-url) always wins and skips
@@ -257,6 +257,19 @@ def endpoint_for(model_config: LLMModelConfig, base_url_override: Optional[str] 
         missing or stale, fall back to os.environ[model_config.base_url_env].
         startup_seconds is None either way since this project doesn't own
         that server's lifecycle.
+
+    "External" covers a commercial API (hosted OpenAI et al.) as much as it
+    covers a self-served vLLM box -- in both cases we don't own the server.
+    A hosted model just declares no base_url_env at all, and gets a yielded
+    base_url of None, meaning "whatever the OpenAI SDK defaults to". The
+    ENDPOINTS_FILE lookup above is harmless for those: it's keyed by model
+    key, a hosted model never has an entry, so it falls straight through
+    without ever health-probing a URL that has no /health endpoint.
+
+    Note the asymmetry in the two failure modes below, which is deliberate:
+    declaring *no* base_url_env is a hosted model, but declaring one and
+    leaving it unset in the environment is a misconfigured self-served model,
+    and still raises with the "go start your server" message.
     """
     if base_url_override:
         yield base_url_override, None
@@ -272,7 +285,8 @@ def endpoint_for(model_config: LLMModelConfig, base_url_override: Optional[str] 
         return
 
     if not model_config.base_url_env:
-        raise ValueError(f"{model_config.key}: serving='external' requires base_url_env to be set")
+        yield None, None
+        return
     base_url = os.environ.get(model_config.base_url_env)
     if not base_url:
         raise ValueError(

@@ -83,11 +83,16 @@ class LLMExtractor(MetadataExtractor):
         api_key: str | None = None,
         instructions: str | None = None,
         query: str | None = None,
-        temperature: float = 0.0,
+        # None => omit the parameter entirely. Some hosted reasoning models
+        # reject any explicit temperature, including the 0.0 we'd otherwise
+        # send for determinism. Default stays 0.0 so existing callers are
+        # unaffected.
+        temperature: float | None = 0.0,
         seed: int | None = None,
         max_tokens: int | None = None,
         top_p: float | None = None,
         extra_body: dict | None = None,
+        max_retries: int | None = None,  # None => the SDK's own default (2)
     ):
         self.model = model or os.environ.get("GOVSCAPE_LLM_MODEL", "gpt-4o-mini")
         self.instructions = instructions
@@ -98,14 +103,20 @@ class LLMExtractor(MetadataExtractor):
         self.top_p = top_p
         self.extra_body = extra_body
         self.client = OpenAI(
-            base_url=base_url or os.environ.get("GOVSCAPE_LLM_BASE_URL"),
+            # `or None` matters: GOVSCAPE_LLM_BASE_URL is present-but-empty in
+            # .env (that's how you select hosted OpenAI), and an empty string
+            # would be passed through to the SDK as a real base URL.
+            base_url=base_url or os.environ.get("GOVSCAPE_LLM_BASE_URL") or None,
             # vLLM and other local servers ignore the key but the SDK requires a non-empty string.
-            api_key=api_key or os.environ.get("GOVSCAPE_LLM_API_KEY", "EMPTY"),
+            api_key=api_key or os.environ.get("GOVSCAPE_LLM_API_KEY") or "EMPTY",
+            **({} if max_retries is None else {"max_retries": max_retries}),
         )
 
     def extract(self, text: str) -> DocumentMetadata:
         prompt = build_prompt(text, self.instructions, self.query)
         kwargs = {}
+        if self.temperature is not None:
+            kwargs["temperature"] = self.temperature
         if self.seed is not None:
             kwargs["seed"] = self.seed
         if self.max_tokens is not None:
@@ -118,7 +129,6 @@ class LLMExtractor(MetadataExtractor):
             model=self.model,
             messages=[{"role": "user", "content": prompt}],
             response_format={"type": "json_object"},
-            temperature=self.temperature,
             **kwargs,
         )
         self.last_usage = response.usage.model_dump() if response.usage else None

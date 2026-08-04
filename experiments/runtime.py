@@ -108,6 +108,21 @@ class RunManifest:
     max_chars: int = 6000
     n_documents: int = 0
     digests: list[str] = field(default_factory=list)  # evaluate.py's comparability/coverage join key
+    # The manifest is rewritten after every document, so `finished_at is None`
+    # on a manifest found at rest means the run died partway and can be
+    # resumed (`runner.py --resume <run_id>`). n_completed/n_errors are
+    # recounted from disk on each write, so they stay true of a partial run.
+    n_completed: int = 0
+    # One entry per `--resume` invocation: git sha / package versions can
+    # differ between the original run and the resume, and for a run whose
+    # output is being used as ground truth that difference is provenance,
+    # not noise.
+    resume_events: list[dict] = field(default_factory=list)
+    # Where the request actually went, after --base-url / ENDPOINTS_FILE / env
+    # var / SDK-default resolution. config["model"] records only the *intent*,
+    # so without this a run overridden with --base-url has no provenance.
+    # None means the OpenAI SDK's own default endpoint (a hosted model).
+    resolved_base_url: Optional[str] = None
     serving_startup_seconds: Optional[float] = None  # None when serving == "external"
     model_load_seconds: Optional[float] = None  # e.g. GLiNER weight load
     seed: Optional[int] = None

@@ -1,9 +1,9 @@
 """CLI: score a candidate model's run against a ground-truth run.
 
 There's no gold-labeled dataset, so accuracy is measured by proxy: treat the
-ground-truth model's (gpt-oss-120b) output as truth and fuzzy-match a
-candidate model's output against it, per document, per field (see
-experiments/similarity.py for the comparators and their rationale).
+ground-truth model's (config.py's GROUND_TRUTH_KEY) output as truth and
+fuzzy-match a candidate model's output against it, per document, per field
+(see experiments/similarity.py for the comparators and their rationale).
 
     uv run -m experiments.evaluate --truth-run <run_id_or_path> --candidate-run <run_id_or_path>
 
@@ -67,6 +67,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--truth-run", required=True, help="run_id under --runs-root, or a direct path to a run directory")
     parser.add_argument("--candidate-run", required=True)
     parser.add_argument("--runs-root", type=Path, default=DEFAULT_RUNS_ROOT)
+    parser.add_argument(
+        "--allow-unfinished",
+        action="store_true",
+        help="Score a run that stopped partway. Its unprocessed documents count as extraction "
+        "failures, so the resulting scores understate the model -- use only deliberately.",
+    )
     parser.add_argument("--output-root", type=Path, default=DEFAULT_EVALUATIONS_ROOT)
     parser.add_argument(
         "--match-threshold",
@@ -95,6 +101,21 @@ def main() -> None:
             f"max_pages={candidate_manifest['max_pages']}, max_chars={candidate_manifest['max_chars']}. "
             f"Re-run one of them with matching --max-pages/--max-chars before comparing."
         )
+
+    # An interrupted run's documents are simply absent, which otherwise reads
+    # downstream as "the model failed on them" -- indistinguishable from a
+    # genuine extraction failure. `finished_at is None` is runner.py's marker
+    # for a run that stopped partway; say so rather than scoring it silently.
+    for label, manifest, run_dir in [("truth", truth_manifest, truth_dir), ("candidate", candidate_manifest, candidate_dir)]:
+        if not manifest.get("finished_at") and not args.allow_unfinished:
+            done = manifest.get("n_completed")
+            raise SystemExit(
+                f"The {label} run {manifest['run_id']} never finished"
+                + (f" ({done}/{manifest['n_documents']} documents extracted)" if done is not None else "")
+                + ". Its missing documents would score as extraction failures. Finish it with "
+                f"`uv run -m experiments.runner --model-key {manifest['model_key']} "
+                f"--resume {run_dir.name}`, or pass --allow-unfinished to score it as-is."
+            )
 
     truth_digests = set(truth_manifest["digests"])
     candidate_digests = set(candidate_manifest["digests"])
