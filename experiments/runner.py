@@ -463,6 +463,7 @@ def main() -> None:
                 top_p=model_config.top_p,
                 extra_body=model_config.extra_body,
                 max_retries=model_config.max_retries,
+                response_format=model_config.response_format,
             )
             # Read it off the constructed client rather than from `base_url`
             # above: LLMExtractor still falls back to $GOVSCAPE_LLM_BASE_URL,

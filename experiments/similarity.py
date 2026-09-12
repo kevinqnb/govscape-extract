@@ -215,6 +215,109 @@ assert set(FIELD_COMPARATORS) == {f.name for f in FIELDS}, (
 )
 
 
+# --- Fusion (experiments/fuse.py) -------------------------------------------
+# Combining three models' outputs into one ground-truth value asks a
+# *boolean* question -- "are these two the same value?" -- which needs a
+# stricter bar than evaluate.py's "does this candidate deserve partial
+# credit?". Two knobs, both with drift asserts against FIELDS:
+#
+#   FUSION_COMPARATORS   -- same shape as FIELD_COMPARATORS, but free-text
+#                           fields use a length-guarded comparator.
+#   AGREEMENT_THRESHOLDS -- score at/above which fuse.py treats two values as
+#                           equal. Higher than evaluate.py's 0.75 for free
+#                           text; exact (1.0) for closed sets and identifiers.
+
+
+def guarded_free_text_similarity(a: Optional[str], b: Optional[str]) -> float:
+    """title / issuing_agency / performing_organization / series, for fusion.
+
+    `free_text_similarity` uses `token_set_ratio`, which is *deliberately*
+    blind to one string being a token superset of the other (see its
+    docstring) -- right for scoring a normalizing LLM against GLiNER's
+    literal spans, wrong for deciding that a truncated title "agrees" with
+    the full one, or that a bare "EPA" agrees with "EPA, Office of Research
+    and Development". Taking the min with `token_sort_ratio` keeps the
+    word-order / "&"-vs-"and" insensitivity but drops the score when one
+    side carries a whole subtitle or parent-agency the other doesn't, so
+    those land in the flagged pile for a human to look at.
+    """
+    if _is_empty(a) and _is_empty(b):
+        return 1.0
+    if _is_empty(a) or _is_empty(b):
+        return 0.0
+    # processor=str.lower: rapidfuzz's fuzz.* apply no processor by default,
+    # so without this "Water Quality Assessment" vs "Water quality assessment"
+    # scores ~59 on token_sort_ratio (pure casing) and never reaches
+    # agreement -- a normalization every model does differently.
+    return min(
+        fuzz.token_set_ratio(a, b, processor=str.lower),
+        fuzz.token_sort_ratio(a, b, processor=str.lower),
+    ) / 100.0
+
+
+def list_element_similarity(a: Optional[str], b: Optional[str]) -> float:
+    """One element vs one element, for fuse.py's element-wise consensus on
+    `authors` / `geographic_coverage`.
+
+    `authors_similarity` (evaluate.py) uses bare `token_set_ratio` here, which
+    is fine for partial-credit scoring but manufactures consensus during
+    fusion: `token_set_ratio("Smith", "Jane Smith") == 100` because one token
+    set is a subset of the other, so a model that returns a bare surname
+    would "agree" with every full name sharing it. `min` with
+    `token_sort_ratio` (both case-folded) keeps real variants matching
+    ("Jane A. Smith" vs "Jane Smith" ~0.83, "Chesapeake Bay" vs "Chesapeake
+    Bay watershed" ~0.74) while dropping the bare-token case ("Smith" vs
+    "Jane Smith" ~0.67) below the element threshold (`AGREEMENT_THRESHOLDS`:
+    0.75 authors, 0.70 places).
+    """
+    if _is_empty(a) and _is_empty(b):
+        return 1.0
+    if _is_empty(a) or _is_empty(b):
+        return 0.0
+    return min(
+        fuzz.token_set_ratio(a, b, processor=str.lower),
+        fuzz.token_sort_ratio(a, b, processor=str.lower),
+    ) / 100.0
+
+
+FUSION_COMPARATORS = {
+    **FIELD_COMPARATORS,
+    "title": guarded_free_text_similarity,
+    "issuing_agency": guarded_free_text_similarity,
+    "performing_organization": guarded_free_text_similarity,
+    "series": guarded_free_text_similarity,
+}
+
+# Per-field "same value" thresholds. authors / geographic_coverage are scored
+# per element by fuse.py (not as whole lists), so their entry is the
+# element-match bar, matching authors_similarity's calibrated 0.75.
+AGREEMENT_THRESHOLDS = {
+    "title": 0.90,
+    "authors": 0.75,
+    "publication_date": 0.90,
+    "publication_date_raw": 0.90,
+    "issuing_agency": 0.85,
+    "performing_organization": 0.85,
+    "document_type": 1.0,
+    "report_number": 1.0,
+    "series": 0.88,
+    "jurisdiction_level": 1.0,
+    # a touch lower than authors: place names legitimately differ by a
+    # trailing type word ("Chesapeake Bay" vs "Chesapeake Bay watershed",
+    # ~0.74 under the length-guarded metric) far more often than personal
+    # names do, while the guarded metric still rejects a bare-token match
+    # ("Maryland" vs "Maryland State Highway Administration", ~0.50).
+    "geographic_coverage": 0.70,
+}
+
+assert set(FUSION_COMPARATORS) == {f.name for f in FIELDS}, (
+    "FUSION_COMPARATORS is out of sync with govscape_extract.schema.FIELDS"
+)
+assert set(AGREEMENT_THRESHOLDS) == {f.name for f in FIELDS}, (
+    "AGREEMENT_THRESHOLDS is out of sync with govscape_extract.schema.FIELDS"
+)
+
+
 @dataclass
 class DocumentScore:
     digest: str

@@ -217,15 +217,23 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Downloaded data samples (regenerate with data/build_sample.py)
+# Downloaded data samples (regenerate with data/build_sample.py / build_validation.py)
 data/sample_ocr/*
 data/sample_pdfs/*
 !data/sample_ocr/.gitkeep
 !data/sample_pdfs/.gitkeep
+data/validation_ocr/*
+data/validation_pdfs/*
+!data/validation_ocr/.gitkeep
+!data/validation_pdfs/.gitkeep
 data/.ocr_shard_index.txt
 
 # Extraction results (regenerate with `uv run -m govscape_extract.cli`)
 data/extracted/
+
+# NOTE: data/validation_gold/ is deliberately NOT ignored -- it's the fused
+# ground-truth dataset (experiments/fuse.py) and costs three frontier-model
+# API passes to regenerate, unlike everything else here. It is committed.
 
 # Experiment outputs (regenerate with experiments/{runner,evaluate,results}.py)
 experiments/runs/
@@ -240,3 +248,5 @@ CLAUDE.md
 *.DS_Store
 experiments/out/*
 experiments/*.sh
+notes
+CLAUDE.local.md

@@ -11,8 +11,10 @@ from __future__ import annotations
 
 import json
 import os
+import re
+import sys
 
-from openai import OpenAI
+from openai import BadRequestError, OpenAI
 
 from govscape_extract.extractors.base import MetadataExtractor
 from govscape_extract.schema import FIELDS, DocumentMetadata
@@ -42,6 +44,47 @@ DOCUMENT TEXT:
 \"\"\"
 
 {query}"""
+
+_FENCE_RE = re.compile(r"^\s*```(?:json)?\s*|\s*```\s*$", re.IGNORECASE)
+
+# Default structured-output hint. Overridable per model: some OpenAI-compatible
+# endpoints reject `{"type": "json_object"}` outright and only accept
+# `{"type": "json_schema", ...}` (Anthropic's compat layer, as of 2026-08), and
+# some ignore the field entirely. `loads_lenient` below is what actually makes
+# JSON parsing robust; this is just a nudge. Pass `response_format=None` to omit
+# the parameter, or a full dict to send a specific one.
+_DEFAULT_RESPONSE_FORMAT = {"type": "json_object"}
+
+
+def loads_lenient(content: str) -> dict:
+    """Parse a model's response as a JSON object, tolerating the two things
+    that break a bare `json.loads` in practice.
+
+    `response_format={"type": "json_object"}` is a hint, not a guarantee:
+    some OpenAI-compatible endpoints (notably Anthropic's compat layer)
+    ignore it entirely, so the content can come back wrapped in a ```json
+    fence or with a sentence of preamble before the object. Rather than a
+    per-provider adapter, strip a fence if present and, failing that, fall
+    back to the first `{...}` span. A response that still doesn't parse is a
+    real error and is allowed to raise.
+    """
+    if content is None:
+        raise ValueError("model returned empty content")
+    try:
+        return json.loads(content)
+    except json.JSONDecodeError:
+        pass
+
+    stripped = _FENCE_RE.sub("", content).strip()
+    try:
+        return json.loads(stripped)
+    except json.JSONDecodeError:
+        pass
+
+    start, end = stripped.find("{"), stripped.rfind("}")
+    if start != -1 and end > start:
+        return json.loads(stripped[start : end + 1])
+    return json.loads(stripped)  # re-raises the JSONDecodeError with context
 
 
 def _field_block(field) -> str:
@@ -93,6 +136,12 @@ class LLMExtractor(MetadataExtractor):
         top_p: float | None = None,
         extra_body: dict | None = None,
         max_retries: int | None = None,  # None => the SDK's own default (2)
+        # dict => sent as `response_format`; None => omit the parameter. Some
+        # OpenAI-compat endpoints 400 on `{"type": "json_object"}` (see
+        # _DEFAULT_RESPONSE_FORMAT). On such a 400, extract() retries once
+        # without it and warns -- but setting this correctly per model avoids
+        # the wasted first call and keeps the manifest honest about what was sent.
+        response_format: dict | None = _DEFAULT_RESPONSE_FORMAT,
     ):
         self.model = model or os.environ.get("GOVSCAPE_LLM_MODEL", "gpt-4o-mini")
         self.instructions = instructions
@@ -102,6 +151,8 @@ class LLMExtractor(MetadataExtractor):
         self.max_tokens = max_tokens
         self.top_p = top_p
         self.extra_body = extra_body
+        self.response_format = response_format
+        self._response_format_disabled = False  # set if a 400 forces the fallback
         self.client = OpenAI(
             # `or None` matters: GOVSCAPE_LLM_BASE_URL is present-but-empty in
             # .env (that's how you select hosted OpenAI), and an empty string
@@ -125,13 +176,47 @@ class LLMExtractor(MetadataExtractor):
             kwargs["top_p"] = self.top_p
         if self.extra_body:
             kwargs["extra_body"] = self.extra_body
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[{"role": "user", "content": prompt}],
-            response_format={"type": "json_object"},
-            **kwargs,
-        )
+        if self.response_format is not None and not self._response_format_disabled:
+            kwargs["response_format"] = self.response_format
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[{"role": "user", "content": prompt}],
+                **kwargs,
+            )
+        except BadRequestError as e:
+            if "response_format" not in kwargs or "response_format" not in str(e):
+                raise
+            # The endpoint rejects this response_format. loads_lenient handles
+            # unstructured output, so drop it and carry on -- but say so once,
+            # loudly, rather than silently degrading across a whole run.
+            self._response_format_disabled = True
+            print(
+                f"warning: {self.model}: endpoint rejected "
+                f"response_format={kwargs['response_format']!r} ({e}); "
+                "retrying without it for the rest of this run. Set "
+                "response_format on this model's config to silence this.",
+                file=sys.stderr,
+            )
+            kwargs.pop("response_format")
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[{"role": "user", "content": prompt}],
+                **kwargs,
+            )
         self.last_usage = response.usage.model_dump() if response.usage else None
         self.last_finish_reason = response.choices[0].finish_reason
-        data = json.loads(response.choices[0].message.content)
+        message = response.choices[0].message
+        # A refusal comes back as message.refusal (not content) or as
+        # finish_reason "content_filter" -- surface it as a clear error rather
+        # than letting loads_lenient fail on empty content with an opaque
+        # "Expecting value: line 1 column 1".
+        refusal = getattr(message, "refusal", None)
+        if refusal:
+            raise ValueError(f"model refused: {refusal}")
+        if not (message.content or "").strip():
+            raise ValueError(
+                f"model returned empty content (finish_reason={self.last_finish_reason!r})"
+            )
+        data = loads_lenient(message.content)
         return DocumentMetadata.model_validate(data)

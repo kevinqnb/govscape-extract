@@ -6,15 +6,23 @@ extracted from, for local development and testing.
 ## Layout
 
 - `govscape_s3.py` -- shared S3 helpers (bucket names, listing, digest parsing).
-- `build_sample.py` -- samples `n_docs` random OCR documents and downloads
-  their source PDFs in one pass.
+- `sampling.py` -- the sampling pipeline (seeded shard shuffle, collect exactly
+  `n_docs`, write, download PDFs), shared by both build scripts.
+- `build_sample.py` -- samples `n_docs` random OCR documents for local dev and
+  downloads their source PDFs in one pass.
+- `build_validation.py` -- same, but for the held-out validation set:
+  different seed, `validation_ocr/` / `validation_pdfs/`, and `--exclude-dir`
+  (default `sample_ocr/`) so the two sets stay disjoint. Input to the
+  frontier-model consensus panel -- see `experiments/README.md`
+  ("Ground-truth dataset").
 - `download_pdfs.py` -- downloads just the PDFs for a set of digests (or for
   everything already in `sample_ocr/`).
-- `sample_ocr/` -- one JSON file per document, named `<digest>.json`.
-- `sample_pdfs/` -- one PDF per document, named `<digest>.pdf`.
+- `sample_ocr/` , `validation_ocr/` -- one JSON file per document, `<digest>.json`.
+- `sample_pdfs/` , `validation_pdfs/` -- one PDF per document, `<digest>.pdf`.
 
-Both sample directories are gitignored -- run the scripts to populate your
-own local copy rather than pulling one from git.
+The four `sample_*/` and `validation_*/` directories are gitignored -- run the
+scripts to populate your own local copy. (`data/validation_gold/`, the fused
+ground-truth labels, *is* committed.)
 
 ## Two buckets, two access levels
 
@@ -40,6 +48,9 @@ configure` / SSO also work -- boto3 uses whatever it finds.
 ```bash
 # sample 10 random documents + their PDFs (reproducible with --seed)
 uv run data/build_sample.py -n 10 --seed 42
+
+# build the 100-doc validation set (disjoint from sample_ocr/)
+uv run data/build_validation.py -n 100 --seed 771
 
 # re-download PDFs for whatever's already in sample_ocr/
 uv run data/download_pdfs.py

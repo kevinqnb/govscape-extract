@@ -1,0 +1,80 @@
+digest,field,reason,gpt-5.6-terra,claude-sonnet-5,gemini-3.7-flash,dropped_elements
+DUKEREDA2PZEEOEY2S5NONWK7VJCGJ44,geographic_coverage,partial_list,"[""Adams County""]","[""Adams County, Mississippi"", ""Alcorn County, Mississippi""]","[""Adams County"", ""Alcorn County""]","[""Adams County, Mississippi"", ""Alcorn County""]"
+DUKF4F6OOHGA7B2HH4J4MO4EPZEHMACG,jurisdiction_level,no_consensus,other,local,state,
+DUKF4F6OOHGA7B2HH4J4MO4EPZEHMACG,title,no_consensus,,Final Environmental Impact Report for the Tierra Robles Planned Development Project (Z10-002/TM 1996),Tierra Robles Planned Development Project,
+DUKFBM3QQACDLW2HTAOTU2AWSWQPKDQN,document_type,no_consensus,other,public_information,regulation,
+DUKFBM3QQACDLW2HTAOTU2AWSWQPKDQN,geographic_coverage,no_consensus,"[""Bethesda, Maryland""]",[],[],
+DUKFBM3QQACDLW2HTAOTU2AWSWQPKDQN,issuing_agency,no_consensus,"National Institute of Allergy and Infectious Diseases, National Institutes of Health, Department of Health and Human Services","National Institutes of Health, Department of Health and Human Services","National Center for Research Resources, National Institutes of Health, Department of Health and Human Services",
+DUKFBM3QQACDLW2HTAOTU2AWSWQPKDQN,publication_date_raw,no_consensus,"March 29, 2010",4-1-10,Filed 4–1–10,
+DUKFGSILIMTU3VEN7JLMWVK4IOTUBUOK,document_type,no_consensus,statistical_report,dataset_documentation,other,
+DUKFHP26NS5FO5FF37TD3IUQMXX5MF64,geographic_coverage,partial_list,"[""Tonka Bay""]","[""Tonka Bay, Minnesota"", ""Lake Minnetonka""]","[""Tonka Bay"", ""Lake Minnetonka""]","[""Tonka Bay, Minnesota""]"
+DUKFNE32LFAWRGLGMT4AVI7CZTQ7TJY7,geographic_coverage,no_consensus,"[""Western Washington Cascades"", ""Mountlake Terrace, Washington""]",[],[],
+DUKFNE32LFAWRGLGMT4AVI7CZTQ7TJY7,issuing_agency,no_consensus,"Forest Service, USDA",Department of Agriculture,,
+DUKFNE32LFAWRGLGMT4AVI7CZTQ7TJY7,title,no_consensus,Western Washington Cascades Province Interagency Executive Committee (PIEC) Advisory Committee; Meeting,Submission for OMB Review; Comment Request,Notices,
+DUKFU5WN2EBGKW2KMLE7TH2OQTDL4F5S,geographic_coverage,partial_list,"[""Rhode Island"", ""Cranston, RI"", ""North Kingstown, RI""]","[""Rhode Island""]","[""Rhode Island""]","[""Cranston, RI"", ""North Kingstown, RI""]"
+DUKFWXC57RAQAGJJG24EEA742CUWD4Q3,document_type,no_consensus,other,technical_report,budget_document,
+DUKFWXC57RAQAGJJG24EEA742CUWD4Q3,report_number,no_consensus,,Form X-17A-5,Sec 1410 (06-02),
+DUKG3QXB5N7B3WUM6GV4I2XFKHUMM7ZF,authors,no_consensus,[],"[""Kathleen Selzler Lippert""]",[],
+DUKG4OI74L5APSVJODEBQYYTXTC5SY6G,issuing_agency,no_consensus,,"Consumer Expenditure (CE) Survey Program, U.S. Bureau of Labor Statistics",Consumer Expenditure (CE) Survey Program,
+DUKGAUHUJJAB7FF2BLNK3DLPLMXC35CN,geographic_coverage,partial_list,"[""Sutton, New Hampshire""]","[""Sutton, New Hampshire""]","[""New Hampshire"", ""Sutton""]","[""Sutton""]"
+DUKGAUHUJJAB7FF2BLNK3DLPLMXC35CN,title,no_consensus,Commemorating the New Hampshire First-in-the-Nation Presidential Primary Centennial (1920-2020),"Democratic Official Ballot - Direct Primary Election, February 11, 2020, Sutton, New Hampshire","Commemorating the New Hampshire First-in-the-Nation Presidential Primary Centennial (1920-2020) DEMOCRATIC Official Ballot DIRECT PRIMARY ELECTION FEBRUARY 11, 2020 IN SUTTON SAMPLE",
+DUKGCAW25EVFPFEM2IM3XVIR73GHFCHY,title,no_consensus,GCN/INTEGRAL SPI-ACS,GCN/INTEGRAL SPI-ACS Light Curve,GCN/INTEGRAL SPI-ACS as of Tue Jan 26 00:01:08 2021 UT,
+J3SFCB7X4J4FU4ZCMNEDFOD4RCRE5ZMK,geographic_coverage,partial_list,"[""Illinois""]","[""Fourth Judicial Circuit, Illinois""]","[""Illinois""]","[""Fourth Judicial Circuit, Illinois""]"
+J3SFQWKTR7MM34GX5CJKLH3OUJLQHADP,authors,partial_list,[],"[""H. Earl Snow"", ""Neil Getzelman""]","[""Guy Davis"", ""H. Earl Snow"", ""Neil Getzelman""]","[""Guy Davis""]"
+J3SFQWKTR7MM34GX5CJKLH3OUJLQHADP,geographic_coverage,partial_list,"[""Utah"", ""Deer Creek Mine"", ""Trail Mountain Mine"", ""Cottonwood/Wilberg mines"", ""Hunter Coal Preparation and Blending Facility""]","[""Deer Creek Mine, Utah"", ""Trail Mountain Mine, Utah"", ""Cottonwood/Wilberg Mine, Utah"", ""Hunter Coal Preparation and Blending Facility, Utah""]","[""Deer Creek"", ""Trail Mountain Mine"", ""Cottonwood/Wilberg"", ""Hunter Coal Preparation and Blending Facility"", ""Huntington, Utah"", ""Utah""]","[""Huntington, Utah""]"
+J3SFQWKTR7MM34GX5CJKLH3OUJLQHADP,issuing_agency,no_consensus,,"PacifiCorp, Energy West Mining Company","Division of Water Quality, Department of Environmental Quality",
+J3SFSJGZNX45MRRBCCVQFP2OQETJFULA,authors,no_consensus,"[""Barbara L. Young""]",[],[],
+J3SFSJGZNX45MRRBCCVQFP2OQETJFULA,geographic_coverage,partial_list,"[""Township of Upper""]","[""Township of Upper, New Jersey""]","[""Township of Upper"", ""New Jersey""]","[""New Jersey""]"
+J3SFUZH5ZO4V56CYHT2SSXWRYRRX5NWY,series,no_consensus,Title 315 WAC,"Washington Administrative Code, Title 315",,
+J3SG5JUTYLXPVAIDA7SYUS4V4DTJSKHP,issuing_agency,no_consensus,Wells County,"Wells County Commission, Wells County, North Dakota",Wells County Commission,
+J3SGFM4WZS6NPSPXD6QLEAWKE5XWKVNJ,geographic_coverage,no_consensus,[],"[""Arkansas"", ""Louisiana"", ""Oklahoma"", ""Texas""]",[],
+J3SGLKIU5WHJEKVEVCFO333U32ZN6IGR,document_type,no_consensus,plan,environmental_review,technical_report,
+J3SGLKIU5WHJEKVEVCFO333U32ZN6IGR,geographic_coverage,partial_list,"[""McKenzie Subbasin"", ""McKenzie River"", ""Mohawk Watershed"", ""Blue River Watershed"", ""South Fork McKenzie Watershed"", ""Upper McKenzie Watershed""]","[""McKenzie Subbasin, Oregon"", ""McKenzie River"", ""Blue River"", ""South Fork McKenzie River"", ""Mohawk Watershed"", ""Deer Creek"", ""French Pete Creek"", ""Horse Creek"", ""Mill Creek"", ""Shotgun Creek""]","[""McKenzie Subbasin"", ""McKenzie River""]","[""Blue River Watershed"", ""South Fork McKenzie Watershed"", ""Blue River"", ""Deer Creek"", ""French Pete Creek"", ""Horse Creek"", ""Mill Creek"", ""Shotgun Creek""]"
+J3SGXQPACHAD3242AWWOC4RMSDZAZCN6,geographic_coverage,partial_list,"[""Collegeville Township""]","[""Collegeville Township, Minnesota""]","[""Collegeville Township"", ""Minnesota""]","[""Minnesota""]"
+J3SHDX5AOUMH4YUXTJQDVQ6YVPUZHIEI,geographic_coverage,partial_list,"[""Pittsburg, California"", ""701 Willow Pass Road, Pittsburg, California""]","[""Pittsburg, California""]","[""Pittsburg, California"", ""Former Greif Bros. Site""]","[""701 Willow Pass Road, Pittsburg, California"", ""Former Greif Bros. Site""]"
+LCOFMUKWZ2OEBXO2QRX7ZNYF5EMTCJMZ,document_type,no_consensus,correspondence,other,legal_decision,
+LCOFU54H5TFCWEALS4LB6PPD57UFFYGN,authors,partial_list,"[""Laran H. Despain, Ph.D."", ""Savannah Neufer, M.A.""]","[""Laran H. Despain"", ""Savannah Neufer"", ""Michael Dorssom""]","[""Laran H. Despain"", ""Savannah Neufer""]","[""Michael Dorssom""]"
+LCOGADNY4ODNYHDDA6DX3LOVTDKRKPTV,geographic_coverage,partial_list,"[""Holyoke, Colorado"", ""Phillips County, Colorado"", ""Sedgwick County, Colorado""]","[""Holyoke Fire Protection District, Phillips and Sedgwick County, Colorado""]","[""Holyoke, Colorado"", ""Phillips County, Colorado"", ""Sedgwick County, Colorado""]","[""Holyoke Fire Protection District, Phillips and Sedgwick County, Colorado""]"
+LCOGG7DDYRMDM4THLNRVENN5Q3N3PMV7,authors,no_consensus,[],"[""Kathy Schack""]",[],
+LCOGG7DDYRMDM4THLNRVENN5Q3N3PMV7,geographic_coverage,partial_list,"[""City of East Gull Lake""]","[""East Gull Lake, Minnesota""]","[""City of East Gull Lake""]","[""East Gull Lake, Minnesota""]"
+LCOGG7DDYRMDM4THLNRVENN5Q3N3PMV7,title,no_consensus,City of East Gull Lake Planning and Zoning Regular Meeting,Planning and Zoning Regular Meeting Minutes,Planning and Zoning Regular Meeting,
+LCOGGV3XJQPRRDAL7J4YISUOET2YARDT,geographic_coverage,partial_list,"[""York County, Maine""]","[""York County, Maine""]","[""York County, Maine"", ""Maine""]","[""Maine""]"
+LCOGHQJZYJU2WKULXTSPXBEXIJSYBQTQ,geographic_coverage,no_consensus,[],"[""Alabama"", ""Alaska"", ""Arizona"", ""Arkansas"", ""California"", ""Colorado"", ""Connecticut"", ""Delaware"", ""District of Columbia"", ""Florida"", ""Georgia"", ""Hawaii"", ""Idaho"", ""Illinois"", ""Indiana"", ""Iowa"", ""Kansas"", ""Kentucky"", ""Louisiana"", ""Maine"", ""Maryland"", ""Massachusetts"", ""Michigan"", ""Minnesota"", ""Mississippi"", ""Missouri"", ""Montana"", ""Nebraska"", ""Nevada"", ""New Hampshire"", ""New Jersey"", ""New Mexico"", ""New York"", ""North Carolina"", ""North Dakota"", ""Ohio"", ""Oklahoma"", ""Oregon"", ""Pennsylvania"", ""Rhode Island"", ""South Carolina"", ""South Dakota"", ""Tennessee"", ""Texas"", ""Utah"", ""Vermont"", ""Virginia"", ""Washington"", ""West Virginia"", ""Wisconsin"", ""Wyoming""]",[],
+LCOGNYC7VEWUQKC5IOPXDBJ2X3DX3J33,geographic_coverage,partial_list,"[""Oak Island, North Carolina"", ""Brunswick County, North Carolina""]","[""Oak Island, NC"", ""Brunswick County, NC""]","[""Oak Island, North Carolina"", ""Brunswick County, North Carolina""]","[""Oak Island, NC""]"
+LCOGO6IHUR7EYU25OTKHGYBH6A2MOE74,geographic_coverage,partial_list,"[""Utah"", ""Clive basin""]","[""Clive, Utah"", ""Utah""]","[""Clive basin"", ""Utah""]","[""Clive, Utah""]"
+LCOGO6IHUR7EYU25OTKHGYBH6A2MOE74,issuing_agency,no_consensus,,EnergySolutions,"Utah Division of Waste Management and Radiation Control, Utah Department of Environmental Quality",
+LCOGUJHOW3OAK5BGJL6DBLDUKOBQSDRH,geographic_coverage,partial_list,"[""Descanso, California""]","[""Descanso, California""]","[""Descanso, CA"", ""County of San Diego""]","[""County of San Diego""]"
+LCOHBH5GPTTTTLWAKZVCLCESELVXMJYI,authors,no_consensus,[],"[""Terry T. Terrell""]",[],
+LCOHBH5GPTTTTLWAKZVCLCESELVXMJYI,document_type,no_consensus,public_information,other,regulation,
+LCOHBH5GPTTTTLWAKZVCLCESELVXMJYI,geographic_coverage,partial_list,"[""Northern Rocky Mountains"", ""Montana"", ""Wyoming"", ""Northwest Montana""]","[""Northern Rocky Mountains"", ""Montana"", ""Wyoming""]","[""Northern Rocky Mountains"", ""Montana"", ""Wyoming""]","[""Northwest Montana""]"
+TX3CXBATLPHXCP2PN7U75GCDO5ROQBW3,geographic_coverage,partial_list,"[""Europe"", ""Eastern Europe""]","[""Europe""]",[],"[""Eastern Europe""]"
+TX3CXBATLPHXCP2PN7U75GCDO5ROQBW3,issuing_agency,no_consensus,,Securities and Exchange Commission,"Office of International Corporate Finance, Securities and Exchange Commission",
+TX3CZPSLVSZPI5CHQ3Z3MIIZV5Q3JXYP,authors,no_consensus,[],"[""Patricia Briscoe""]",[],
+TX3CZPSLVSZPI5CHQ3Z3MIIZV5Q3JXYP,geographic_coverage,no_consensus,[],"[""Corbin, KY"", ""Cincinnati, OH""]",[],
+TX3DA5ABUI4PFNKVP3OYQPSS2ANHEMOE,geographic_coverage,partial_list,"[""Maitland, Orange County, Florida"", ""Orlando metropolitan area"", ""Florida""]","[""Maitland, Florida"", ""Orange County, Florida"", ""Orlando, Florida"", ""Florida""]","[""Maitland, Florida"", ""Orange County, Florida"", ""Florida""]","[""Orlando metropolitan area""]"
+TX3DL5P64XGL2CCNJXF5VYFFFWHSNWLU,geographic_coverage,partial_list,"[""Humble, Texas"", ""Houston, Texas"", ""George Bush Intercontinental Airport"", ""William P. Hobby Airport""]","[""Houston, Texas"", ""Humble, Texas""]","[""Houston, TX"", ""Humble, TX""]","[""George Bush Intercontinental Airport"", ""William P. Hobby Airport""]"
+TX3DLIE3KDFWFV63QZFQR5RHL3SR5PAJ,title,no_consensus,,"Town Board Meeting Minutes, November 14, 2005",Town Board Meeting,
+TX3DTO2TLEYWSHN4O2SQRKZPKVOFF3GK,geographic_coverage,partial_list,"[""Korea"", ""Pyongyang"", ""Yokosuka, Japan""]","[""Korea""]",[],"[""Pyongyang"", ""Yokosuka, Japan""]"
+TX3E6PZCU6D5DE56EEUMY2DQ3WS5VAAS,title,no_consensus,"TIME AND DATE: 10:00 a.m., Thursday, March 1, 2012","Sunshine Act Meeting Notice: Secretary of Labor v. Black Beauty Coal Co., Docket No. LAKE 2008-477",,
+TX3EDE2L442J474ZDNDPGQA6RKLREBO5,authors,partial_list,"[""Margaret Belmondo, CIMA®"", ""Will Forde, CFA, CAIA"", ""DeAnna I. Jones""]","[""Margaret Belmondo"", ""Will Forde"", ""DeAnna I. Jones""]","[""Margaret Belmondo"", ""Will Forde"", ""DeAnna I. Jones""]","[""Will Forde, CFA, CAIA""]"
+TX3EF7SNCM2QCQSCPC2OVKAN6GR32KYL,geographic_coverage,partial_list,"[""Grant County""]","[""Grant County, Washington""]","[""Washington"", ""Grant County, Washington""]","[""Grant County"", ""Washington""]"
+TX3EFW6CKPEUKV7LMQ2XIU5ZE6EQDP3Q,publication_date_raw,no_consensus,,18,2018,
+ZBG6P27HHFBOKRXCSYTTAGZOAQ5MIFUY,title,no_consensus,Oklahoma Board of Private Vocational Schools - Appropriation. Emergency.,HOUSE BILL 1149 - Oklahoma Board of Private Vocational Schools - Appropriation. Emergency.,HOUSE BILL 1149 [ Oklahoma Board of Private Vocational Schools - Appropriation. Emergency. ] Third Reading,
+ZBG6R4AK5FXVUUW5KGVU3ORW4W5AKMF7,document_type,no_consensus,other,<no result>,regulation,
+ZBG6R4AK5FXVUUW5KGVU3ORW4W5AKMF7,publication_date,no_consensus,1996-09-30,<no result>,1996-10-11,
+ZBG6R4AK5FXVUUW5KGVU3ORW4W5AKMF7,publication_date_raw,no_consensus,"September 30, 1996",<no result>,10–11–96,
+ZBG6VEBFDO7GFW6GAEFAMFLWC5PLW5XB,document_type,no_consensus,other,hearing,budget_document,
+ZBG6VEBFDO7GFW6GAEFAMFLWC5PLW5XB,geographic_coverage,partial_list,"[""Los Angeles"", ""Merced"", ""Orange""]","[""Los Angeles County, California"", ""Merced County, California"", ""Orange County, California""]","[""Los Angeles"", ""Merced"", ""Orange""]","[""Los Angeles County, California"", ""Merced County, California""]"
+ZBG6VEBFDO7GFW6GAEFAMFLWC5PLW5XB,issuing_agency,no_consensus,,"California State Senate, Committee on Budget and Fiscal Review",Committee on Budget and Fiscal Review,
+ZBG6X42UNE72LJWHVMZPZL5FXNKCG6WF,authors,no_consensus,[],"[""David S. Gerson"", ""Willie T.C. Thomas"", ""Priscilla Anne Schwab""]",[],
+ZBG7AMWKRE4D454WHZTD7UN2N2GYIQYY,geographic_coverage,partial_list,"[""Chico"", ""Butte County"", ""Far North region"", ""California""]","[""Chico, California"", ""Butte County, California"", ""California""]","[""Chico"", ""Butte County"", ""California""]","[""Far North region"", ""Butte County, California""]"
+ZBG7AMWKRE4D454WHZTD7UN2N2GYIQYY,performing_organization,no_consensus,,HdL Companies,HdL,
+ZBG7J6X6DWNFJLU56P2RSS2N6YUYDLC7,performing_organization,no_consensus,,"Harding and Hittesdorf, P.C.","CLEARCREEK SECURITIES, LLC",
+ZBG7J6X6DWNFJLU56P2RSS2N6YUYDLC7,report_number,no_consensus,,Form X-17A-5,SEC File No. 8-69393,
+ZBG7J6X6DWNFJLU56P2RSS2N6YUYDLC7,title,no_consensus,Annual Audited Report Form X-17A-5 Part III,"Annual Audited Report, Form X-17A-5, Part III: Information Required of Brokers and Dealers Pursuant to Section 17 of the Securities Exchange Act of 1934 and Rule 17a-5 Thereunder",ANNUAL AUDITED REPORT FORM X-17A-5 PART III FACING PAGE,
+ZBG7OFGTR6AKIKAYFY7BKNXFYVHDVVBK,geographic_coverage,partial_list,"[""Seventh District""]","[""Seventh Federal Reserve District""]","[""Seventh District""]","[""Seventh Federal Reserve District""]"
+ZBG7P3TSPTRROFKSOCJFIK4VGPLPG235,geographic_coverage,partial_list,"[""Pipe Creek Township"", ""Monroe Township"", ""Madison County""]","[""Madison County, Indiana"", ""Pipe Creek Township"", ""Monroe Township""]","[""Madison County"", ""Pipe Creek Township"", ""Monroe Township"", ""Indiana""]","[""Indiana""]"
+ZBG7P3TSPTRROFKSOCJFIK4VGPLPG235,title,no_consensus,Order,"Order and Staff Report on Petition 2019-V-005 by Lone Oak Solar Energy, LLC","IN THE MATTER OF PETITION 2019-V-005 BY LONE OAK SOLAR ENERGY, LLC ORDER",
+ZBG7ROTN626J5YXCRCKNEFYTJFAZCVO4,geographic_coverage,partial_list,"[""Tower""]","[""Tower, Minnesota""]","[""Tower""]","[""Tower, Minnesota""]"
+ZBGA2CKFLMPEZ3PBVHA747UEQUNUBQJM,authors,no_consensus,[],"[""Steven C. McCraw""]",[],
+ZBGAHHUIT6J6E6O3M74ZOCEXPQCUJVQY,title,no_consensus,,MUPTE Frequently Asked Questions,What is MUPTE?,

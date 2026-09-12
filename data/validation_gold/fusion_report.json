@@ -1,0 +1,1625 @@
+{
+  "generated_at": "2026-08-30T23:01:40.911210+00:00",
+  "n_documents": 100,
+  "priority": [
+    "gpt-5.6-terra",
+    "claude-sonnet-5",
+    "gemini-3.7-flash"
+  ],
+  "panel": [
+    {
+      "model_key": "gpt-5.6-terra",
+      "run_id": "gold__gpt-5.6-terra__20260830T210538Z",
+      "run_dir": "/projectnb/mcnet/kevin/infoextraction/govscape-extract/experiments/runs/gold__gpt-5.6-terra__20260830T210538Z",
+      "priority_rank": 0,
+      "response_format": null,
+      "resolved_base_url": "https://api.openai.com/v1/"
+    },
+    {
+      "model_key": "claude-sonnet-5",
+      "run_id": "gold__claude-sonnet-5__20260830T220924Z",
+      "run_dir": "/projectnb/mcnet/kevin/infoextraction/govscape-extract/experiments/runs/gold__claude-sonnet-5__20260830T220924Z",
+      "priority_rank": 1,
+      "response_format": null,
+      "resolved_base_url": "https://api.anthropic.com/v1/"
+    },
+    {
+      "model_key": "gemini-3.7-flash",
+      "run_id": "gold__gemini-3.7-flash__20260830T222428Z",
+      "run_dir": "/projectnb/mcnet/kevin/infoextraction/govscape-extract/experiments/runs/gold__gemini-3.7-flash__20260830T222428Z",
+      "priority_rank": 2,
+      "response_format": {
+        "type": "json_object"
+      },
+      "resolved_base_url": "https://generativelanguage.googleapis.com/v1beta/openai/"
+    }
+  ],
+  "agreement_thresholds": {
+    "title": 0.9,
+    "authors": 0.75,
+    "publication_date": 0.9,
+    "publication_date_raw": 0.9,
+    "issuing_agency": 0.85,
+    "performing_organization": 0.85,
+    "document_type": 1.0,
+    "report_number": 1.0,
+    "series": 0.88,
+    "jurisdiction_level": 1.0,
+    "geographic_coverage": 0.7
+  },
+  "per_field": {
+    "title": {
+      "consensus": 87,
+      "consensus_null": 2,
+      "flagged": 11,
+      "partial_list": 0,
+      "resolved_rate": 0.89
+    },
+    "authors": {
+      "consensus": 22,
+      "consensus_null": 68,
+      "flagged": 7,
+      "partial_list": 3,
+      "resolved_rate": 0.93
+    },
+    "publication_date": {
+      "consensus": 61,
+      "consensus_null": 38,
+      "flagged": 1,
+      "partial_list": 0,
+      "resolved_rate": 0.99
+    },
+    "publication_date_raw": {
+      "consensus": 59,
+      "consensus_null": 38,
+      "flagged": 3,
+      "partial_list": 0,
+      "resolved_rate": 0.97
+    },
+    "issuing_agency": {
+      "consensus": 74,
+      "consensus_null": 18,
+      "flagged": 8,
+      "partial_list": 0,
+      "resolved_rate": 0.92
+    },
+    "performing_organization": {
+      "consensus": 5,
+      "consensus_null": 93,
+      "flagged": 2,
+      "partial_list": 0,
+      "resolved_rate": 0.98
+    },
+    "document_type": {
+      "consensus": 92,
+      "consensus_null": 0,
+      "flagged": 8,
+      "partial_list": 0,
+      "resolved_rate": 0.92
+    },
+    "report_number": {
+      "consensus": 27,
+      "consensus_null": 71,
+      "flagged": 2,
+      "partial_list": 0,
+      "resolved_rate": 0.98
+    },
+    "series": {
+      "consensus": 5,
+      "consensus_null": 94,
+      "flagged": 1,
+      "partial_list": 0,
+      "resolved_rate": 0.99
+    },
+    "jurisdiction_level": {
+      "consensus": 99,
+      "consensus_null": 0,
+      "flagged": 1,
+      "partial_list": 0,
+      "resolved_rate": 0.99
+    },
+    "geographic_coverage": {
+      "consensus": 34,
+      "consensus_null": 34,
+      "flagged": 5,
+      "partial_list": 27,
+      "resolved_rate": 0.95
+    }
+  },
+  "pairwise_scalar_agreement": {
+    "gpt-5.6-terra__vs__claude-sonnet-5": {
+      "agree": 405,
+      "comparable": 502,
+      "rate": 0.8068
+    },
+    "gpt-5.6-terra__vs__gemini-3.7-flash": {
+      "agree": 420,
+      "comparable": 508,
+      "rate": 0.8268
+    },
+    "claude-sonnet-5__vs__gemini-3.7-flash": {
+      "agree": 430,
+      "comparable": 530,
+      "rate": 0.8113
+    }
+  },
+  "gpt-5.6-terra_outvoted": [
+    {
+      "digest": "DUKEREDA2PZEEOEY2S5NONWK7VJCGJ44",
+      "field": "jurisdiction_level",
+      "gpt-5.6-terra_value": "other",
+      "consensus_value": "state",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "DUKF75DOHM52UEIMPBRCMDR32XYLPFYB",
+      "field": "report_number",
+      "gpt-5.6-terra_value": "AGR PUB 850-132",
+      "consensus_value": "AGR PUB 850-132 (N/1/05)",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "DUKFBM3QQACDLW2HTAOTU2AWSWQPKDQN",
+      "field": "publication_date",
+      "gpt-5.6-terra_value": "2010-03-29",
+      "consensus_value": "2010-04-01",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "DUKFGFPCC4EU6Z3JQ3IOEJ7DYOFFRFTM",
+      "field": "title",
+      "gpt-5.6-terra_value": "CHAPTERS 455 to 479",
+      "consensus_value": "CHAPTERS 455 to 479 Reserved",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "DUKGCAW25EVFPFEM2IM3XVIR73GHFCHY",
+      "field": "jurisdiction_level",
+      "gpt-5.6-terra_value": "other",
+      "consensus_value": "federal",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "J3SFCB7X4J4FU4ZCMNEDFOD4RCRE5ZMK",
+      "field": "document_type",
+      "gpt-5.6-terra_value": "legal_decision",
+      "consensus_value": "regulation",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "J3SFQWKTR7MM34GX5CJKLH3OUJLQHADP",
+      "field": "title",
+      "gpt-5.6-terra_value": "Discharge Monitoring Report",
+      "consensus_value": "August 2008 DMR Monthly Report / Energy West Mining Company",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "J3SFQWKTR7MM34GX5CJKLH3OUJLQHADP",
+      "field": "document_type",
+      "gpt-5.6-terra_value": "technical_report",
+      "consensus_value": "correspondence",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "J3SFTUIWSH5U7H7S7YGNWTP6XJVW7YUY",
+      "field": "issuing_agency",
+      "gpt-5.6-terra_value": "National Center for Health Statistics (NCHS)",
+      "consensus_value": "Division of Vital Statistics, National Center for Health Statistics",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "J3SFUZH5ZO4V56CYHT2SSXWRYRRX5NWY",
+      "field": "title",
+      "gpt-5.6-terra_value": "Lottery Commission",
+      "consensus_value": "Title 315 WAC: Lottery Commission",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "J3SG5JUTYLXPVAIDA7SYUS4V4DTJSKHP",
+      "field": "title",
+      "gpt-5.6-terra_value": "Job Description",
+      "consensus_value": "IT Coordinator Job Description",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "J3SGMVA6BKRU6EJI2OP77XV66IYFLGB7",
+      "field": "document_type",
+      "gpt-5.6-terra_value": "other",
+      "consensus_value": "legal_decision",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "J3SHATY757ZRSTSW26P3B7HQQWKY5QJP",
+      "field": "title",
+      "gpt-5.6-terra_value": "ASSESSMENT OF CIVIL MONEY PENALTY",
+      "consensus_value": "Assessment of Civil Money Penalty: In the Matter of Larry Dean Harmon d/b/a Helix",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "J3SHDXAC4UENOYHCEWE7TA4SARLQLKXN",
+      "field": "issuing_agency",
+      "gpt-5.6-terra_value": "President of the United States",
+      "consensus_value": "Executive Office of the President",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "LCOFU54H5TFCWEALS4LB6PPD57UFFYGN",
+      "field": "series",
+      "gpt-5.6-terra_value": "WYSAC Technical Report No. CHES-1437",
+      "consensus_value": "WYSAC Technical Report",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "LCOGNYC7VEWUQKC5IOPXDBJ2X3DX3J33",
+      "field": "title",
+      "gpt-5.6-terra_value": "Inspection Results",
+      "consensus_value": "Inspection Report",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "LCOH2EKPABBP5GJDNDMTJDO6YXJUPJDY",
+      "field": "title",
+      "gpt-5.6-terra_value": "Resident Elk - Antlerless - Archer Hunt 4111",
+      "consensus_value": "Resident Elk - Antlerless - Archer Hunt 4111 - Hunt Unit Groups Map",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "LCOH3BVDJCEYPYSDWFXVC2U4BRN7MEFK",
+      "field": "document_type",
+      "gpt-5.6-terra_value": "other",
+      "consensus_value": "guidance",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "LCOHFEHWSAM7GAPAPPASO7BS4T4FO4JB",
+      "field": "title",
+      "gpt-5.6-terra_value": "Handbook",
+      "consensus_value": "California Legislature 2019-20 Handbook",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "LCOHISOJ5KTHU4TSZB6N6PABLPX7GEPP",
+      "field": "publication_date_raw",
+      "gpt-5.6-terra_value": "DATED this 8th day of August, 2019.",
+      "consensus_value": "8th day of August, 2019",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "TX3CXBATLPHXCP2PN7U75GCDO5ROQBW3",
+      "field": "jurisdiction_level",
+      "gpt-5.6-terra_value": "other",
+      "consensus_value": "federal",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "TX3CZPSLVSZPI5CHQ3Z3MIIZV5Q3JXYP",
+      "field": "report_number",
+      "gpt-5.6-terra_value": "2019-01657",
+      "consensus_value": "FR Doc. 2019-01657",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "TX3DA5ABUI4PFNKVP3OYQPSS2ANHEMOE",
+      "field": "issuing_agency",
+      "gpt-5.6-terra_value": "Office of the Comptroller of the Currency (OCC), Department of the Treasury",
+      "consensus_value": "Office of the Comptroller of the Currency (OCC)",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "TX3DQD2AFQFVF2FUBK7NYVGVJMOXBHA3",
+      "field": "jurisdiction_level",
+      "gpt-5.6-terra_value": "other",
+      "consensus_value": "federal",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "TX3DTO2TLEYWSHN4O2SQRKZPKVOFF3GK",
+      "field": "jurisdiction_level",
+      "gpt-5.6-terra_value": "other",
+      "consensus_value": "federal",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "TX3E6PZCU6D5DE56EEUMY2DQ3WS5VAAS",
+      "field": "document_type",
+      "gpt-5.6-terra_value": "other",
+      "consensus_value": "public_information",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "TX3E7AUCXPMYDE5M2KEFNDSP4VXT45PS",
+      "field": "document_type",
+      "gpt-5.6-terra_value": "other",
+      "consensus_value": "public_information",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "TX3EDE2L442J474ZDNDPGQA6RKLREBO5",
+      "field": "document_type",
+      "gpt-5.6-terra_value": "statistical_report",
+      "consensus_value": "technical_report",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "ZBG6R4JBZADW565JFN3AXT5OJ7SONALH",
+      "field": "issuing_agency",
+      "gpt-5.6-terra_value": "North Carolina Securities Division",
+      "consensus_value": "NC Securities Division",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "ZBG6VEBFDO7GFW6GAEFAMFLWC5PLW5XB",
+      "field": "title",
+      "gpt-5.6-terra_value": "Agenda",
+      "consensus_value": "2018 Budget Trailer Bill Analyses Packet",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "ZBG6X42UNE72LJWHVMZPZL5FXNKCG6WF",
+      "field": "title",
+      "gpt-5.6-terra_value": "DECISION and ORDER",
+      "consensus_value": "In the Matter of Addie P. Williams and Department of Veterans Affairs, Perry Point Veterans Hospital, Perry Point, MD",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "ZBG7P3TSPTRROFKSOCJFIK4VGPLPG235",
+      "field": "publication_date_raw",
+      "gpt-5.6-terra_value": "28th DAY OF MAY, 2019",
+      "consensus_value": "May 28, 2019",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "ZBG7ROTN626J5YXCRCKNEFYTJFAZCVO4",
+      "field": "issuing_agency",
+      "gpt-5.6-terra_value": "City of Tower",
+      "consensus_value": "City Council, City of Tower",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "ZBG7ROTN626J5YXCRCKNEFYTJFAZCVO4",
+      "field": "document_type",
+      "gpt-5.6-terra_value": "correspondence",
+      "consensus_value": "other",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "ZBGAE3G7IUOM4J2IKYHKT4DAULKS35KX",
+      "field": "title",
+      "gpt-5.6-terra_value": "Independent Auditors\u2019 Report on the Principal Statements",
+      "consensus_value": "Independent Auditor\u2019s Report on the Fiscal Year 2004 DoD Agency-Wide Financial Statements",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "ZBGAKTGJYMEY6VBUBCGFBZED5RTXOSMM",
+      "field": "title",
+      "gpt-5.6-terra_value": "Tier 2 Vintage Rate Customer Workshop",
+      "consensus_value": "Tier 2 Vintage Rate Customer Workshop: Statements of Intent",
+      "consensus_source": "claude-sonnet-5"
+    },
+    {
+      "digest": "ZBGAKTGJYMEY6VBUBCGFBZED5RTXOSMM",
+      "field": "document_type",
+      "gpt-5.6-terra_value": "other",
+      "consensus_value": "public_information",
+      "consensus_source": "claude-sonnet-5"
+    }
+  ],
+  "documents": {
+    "DUKERCFGHGAHR6FFNKT7DDFGPT3OY5WU": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "DUKEREDA2PZEEOEY2S5NONWK7VJCGJ44": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Adams County, Mississippi",
+          "Alcorn County"
+        ]
+      }
+    },
+    "DUKESYPBZKB7AEFPDC4E52HHS7ACHZN6": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "DUKEZQTHQODZFYVBT44CHDKIEGQTJENB": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "DUKF4F6OOHGA7B2HH4J4MO4EPZEHMACG": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "title",
+        "jurisdiction_level"
+      ],
+      "dropped_list_elements": {}
+    },
+    "DUKF5XL63FCFQ3E6SQ6X6BNSOYMKXIIQ": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "DUKF75DOHM52UEIMPBRCMDR32XYLPFYB": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "DUKFBM3QQACDLW2HTAOTU2AWSWQPKDQN": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "publication_date_raw",
+        "issuing_agency",
+        "document_type",
+        "geographic_coverage"
+      ],
+      "dropped_list_elements": {}
+    },
+    "DUKFGFPCC4EU6Z3JQ3IOEJ7DYOFFRFTM": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "DUKFGSILIMTU3VEN7JLMWVK4IOTUBUOK": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "document_type"
+      ],
+      "dropped_list_elements": {}
+    },
+    "DUKFHP26NS5FO5FF37TD3IUQMXX5MF64": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Tonka Bay, Minnesota"
+        ]
+      }
+    },
+    "DUKFNE32LFAWRGLGMT4AVI7CZTQ7TJY7": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "title",
+        "issuing_agency",
+        "geographic_coverage"
+      ],
+      "dropped_list_elements": {}
+    },
+    "DUKFU5WN2EBGKW2KMLE7TH2OQTDL4F5S": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Cranston, RI",
+          "North Kingstown, RI"
+        ]
+      }
+    },
+    "DUKFWXC57RAQAGJJG24EEA742CUWD4Q3": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "document_type",
+        "report_number"
+      ],
+      "dropped_list_elements": {}
+    },
+    "DUKG3QXB5N7B3WUM6GV4I2XFKHUMM7ZF": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "authors"
+      ],
+      "dropped_list_elements": {}
+    },
+    "DUKG4OI74L5APSVJODEBQYYTXTC5SY6G": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "issuing_agency"
+      ],
+      "dropped_list_elements": {}
+    },
+    "DUKG5JDXVQHYCBST5PHRT7R7CGLQ5TC6": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "DUKGAS4FD57N6VTJTL733IWF67GFW6FT": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "DUKGATH5DOPK57PW5JAHUDMOC734VWIJ": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "DUKGAUHUJJAB7FF2BLNK3DLPLMXC35CN": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "title"
+      ],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Sutton"
+        ]
+      }
+    },
+    "DUKGCAW25EVFPFEM2IM3XVIR73GHFCHY": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "title"
+      ],
+      "dropped_list_elements": {}
+    },
+    "J3SFCB7X4J4FU4ZCMNEDFOD4RCRE5ZMK": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Fourth Judicial Circuit, Illinois"
+        ]
+      }
+    },
+    "J3SFLN5BMTPTMVU6ONEKAD5FJBJHPG5G": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "J3SFQWKTR7MM34GX5CJKLH3OUJLQHADP": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "issuing_agency"
+      ],
+      "dropped_list_elements": {
+        "authors": [
+          "Guy Davis"
+        ],
+        "geographic_coverage": [
+          "Huntington, Utah"
+        ]
+      }
+    },
+    "J3SFSJGZNX45MRRBCCVQFP2OQETJFULA": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "authors"
+      ],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "New Jersey"
+        ]
+      }
+    },
+    "J3SFTUIWSH5U7H7S7YGNWTP6XJVW7YUY": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "J3SFUZH5ZO4V56CYHT2SSXWRYRRX5NWY": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "series"
+      ],
+      "dropped_list_elements": {}
+    },
+    "J3SFZLJWLKMYSGO3WQ6XTSHVZN4MAM2I": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "J3SG5JUTYLXPVAIDA7SYUS4V4DTJSKHP": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "issuing_agency"
+      ],
+      "dropped_list_elements": {}
+    },
+    "J3SGFM4WZS6NPSPXD6QLEAWKE5XWKVNJ": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "geographic_coverage"
+      ],
+      "dropped_list_elements": {}
+    },
+    "J3SGLKIU5WHJEKVEVCFO333U32ZN6IGR": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "document_type"
+      ],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Blue River Watershed",
+          "South Fork McKenzie Watershed",
+          "Blue River",
+          "Deer Creek",
+          "French Pete Creek",
+          "Horse Creek",
+          "Mill Creek",
+          "Shotgun Creek"
+        ]
+      }
+    },
+    "J3SGMVA6BKRU6EJI2OP77XV66IYFLGB7": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "J3SGXQPACHAD3242AWWOC4RMSDZAZCN6": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Minnesota"
+        ]
+      }
+    },
+    "J3SHATY757ZRSTSW26P3B7HQQWKY5QJP": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "J3SHBZDPRE7ZXBHVZIXCDHNWCMVEWBDE": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "J3SHDX5AOUMH4YUXTJQDVQ6YVPUZHIEI": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "701 Willow Pass Road, Pittsburg, California",
+          "Former Greif Bros. Site"
+        ]
+      }
+    },
+    "J3SHDXAC4UENOYHCEWE7TA4SARLQLKXN": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "LCOFMUKWZ2OEBXO2QRX7ZNYF5EMTCJMZ": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "document_type"
+      ],
+      "dropped_list_elements": {}
+    },
+    "LCOFNNBXUAUUQBHFGWDHV2N2MVRCHZL5": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "LCOFT7R5E3JXFO34Y576EN5FSCNNHJHC": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "LCOFU54H5TFCWEALS4LB6PPD57UFFYGN": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "authors": [
+          "Michael Dorssom"
+        ]
+      }
+    },
+    "LCOFWAO3YVECCBLDTSLVC2OT35CKTBFT": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "LCOGADNY4ODNYHDDA6DX3LOVTDKRKPTV": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Holyoke Fire Protection District, Phillips and Sedgwick County, Colorado"
+        ]
+      }
+    },
+    "LCOGG7DDYRMDM4THLNRVENN5Q3N3PMV7": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "title",
+        "authors"
+      ],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "East Gull Lake, Minnesota"
+        ]
+      }
+    },
+    "LCOGGV3XJQPRRDAL7J4YISUOET2YARDT": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Maine"
+        ]
+      }
+    },
+    "LCOGHQJZYJU2WKULXTSPXBEXIJSYBQTQ": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "geographic_coverage"
+      ],
+      "dropped_list_elements": {}
+    },
+    "LCOGNYC7VEWUQKC5IOPXDBJ2X3DX3J33": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Oak Island, NC"
+        ]
+      }
+    },
+    "LCOGO6IHUR7EYU25OTKHGYBH6A2MOE74": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "issuing_agency"
+      ],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Clive, Utah"
+        ]
+      }
+    },
+    "LCOGUJHOW3OAK5BGJL6DBLDUKOBQSDRH": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "County of San Diego"
+        ]
+      }
+    },
+    "LCOGX3A3B4EG6OHMVVPDY3BUHV33EKWZ": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "LCOH2EKPABBP5GJDNDMTJDO6YXJUPJDY": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "LCOH3BVDJCEYPYSDWFXVC2U4BRN7MEFK": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "LCOH72FE7NASIB66AJMCWR6SAMSILRLP": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "LCOH7SH3F6MZMRVG4TWUIGLEMCU56F5P": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "LCOHBH5GPTTTTLWAKZVCLCESELVXMJYI": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "document_type",
+        "authors"
+      ],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Northwest Montana"
+        ]
+      }
+    },
+    "LCOHFEHWSAM7GAPAPPASO7BS4T4FO4JB": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "LCOHISOJ5KTHU4TSZB6N6PABLPX7GEPP": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "LCOHMLE6MVNJWJBTTZ6SYF3WDLNNEY4Y": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "TX3CPBFVXJBNVXTATTAG7I5F4B4YMHCJ": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "TX3CPNHJR2WCOW6L24Q72QP6OVZHVVSG": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "TX3CXBATLPHXCP2PN7U75GCDO5ROQBW3": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "issuing_agency"
+      ],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Eastern Europe"
+        ]
+      }
+    },
+    "TX3CZPSLVSZPI5CHQ3Z3MIIZV5Q3JXYP": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "authors",
+        "geographic_coverage"
+      ],
+      "dropped_list_elements": {}
+    },
+    "TX3D4UFS3YMUKBG5MXGMGAJ54DH6UHAO": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "TX3DA5ABUI4PFNKVP3OYQPSS2ANHEMOE": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Orlando metropolitan area"
+        ]
+      }
+    },
+    "TX3DL5P64XGL2CCNJXF5VYFFFWHSNWLU": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "George Bush Intercontinental Airport",
+          "William P. Hobby Airport"
+        ]
+      }
+    },
+    "TX3DLG6MQOKG6OV7TVOI2P3JHW6VHYNL": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "TX3DLIE3KDFWFV63QZFQR5RHL3SR5PAJ": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "title"
+      ],
+      "dropped_list_elements": {}
+    },
+    "TX3DQD2AFQFVF2FUBK7NYVGVJMOXBHA3": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "TX3DTO2TLEYWSHN4O2SQRKZPKVOFF3GK": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Pyongyang",
+          "Yokosuka, Japan"
+        ]
+      }
+    },
+    "TX3DXH4XYWEQOBP5JHDOUP7RJ3ONRVN6": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "TX3E6FHSPW7QTVQ4ULODHHIF76K2SE36": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "TX3E6PZCU6D5DE56EEUMY2DQ3WS5VAAS": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "title"
+      ],
+      "dropped_list_elements": {}
+    },
+    "TX3E7AUCXPMYDE5M2KEFNDSP4VXT45PS": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "TX3EDE2L442J474ZDNDPGQA6RKLREBO5": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "authors": [
+          "Will Forde, CFA, CAIA"
+        ]
+      }
+    },
+    "TX3EF7SNCM2QCQSCPC2OVKAN6GR32KYL": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Grant County",
+          "Washington"
+        ]
+      }
+    },
+    "TX3EFW6CKPEUKV7LMQ2XIU5ZE6EQDP3Q": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "publication_date_raw"
+      ],
+      "dropped_list_elements": {}
+    },
+    "TX3ERHC4PFLPCYUJP33EELWBECSYJ3YH": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "TX3EXRNXVDM7BZNMFSMJID6QJE5QJR6H": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "TX3EXZAOH6SZBSEKQSNO63YTOKH2LLXU": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "ZBG6P27HHFBOKRXCSYTTAGZOAQ5MIFUY": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "title"
+      ],
+      "dropped_list_elements": {}
+    },
+    "ZBG6R4AK5FXVUUW5KGVU3ORW4W5AKMF7": {
+      "n_models_present": 2,
+      "models_present": [
+        "gpt-5.6-terra",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "publication_date",
+        "publication_date_raw",
+        "document_type"
+      ],
+      "dropped_list_elements": {}
+    },
+    "ZBG6R4JBZADW565JFN3AXT5OJ7SONALH": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "ZBG6TUQVML277TJOGKCP5UIF3Z2X374J": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "ZBG6VEBFDO7GFW6GAEFAMFLWC5PLW5XB": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "issuing_agency",
+        "document_type"
+      ],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Los Angeles County, California",
+          "Merced County, California"
+        ]
+      }
+    },
+    "ZBG6X42UNE72LJWHVMZPZL5FXNKCG6WF": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "authors"
+      ],
+      "dropped_list_elements": {}
+    },
+    "ZBG7AMWKRE4D454WHZTD7UN2N2GYIQYY": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "performing_organization"
+      ],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Far North region",
+          "Butte County, California"
+        ]
+      }
+    },
+    "ZBG7FDY56SIF7WJBT4YAMNDKDQCHZRXQ": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "ZBG7GGPLR7OFQ2HFIZ3LASLIK344OTNX": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "ZBG7J6X6DWNFJLU56P2RSS2N6YUYDLC7": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "title",
+        "performing_organization",
+        "report_number"
+      ],
+      "dropped_list_elements": {}
+    },
+    "ZBG7OFGTR6AKIKAYFY7BKNXFYVHDVVBK": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Seventh Federal Reserve District"
+        ]
+      }
+    },
+    "ZBG7P3TSPTRROFKSOCJFIK4VGPLPG235": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "title"
+      ],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Indiana"
+        ]
+      }
+    },
+    "ZBG7ROTN626J5YXCRCKNEFYTJFAZCVO4": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {
+        "geographic_coverage": [
+          "Tower, Minnesota"
+        ]
+      }
+    },
+    "ZBG7SK4CRZHRWDN42HM4TBNNKOE53P33": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "ZBG7TUVRKEMMJDC4K7YAAQESCBLQRYG3": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "ZBGA2CKFLMPEZ3PBVHA747UEQUNUBQJM": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "authors"
+      ],
+      "dropped_list_elements": {}
+    },
+    "ZBGA65TDIV64TNAGJWGJ7RDMQWTBX736": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "ZBGA7KWE5RG54KBFOGHQBVI7C4M3OUKZ": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "ZBGAE3G7IUOM4J2IKYHKT4DAULKS35KX": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    },
+    "ZBGAHHUIT6J6E6O3M74ZOCEXPQCUJVQY": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [
+        "title"
+      ],
+      "dropped_list_elements": {}
+    },
+    "ZBGAKTGJYMEY6VBUBCGFBZED5RTXOSMM": {
+      "n_models_present": 3,
+      "models_present": [
+        "gpt-5.6-terra",
+        "claude-sonnet-5",
+        "gemini-3.7-flash"
+      ],
+      "flagged_fields": [],
+      "dropped_list_elements": {}
+    }
+  }
+}

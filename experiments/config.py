@@ -98,6 +98,12 @@ class LLMModelConfig:
     top_p: Optional[float] = None
     max_retries: Optional[int] = None  # None => the OpenAI SDK's default (2)
     extra_body: dict = field(default_factory=dict)  # passthrough chat-completion kwargs (thinking-mode knobs)
+    # Structured-output hint sent to the endpoint. `{"type": "json_object"}` for
+    # most; None to omit it entirely (Anthropic's OpenAI-compat layer 400s on
+    # json_object -- "response_format.type: Input should be 'json_schema'"). JSON
+    # parsing does not depend on this either way -- LLMExtractor.loads_lenient
+    # handles fenced / unstructured output.
+    response_format: Optional[dict] = field(default_factory=lambda: {"type": "json_object"})
 
 
 @dataclass(frozen=True)
@@ -249,9 +255,71 @@ MODEL_REGISTRY: dict[str, ModelConfig] = {
         vllm_args=["--max-model-len", "16384"],
         # Same as gemma4-12b-it: thinking defaults off in the chat template.
     ),
+    # --- Frontier-model consensus panel for the "validation" experiment.
+    # These three run over data/validation_ocr and their outputs are fused by
+    # experiments/fuse.py into the committed ground-truth set
+    # (data/validation_gold/). role="candidate" because none of them is THE
+    # single ground truth -- the fused result is (see VALIDATION_PANEL_KEYS).
+    # Both are reached through their provider's OpenAI-compat endpoint, so
+    # the existing LLMExtractor works unchanged; the base URL and a *real* API
+    # key come from the env vars named below (set them in the repo-root .env,
+    # blank templates in .env.example).
+    "claude-sonnet-5": LLMModelConfig(
+        key="claude-sonnet-5",
+        model="claude-sonnet-5",
+        role="candidate",
+        serving="external",  # commercial API -- Anthropic owns the server lifecycle
+        base_url_env="GOVSCAPE_ANTHROPIC_BASE_URL",  # e.g. https://api.anthropic.com/v1/
+        api_key_env="GOVSCAPE_ANTHROPIC_API_KEY",
+        hardware=HardwareRequirement(
+            device="none",
+            notes="hosted API (Anthropic OpenAI-compat endpoint); wall-clock timings "
+            "include network + provider queueing.",
+        ),
+        # Anthropic's OpenAI-compat layer 400s on response_format={"type":
+        # "json_object"} ("Input should be 'json_schema'"). JSON reliability
+        # rests on the prompt plus LLMExtractor's lenient parse.
+        response_format=None,
+        # This model 400s on an explicit temperature ("`temperature` is
+        # deprecated for this model") -- None omits the parameter. seed is
+        # likewise meaningless here, so None rather than a value implying a
+        # determinism this run doesn't have (same reasoning as gpt-5.6-terra).
+        temperature=None,
+        seed=None,
+        # 8192, not the self-served 1024: Sonnet 5 emits reasoning tokens that
+        # count against this budget, and at 2048 a handful of documents hit
+        # finish_reason="length" with the JSON never emitted (empty content).
+        # Same failure mode gpt-5.6-terra's max_completion_tokens=4096 guards
+        # against; headroom is cheap on a 100-doc ground-truth pass.
+        max_tokens=8192,
+    ),
+    "gemini-3.7-flash": LLMModelConfig(
+        key="gemini-3.7-flash",
+        model="gemini-3.7-flash",
+        role="candidate",
+        serving="external",  # commercial API -- Google owns the server lifecycle
+        base_url_env="GOVSCAPE_GEMINI_BASE_URL",  # e.g. https://generativelanguage.googleapis.com/v1beta/openai/
+        api_key_env="GOVSCAPE_GEMINI_API_KEY",
+        hardware=HardwareRequirement(
+            device="none",
+            notes="hosted API (Google Gemini OpenAI-compat endpoint); wall-clock "
+            "timings include network + provider queueing.",
+        ),
+        # Gemini's OpenAI-compat endpoint rejects an unknown `seed` field
+        # ("Unknown name \"seed\": Cannot find field"); it accepts temperature
+        # and response_format={"type": "json_object"}.
+        seed=None,
+        max_tokens=2048,
+    ),
 }
 
 GROUND_TRUTH_KEY = "gpt-5.6-terra"
+
+# The three models whose per-field outputs experiments/fuse.py combines by
+# 2-of-3 fuzzy agreement into data/validation_gold/. Order is the tie-break
+# priority: when a field has consensus, the value is taken verbatim from the
+# highest-ranked model present in the agreeing set.
+VALIDATION_PANEL_KEYS = ["gpt-5.6-terra", "claude-sonnet-5", "gemini-3.7-flash"]
 
 
 @dataclass(frozen=True)
@@ -280,4 +348,18 @@ DEFAULT_EXPERIMENT = ExperimentConfig(
     ],
 )
 
-EXPERIMENT_REGISTRY: dict[str, ExperimentConfig] = {DEFAULT_EXPERIMENT.name: DEFAULT_EXPERIMENT}
+# The frontier-model panel run over the held-out validation set. Same
+# windowing as the baseline experiment (so a candidate scored against the
+# fused gold set and against the baseline sees identical input text), but a
+# different input directory. fuse.py asserts all three panel runs share this
+# windowing before combining them.
+VALIDATION_EXPERIMENT = ExperimentConfig(
+    name="validation",
+    model_keys=list(VALIDATION_PANEL_KEYS),
+    input_dir="data/validation_ocr",
+)
+
+EXPERIMENT_REGISTRY: dict[str, ExperimentConfig] = {
+    DEFAULT_EXPERIMENT.name: DEFAULT_EXPERIMENT,
+    VALIDATION_EXPERIMENT.name: VALIDATION_EXPERIMENT,
+}

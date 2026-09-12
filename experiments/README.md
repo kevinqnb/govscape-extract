@@ -33,18 +33,97 @@ runtime.py       git sha / GPU / package-version capture -> RunManifest, per run
 serving.py        LocalVLLMServer + endpoint_for()'s lookup order (file cache -> env var)
 serve_model.py      uv run -m experiments.serve_model -- start+register a server, foreground
 runner.py             uv run -m experiments.runner   -- extraction + timing
-similarity.py           fuzzy per-field comparators (title/authors/dates/agency/document_type)
+similarity.py           fuzzy per-field comparators + FUSION_COMPARATORS / AGREEMENT_THRESHOLDS
 evaluate.py               uv run -m experiments.evaluate -- score a candidate run vs. ground truth
+fuse.py                     uv run -m experiments.fuse -- combine the frontier panel's runs into the gold set
 results.py                  uv run -m experiments.results  -- summary table + plots
 results.ipynb                  interactive counterpart to results.py -- same DataFrame + plots, inline
 ```
 
-Outputs (all gitignored, regenerate on demand):
+Outputs (`runs/`, `evaluations/`, `reports/` gitignored, regenerate on demand):
 ```
 runs/<run_id>/                                 one per runner.py invocation
 evaluations/<candidate_run_id>__vs__<truth_run_id>/
 reports/{summary_table.csv, plots/*.png}
+data/validation_gold/                          the fused ground-truth set -- COMMITTED (see "Ground-truth dataset" below)
 ```
+
+## Ground-truth dataset (validation set)
+
+`experiments/README.md`'s comparisons above use `gpt-5.6-terra`'s output as a
+*proxy* for truth. Separately, there is a real gold-labeled set for the
+held-out **validation** documents, built by 2-of-3 consensus across a
+frontier-model panel:
+
+| model_key | model | endpoint |
+| --- | --- | --- |
+| `gpt-5.6-terra` | `gpt-5.6-terra` | hosted OpenAI (already configured) |
+| `claude-sonnet-5` | `claude-sonnet-5` | Anthropic OpenAI-compat (`$GOVSCAPE_ANTHROPIC_BASE_URL`) |
+| `gemini-3.7-flash` | `gemini-3.7-flash` | Google Gemini OpenAI-compat (`$GOVSCAPE_GEMINI_BASE_URL`) |
+
+Priority order (left to right) is also the tie-break: on a field with
+consensus, the gold value is taken **verbatim from the highest-ranked model
+in the agreeing set**. `VALIDATION_PANEL_KEYS` in `config.py` is the single
+source of both.
+
+```bash
+# 0. Build the validation set (disjoint from data/sample_ocr/)
+uv run data/build_validation.py -n 100 --seed 771
+
+# 1. Run each panel model over it. Smoke-test at --limit 3 first.
+#    All hosted APIs -> --skip-warmup. Needs real API keys in .env
+#    (GOVSCAPE_ANTHROPIC_API_KEY, GOVSCAPE_GEMINI_API_KEY; gpt-5.6-terra uses
+#    GOVSCAPE_LLM_API_KEY). Base URLs default in .env.example.
+uv run -m experiments.runner --model-key gpt-5.6-terra    --experiment validation --run-name gold --skip-warmup
+uv run -m experiments.runner --model-key claude-sonnet-5  --experiment validation --run-name gold --skip-warmup
+uv run -m experiments.runner --model-key gemini-3.7-flash --experiment validation --run-name gold --skip-warmup
+
+# 2. Fuse. With no --run it picks the latest run per VALIDATION_PANEL_KEYS.
+uv run -m experiments.fuse
+
+# 3. Score any candidate run (over data/validation_ocr) against the gold set:
+uv run -m experiments.evaluate --truth-run data/validation_gold \
+    --candidate-run <candidate run_id>
+```
+
+`data/validation_gold/` is **committed** (the one exception to this repo's
+gitignore-because-regenerable policy -- it costs three frontier-model API
+passes). It is written run-shaped (`manifest.json` + `metadata/<digest>.json`)
+so `evaluate.py`/`results.py` treat it as an ordinary truth run. Alongside:
+
+- `status.json` -- `{digest: {field: {status, n_present, n_agree, source_model}}}` where
+  `status` is `consensus` / `consensus_null` / `flagged` / `partial_list`. `n_present < 3`
+  (a panel model errored on that doc) or `n_agree < n_present` means the value rests on fewer
+  than the full 3 -- filter on those to review borderline consensus.
+- `flagged.csv` -- one row per `flagged` / `partial_list` `(digest, field)`: reason
+  plus all three models' raw values. **This is the worklist for manual
+  extraction** of the pairs the panel couldn't agree on.
+- `fusion_report.json` -- per-field resolved/flagged counts, pairwise model
+  agreement, `gpt-5.6-terra_outvoted` pairs (where the other two models
+  agreed against it), and per-document detail.
+
+Fusion rule, per `(document, field)`:
+
+- **scalar fields** -- agreement = `FUSION_COMPARATORS[field]` score >=
+  `AGREEMENT_THRESHOLDS[field]` (stricter than evaluate.py's 0.75; exact for
+  `document_type` / `jurisdiction_level` / `report_number`). Largest
+  connected component of the agreement graph; size >= 2 -> consensus (value
+  from its highest-priority member), else **flagged** (gold value `null`).
+  Two models returning null *is* agreement -> `consensus_null`, distinct from
+  flagged.
+- **list fields** (`authors`, `geographic_coverage`) -- fused element-wise: an
+  element enters the gold list when >= 2 models contribute a fuzzily-matching
+  element. Field flagged only if *no* element reaches 2-of-3; if some agree
+  and some don't, the field keeps the agreed subset and the dropped elements
+  are logged (`partial_list`).
+- `title` / `issuing_agency` / `performing_organization` / `series` use a
+  length-guarded comparator so a truncated value doesn't falsely "agree" with
+  the full one (plain `token_set_ratio` is deliberately superset-blind).
+
+Caveat: the panel is capability-asymmetric -- `gpt-5.6-terra` and
+`claude-sonnet-5` are both frontier, `gemini-3.7-flash` is a Flash-class model.
+If two models share an error they will outvote a correct third -- skim
+`gpt-5.6-terra_outvoted` in `fusion_report.json`.
 
 ## Setup
 

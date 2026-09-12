@@ -1,0 +1,6802 @@
+{
+  "DUKERCFGHGAHR6FFNKT7DDFGPT3OY5WU": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKEREDA2PZEEOEY2S5NONWK7VJCGJ44": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "DUKESYPBZKB7AEFPDC4E52HHS7ACHZN6": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKEZQTHQODZFYVBT44CHDKIEGQTJENB": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKF4F6OOHGA7B2HH4J4MO4EPZEHMACG": {
+    "title": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKF5XL63FCFQ3E6SQ6X6BNSOYMKXIIQ": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKF75DOHM52UEIMPBRCMDR32XYLPFYB": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKFBM3QQACDLW2HTAOTU2AWSWQPKDQN": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date_raw": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "issuing_agency": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    }
+  },
+  "DUKFGFPCC4EU6Z3JQ3IOEJ7DYOFFRFTM": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKFGSILIMTU3VEN7JLMWVK4IOTUBUOK": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKFHP26NS5FO5FF37TD3IUQMXX5MF64": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKFNE32LFAWRGLGMT4AVI7CZTQ7TJY7": {
+    "title": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "issuing_agency": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    }
+  },
+  "DUKFU5WN2EBGKW2KMLE7TH2OQTDL4F5S": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKFWXC57RAQAGJJG24EEA742CUWD4Q3": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "document_type": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "report_number": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "DUKG3QXB5N7B3WUM6GV4I2XFKHUMM7ZF": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKG4OI74L5APSVJODEBQYYTXTC5SY6G": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKG5JDXVQHYCBST5PHRT7R7CGLQ5TC6": {
+    "title": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKGAS4FD57N6VTJTL733IWF67GFW6FT": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKGATH5DOPK57PW5JAHUDMOC734VWIJ": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKGAUHUJJAB7FF2BLNK3DLPLMXC35CN": {
+    "title": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "DUKGCAW25EVFPFEM2IM3XVIR73GHFCHY": {
+    "title": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SFCB7X4J4FU4ZCMNEDFOD4RCRE5ZMK": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "J3SFLN5BMTPTMVU6ONEKAD5FJBJHPG5G": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SFQWKTR7MM34GX5CJKLH3OUJLQHADP": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SFSJGZNX45MRRBCCVQFP2OQETJFULA": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SFTUIWSH5U7H7S7YGNWTP6XJVW7YUY": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SFUZH5ZO4V56CYHT2SSXWRYRRX5NWY": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SFZLJWLKMYSGO3WQ6XTSHVZN4MAM2I": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SG5JUTYLXPVAIDA7SYUS4V4DTJSKHP": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SGFM4WZS6NPSPXD6QLEAWKE5XWKVNJ": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    }
+  },
+  "J3SGLKIU5WHJEKVEVCFO333U32ZN6IGR": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SGMVA6BKRU6EJI2OP77XV66IYFLGB7": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SGXQPACHAD3242AWWOC4RMSDZAZCN6": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SHATY757ZRSTSW26P3B7HQQWKY5QJP": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SHBZDPRE7ZXBHVZIXCDHNWCMVEWBDE": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SHDX5AOUMH4YUXTJQDVQ6YVPUZHIEI": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "J3SHDXAC4UENOYHCEWE7TA4SARLQLKXN": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOFMUKWZ2OEBXO2QRX7ZNYF5EMTCJMZ": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOFNNBXUAUUQBHFGWDHV2N2MVRCHZL5": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOFT7R5E3JXFO34Y576EN5FSCNNHJHC": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOFU54H5TFCWEALS4LB6PPD57UFFYGN": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOFWAO3YVECCBLDTSLVC2OT35CKTBFT": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOGADNY4ODNYHDDA6DX3LOVTDKRKPTV": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "LCOGG7DDYRMDM4THLNRVENN5Q3N3PMV7": {
+    "title": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "LCOGGV3XJQPRRDAL7J4YISUOET2YARDT": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOGHQJZYJU2WKULXTSPXBEXIJSYBQTQ": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    }
+  },
+  "LCOGNYC7VEWUQKC5IOPXDBJ2X3DX3J33": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOGO6IHUR7EYU25OTKHGYBH6A2MOE74": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOGUJHOW3OAK5BGJL6DBLDUKOBQSDRH": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOGX3A3B4EG6OHMVVPDY3BUHV33EKWZ": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOH2EKPABBP5GJDNDMTJDO6YXJUPJDY": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOH3BVDJCEYPYSDWFXVC2U4BRN7MEFK": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOH72FE7NASIB66AJMCWR6SAMSILRLP": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOH7SH3F6MZMRVG4TWUIGLEMCU56F5P": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOHBH5GPTTTTLWAKZVCLCESELVXMJYI": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOHFEHWSAM7GAPAPPASO7BS4T4FO4JB": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOHISOJ5KTHU4TSZB6N6PABLPX7GEPP": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "LCOHMLE6MVNJWJBTTZ6SYF3WDLNNEY4Y": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3CPBFVXJBNVXTATTAG7I5F4B4YMHCJ": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3CPNHJR2WCOW6L24Q72QP6OVZHVVSG": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3CXBATLPHXCP2PN7U75GCDO5ROQBW3": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "TX3CZPSLVSZPI5CHQ3Z3MIIZV5Q3JXYP": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    }
+  },
+  "TX3D4UFS3YMUKBG5MXGMGAJ54DH6UHAO": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3DA5ABUI4PFNKVP3OYQPSS2ANHEMOE": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3DL5P64XGL2CCNJXF5VYFFFWHSNWLU": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3DLG6MQOKG6OV7TVOI2P3JHW6VHYNL": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3DLIE3KDFWFV63QZFQR5RHL3SR5PAJ": {
+    "title": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3DQD2AFQFVF2FUBK7NYVGVJMOXBHA3": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3DTO2TLEYWSHN4O2SQRKZPKVOFF3GK": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "TX3DXH4XYWEQOBP5JHDOUP7RJ3ONRVN6": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3E6FHSPW7QTVQ4ULODHHIF76K2SE36": {
+    "title": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3E6PZCU6D5DE56EEUMY2DQ3WS5VAAS": {
+    "title": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3E7AUCXPMYDE5M2KEFNDSP4VXT45PS": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3EDE2L442J474ZDNDPGQA6RKLREBO5": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3EF7SNCM2QCQSCPC2OVKAN6GR32KYL": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "TX3EFW6CKPEUKV7LMQ2XIU5ZE6EQDP3Q": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date_raw": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3ERHC4PFLPCYUJP33EELWBECSYJ3YH": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3EXRNXVDM7BZNMFSMJID6QJE5QJR6H": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "TX3EXZAOH6SZBSEKQSNO63YTOKH2LLXU": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBG6P27HHFBOKRXCSYTTAGZOAQ5MIFUY": {
+    "title": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBG6R4AK5FXVUUW5KGVU3ORW4W5AKMF7": {
+    "title": {
+      "status": "consensus",
+      "n_present": 2,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "flagged",
+      "n_present": 2,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date_raw": {
+      "status": "flagged",
+      "n_present": 2,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 2,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 2,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "flagged",
+      "n_present": 2,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 2,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 2,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 2,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 2,
+      "n_agree": 2,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 2,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "ZBG6R4JBZADW565JFN3AXT5OJ7SONALH": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBG6TUQVML277TJOGKCP5UIF3Z2X374J": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBG6VEBFDO7GFW6GAEFAMFLWC5PLW5XB": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "ZBG6X42UNE72LJWHVMZPZL5FXNKCG6WF": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBG7AMWKRE4D454WHZTD7UN2N2GYIQYY": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "performing_organization": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBG7FDY56SIF7WJBT4YAMNDKDQCHZRXQ": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBG7GGPLR7OFQ2HFIZ3LASLIK344OTNX": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBG7J6X6DWNFJLU56P2RSS2N6YUYDLC7": {
+    "title": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBG7OFGTR6AKIKAYFY7BKNXFYVHDVVBK": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "ZBG7P3TSPTRROFKSOCJFIK4VGPLPG235": {
+    "title": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBG7ROTN626J5YXCRCKNEFYTJFAZCVO4": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "partial_list",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    }
+  },
+  "ZBG7SK4CRZHRWDN42HM4TBNNKOE53P33": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBG7TUVRKEMMJDC4K7YAAQESCBLQRYG3": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBGA2CKFLMPEZ3PBVHA747UEQUNUBQJM": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 0,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBGA65TDIV64TNAGJWGJ7RDMQWTBX736": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBGA7KWE5RG54KBFOGHQBVI7C4M3OUKZ": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBGAE3G7IUOM4J2IKYHKT4DAULKS35KX": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBGAHHUIT6J6E6O3M74ZOCEXPQCUJVQY": {
+    "title": {
+      "status": "flagged",
+      "n_present": 3,
+      "n_agree": 1,
+      "source_model": null
+    },
+    "publication_date": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  },
+  "ZBGAKTGJYMEY6VBUBCGFBZED5RTXOSMM": {
+    "title": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "publication_date": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "publication_date_raw": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "issuing_agency": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "performing_organization": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "document_type": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 2,
+      "source_model": "claude-sonnet-5"
+    },
+    "report_number": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "series": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "jurisdiction_level": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": "gpt-5.6-terra"
+    },
+    "authors": {
+      "status": "consensus",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    },
+    "geographic_coverage": {
+      "status": "consensus_null",
+      "n_present": 3,
+      "n_agree": 3,
+      "source_model": null
+    }
+  }
+}
