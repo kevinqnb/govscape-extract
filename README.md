@@ -1,5 +1,7 @@
 # govscape-extract :bookmark_tabs:
 
+[![attested by humans](https://github.com/kevinqnb/govscape-extract/actions/workflows/git-signoff.yml/badge.svg)](https://github.com/kevinqnb/govscape-extract/actions/workflows/git-signoff.yml)
+
 Information extraction for annotating and metadata-filing [Govscape](https://govscape.net) documents.
 
 ## Setup
@@ -31,4 +33,3 @@ uv run -m govscape_extract.cli --backend gliner
 Both read `data/sample_ocr/*.json` by default and write results to `data/extracted/`. The LLM
 backend generates/normalizes text (dates, full names); GLiNER2 returns literal spans from the
 document instead.
-
