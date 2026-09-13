@@ -1,9 +1,14 @@
-"""CLI: run one configured model's extraction over a document set, with
+"""Run one configured model's extraction over a document set, with
 per-document + run-level timing, writing a fully reproducible run directory.
 
     uv run -m experiments.runner --model-key gpt-oss-120b  --run-name baseline
     uv run -m experiments.runner --model-key qwen3-0.6b    --run-name baseline
     uv run -m experiments.runner --model-key gliner2-base  --run-name baseline
+
+`run_model()` is this module's callable seam: experiments/run_extraction.py and
+experiments/run_ground_truth.py call it directly (one call per model_key in an
+experiment's params.model_keys) instead of shelling out to this file's CLI.
+main() is a thin argparse wrapper over the same function.
 
 Reuses govscape_extract.documents.{load_document, extraction_window} and the
 existing MetadataExtractor backends unmodified; writes
@@ -28,16 +33,12 @@ from dotenv import load_dotenv
 
 from govscape_extract.documents import extraction_window, load_document
 
-from experiments.config import (
-    DEFAULT_EXPERIMENT,
-    EXPERIMENT_REGISTRY,
-    MODEL_REGISTRY,
-    GlinerModelConfig,
-)
+from experiments.config import MODEL_REGISTRY, GlinerModelConfig, load_dataset_config
 from experiments.runtime import RunManifest, git_sha, installed_versions
 from experiments.serving import endpoint_for
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+DEFAULT_OUTPUT_ROOT = REPO_ROOT / "experiments" / "runs"
 RELEVANT_PACKAGES = ["gliner2", "torch", "transformers", "openai", "httpx", "govscape"]
 
 
@@ -191,8 +192,8 @@ def _process_documents(
         doc = load_document(path)
         digest = doc.get("digest", path.stem)
         if digest != path.stem:
-            # manifest.digests is built from filenames (see main()), and it's
-            # evaluate.py's join key -- a document whose internal digest
+            # manifest.digests is built from filenames (see run_model()), and
+            # it's evaluate.py's join key -- a document whose internal digest
             # disagrees would be written to a file no evaluation looks for.
             raise SystemExit(
                 f"{path}: internal digest {digest!r} != filename stem {path.stem!r}. "
@@ -247,52 +248,43 @@ def _write_timing_summary(run_dir: Path, timing_dir: Path, manifest: RunManifest
     (run_dir / "timing_summary.json").write_text(json.dumps(summary, indent=2))
 
 
-def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--model-key", required=True, choices=sorted(MODEL_REGISTRY))
-    parser.add_argument("--run-name", help="Human label, becomes part of the run_id. Required unless --resume.")
-    parser.add_argument(
-        "--resume",
-        metavar="RUN_ID",
-        help="Continue an interrupted run in place instead of starting a new one: reuses that "
-        "run directory and run_id, and skips documents that already have a non-null result. "
-        "Documents whose previous attempt errored are retried.",
-    )
-    parser.add_argument("--experiment", default=DEFAULT_EXPERIMENT.name, choices=sorted(EXPERIMENT_REGISTRY))
-    parser.add_argument("--input-dir", type=Path, default=None, help="Overrides the experiment's input_dir")
-    parser.add_argument("--limit", type=int, default=None, help="Only process the first N documents")
-    parser.add_argument("--max-pages", type=int, default=None)
-    parser.add_argument("--max-chars", type=int, default=None)
-    parser.add_argument("--output-root", type=Path, default=None)
-    parser.add_argument(
-        "--base-url",
-        default=None,
-        help="Force this OpenAI-compatible endpoint, skipping the model's base_url_env lookup / LocalVLLMServer entirely",
-    )
-    parser.add_argument("--seed", type=int, default=None, help="Overrides the model config's seed")
-    parser.add_argument("--skip-warmup", action="store_true")
-    parser.add_argument("--dry-run", action="store_true", help="Resolve config and print the manifest preview, run nothing")
-    return parser
+def run_model(
+    model_key: str,
+    *,
+    dataset: str = "govscape",
+    split: str = "sample",
+    run_name: Optional[str] = None,
+    resume: Optional[str] = None,
+    input_dir_override: Optional[Path] = None,
+    limit: Optional[int] = None,
+    max_pages_override: Optional[int] = None,
+    max_chars_override: Optional[int] = None,
+    output_root_override: Optional[Path] = None,
+    base_url_override: Optional[str] = None,
+    seed_override: Optional[int] = None,
+    skip_warmup: bool = False,
+    dry_run: bool = False,
+) -> Optional[Path]:
+    """Run (or resume) one model's extraction over `dataset`'s `split`.
 
+    Exactly one of `run_name` (new run) or `resume` (continue an existing
+    run_id in place) must be given. Returns the run directory, or None on
+    dry_run. `split` is recorded into the manifest's `experiment_name` field
+    (unchanged name, now split-valued) purely for identification -- it plays
+    no role in dispatch here.
+    """
+    if bool(run_name) == bool(resume):
+        raise SystemExit("Pass exactly one of run_name (new run) or resume (continue one).")
+    if model_key not in MODEL_REGISTRY:
+        raise SystemExit(f"Unknown model_key {model_key!r}; choices: {sorted(MODEL_REGISTRY)}")
 
-def main() -> None:
-    # Endpoint URLs and API keys live in the repo-root .env (see .env.example).
-    # Without this, os.environ below silently misses them and LLMExtractor
-    # falls back to the literal api_key "EMPTY" -> an opaque 401.
-    load_dotenv(REPO_ROOT / ".env")
-
-    args = build_arg_parser().parse_args()
-    if bool(args.run_name) == bool(args.resume):
-        raise SystemExit("Pass exactly one of --run-name (new run) or --resume RUN_ID (continue one).")
-    experiment = EXPERIMENT_REGISTRY[args.experiment]
-
-    output_root = args.output_root or (REPO_ROOT / experiment.output_root)
-    model_config = MODEL_REGISTRY[args.model_key]
+    output_root = output_root_override or DEFAULT_OUTPUT_ROOT
+    model_config = MODEL_REGISTRY[model_key]
     backend = "gliner" if isinstance(model_config, GlinerModelConfig) else "llm"
 
     prior_manifest = None
-    if args.resume:
-        run_id = args.resume
+    if resume:
+        run_id = resume
         run_dir = output_root / run_id
         if not run_dir.is_dir():
             raise SystemExit(f"Cannot resume: {run_dir} does not exist.")
@@ -305,37 +297,42 @@ def main() -> None:
         prior_manifest = json.loads(manifest_path.read_text())
 
         # Scope and windowing are properties of the *run*, so they're read
-        # back from its manifest rather than re-derived from flags -- you
-        # shouldn't have to remember the original --limit to continue.
-        # An explicit flag that contradicts the manifest is an error, not an
-        # override: blending two windowings into one run directory would
+        # back from its manifest rather than re-derived from arguments -- you
+        # shouldn't have to remember the original invocation to continue it.
+        # An explicit override that contradicts the manifest is an error, not
+        # an override: blending two windowings into one run directory would
         # produce a reference set that no evaluation can interpret (the same
         # reasoning as evaluate.py's windowing abort).
         input_dir = Path(prior_manifest["input_dir"])
         max_pages = prior_manifest["max_pages"]
         max_chars = prior_manifest["max_chars"]
-        limit = prior_manifest["n_documents"]
+        prior_limit = prior_manifest["n_documents"]
         for flag, given, was in [
-            ("--model-key", model_config.key, prior_manifest["model_key"]),
-            ("--input-dir", None if args.input_dir is None else str(args.input_dir), None if args.input_dir is None else prior_manifest["input_dir"]),
-            ("--max-pages", args.max_pages, None if args.max_pages is None else max_pages),
-            ("--max-chars", args.max_chars, None if args.max_chars is None else max_chars),
-            ("--limit", args.limit, None if args.limit is None else limit),
+            ("model_key", model_config.key, prior_manifest["model_key"]),
+            ("input_dir_override", None if input_dir_override is None else str(input_dir_override), None if input_dir_override is None else prior_manifest["input_dir"]),
+            ("max_pages_override", max_pages_override, None if max_pages_override is None else max_pages),
+            ("max_chars_override", max_chars_override, None if max_chars_override is None else max_chars),
+            ("limit", limit, None if limit is None else prior_limit),
         ]:
             if given is not None and given != was:
                 raise SystemExit(
                     f"Cannot resume {run_id}: it ran with {flag}={was!r}, but this invocation "
-                    f"passes {flag}={given!r}. Drop the flag to reuse the run's own setting, "
+                    f"passes {flag}={given!r}. Drop the argument to reuse the run's own setting, "
                     "or start a new run."
                 )
+        # Re-glob below must reproduce the original run's document count, not
+        # whatever --limit (if any) this resume invocation happened to pass.
+        limit = prior_limit
         if prior_manifest.get("finished_at"):
             print(f"[{run_id}] note: this run already finished; re-running only its failed documents.")
     else:
-        input_dir = args.input_dir or (REPO_ROOT / experiment.input_dir)
-        limit = args.limit if args.limit is not None else experiment.limit
-        max_pages = args.max_pages if args.max_pages is not None else experiment.max_pages
-        max_chars = args.max_chars if args.max_chars is not None else experiment.max_chars
-        run_id = _run_id(args.run_name, model_config.key)
+        dataset_config = load_dataset_config(dataset)
+        if split not in dataset_config.splits:
+            raise SystemExit(f"Unknown split {split!r} for dataset {dataset!r}; choices: {sorted(dataset_config.splits)}")
+        input_dir = input_dir_override or (REPO_ROOT / dataset_config.splits[split].input_dir)
+        max_pages = max_pages_override if max_pages_override is not None else dataset_config.max_pages
+        max_chars = max_chars_override if max_chars_override is not None else dataset_config.max_chars
+        run_id = _run_id(run_name, model_config.key)
         run_dir = output_root / run_id
 
     docs = sorted(input_dir.glob("*.json"))
@@ -361,11 +358,11 @@ def main() -> None:
     metadata_dir = run_dir / "metadata"
     timing_dir = run_dir / "timing"
 
-    seed = args.seed if args.seed is not None else getattr(model_config, "seed", None)
+    seed = seed_override if seed_override is not None else getattr(model_config, "seed", None)
 
     manifest = RunManifest(
         run_id=run_id,
-        experiment_name=experiment.name,
+        experiment_name=split if not resume else prior_manifest["experiment_name"],
         model_key=model_config.key,
         backend=backend,
         started_at=datetime.now(timezone.utc).isoformat(),
@@ -373,10 +370,7 @@ def main() -> None:
         max_pages=max_pages,
         max_chars=max_chars,
         seed=seed,
-        config={
-            "model": dataclasses.asdict(model_config),
-            "experiment": dataclasses.asdict(experiment),
-        },
+        config={"model": dataclasses.asdict(model_config)},
         # Populated up front rather than accumulated during processing, so a
         # manifest written mid-run still describes the run's full intended
         # scope. Safe because OCR files are named <digest>.json -- the loop
@@ -416,14 +410,14 @@ def main() -> None:
         completed = _completed_digests(metadata_dir) & set(manifest.digests)
 
     print(f"[{run_id}] {len(docs)} documents, backend={backend}")
-    if args.resume:
+    if resume:
         print(f"  resuming: {len(completed)} already done, {len(docs) - len(completed)} to go")
         if len(completed) == len(docs):
             print("  nothing left to do.")
 
-    if args.dry_run:
+    if dry_run:
         print(json.dumps(dataclasses.asdict(manifest), indent=2, default=str))
-        return
+        return None
 
     metadata_dir.mkdir(parents=True, exist_ok=True)
     timing_dir.mkdir(parents=True, exist_ok=True)
@@ -435,11 +429,11 @@ def main() -> None:
         t0 = time.monotonic()
         extractor = GlinerExtractor(model_name=model_config.model_name, threshold=model_config.threshold)
         manifest.model_load_seconds = time.monotonic() - t0
-        _process_documents(extractor, docs, max_pages, max_chars, run_dir, metadata_dir, timing_dir, manifest, args.skip_warmup, completed)
+        _process_documents(extractor, docs, max_pages, max_chars, run_dir, metadata_dir, timing_dir, manifest, skip_warmup, completed)
     else:
         from govscape_extract.extractors.llm import LLMExtractor
 
-        with endpoint_for(model_config, base_url_override=args.base_url) as (base_url, startup_seconds):
+        with endpoint_for(model_config, base_url_override=base_url_override) as (base_url, startup_seconds):
             manifest.serving_startup_seconds = startup_seconds
             api_key = os.environ.get(model_config.api_key_env)
             if not api_key:
@@ -469,7 +463,7 @@ def main() -> None:
             # above: LLMExtractor still falls back to $GOVSCAPE_LLM_BASE_URL,
             # so the yielded value isn't necessarily where requests go.
             manifest.resolved_base_url = str(extractor.client.base_url)
-            _process_documents(extractor, docs, max_pages, max_chars, run_dir, metadata_dir, timing_dir, manifest, args.skip_warmup, completed)
+            _process_documents(extractor, docs, max_pages, max_chars, run_dir, metadata_dir, timing_dir, manifest, skip_warmup, completed)
 
     # Written even when nothing was processed (a fully-complete --resume), so
     # the summary and finished_at reflect the run's final state either way.
@@ -482,6 +476,61 @@ def main() -> None:
     )
     if manifest.n_errors:
         print(f"  retry just those with: --model-key {model_config.key} --resume {run_id}")
+    return run_dir
+
+
+def build_arg_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--model-key", required=True, choices=sorted(MODEL_REGISTRY))
+    parser.add_argument("--run-name", help="Human label, becomes part of the run_id. Required unless --resume.")
+    parser.add_argument(
+        "--resume",
+        metavar="RUN_ID",
+        help="Continue an interrupted run in place instead of starting a new one: reuses that "
+        "run directory and run_id, and skips documents that already have a non-null result. "
+        "Documents whose previous attempt errored are retried.",
+    )
+    parser.add_argument("--dataset", default="govscape", help="Name of a experiments/dataset-configs/<name>.yaml")
+    parser.add_argument("--split", default="sample", help="Split within --dataset, e.g. sample or validation")
+    parser.add_argument("--input-dir", type=Path, default=None, help="Overrides the dataset split's input_dir")
+    parser.add_argument("--limit", type=int, default=None, help="Only process the first N documents")
+    parser.add_argument("--max-pages", type=int, default=None)
+    parser.add_argument("--max-chars", type=int, default=None)
+    parser.add_argument("--output-root", type=Path, default=None)
+    parser.add_argument(
+        "--base-url",
+        default=None,
+        help="Force this OpenAI-compatible endpoint, skipping the model's base_url_env lookup / LocalVLLMServer entirely",
+    )
+    parser.add_argument("--seed", type=int, default=None, help="Overrides the model config's seed")
+    parser.add_argument("--skip-warmup", action="store_true")
+    parser.add_argument("--dry-run", action="store_true", help="Resolve config and print the manifest preview, run nothing")
+    return parser
+
+
+def main() -> None:
+    # Endpoint URLs and API keys live in the repo-root .env (see .env.example).
+    # Without this, os.environ below silently misses them and LLMExtractor
+    # falls back to the literal api_key "EMPTY" -> an opaque 401.
+    load_dotenv(REPO_ROOT / ".env")
+
+    args = build_arg_parser().parse_args()
+    run_model(
+        args.model_key,
+        dataset=args.dataset,
+        split=args.split,
+        run_name=args.run_name,
+        resume=args.resume,
+        input_dir_override=args.input_dir,
+        limit=args.limit,
+        max_pages_override=args.max_pages,
+        max_chars_override=args.max_chars,
+        output_root_override=args.output_root,
+        base_url_override=args.base_url,
+        seed_override=args.seed,
+        skip_warmup=args.skip_warmup,
+        dry_run=args.dry_run,
+    )
 
 
 if __name__ == "__main__":

@@ -34,6 +34,7 @@ from __future__ import annotations
 
 import json
 import os
+import shlex
 import signal
 import socket
 import subprocess
@@ -50,7 +51,20 @@ from experiments.config import LLMModelConfig
 
 DEFAULT_STARTUP_TIMEOUT_S = 900.0  # a 120B-class model's weight load can take minutes
 DEFAULT_POLL_INTERVAL_S = 2.0
+DEFAULT_VLLM_COMMAND = "vllm serve"
 ENDPOINTS_FILE = Path(__file__).resolve().parent / ".endpoints.json"
+
+
+def resolve_vllm_command(override: Optional[str] = None) -> list[str]:
+    """override (e.g. serve_model.py's --vllm-command) wins; otherwise
+    $GOVSCAPE_VLLM_COMMAND (e.g. a `singularity exec --nv ... vllm serve`
+    wrapper -- see model-configs/README.md); otherwise a bare `vllm serve` on
+    PATH. Single source of truth for both serve_model.py's CLI and
+    endpoint_for()'s local_vllm path below -- vllm isn't a project
+    dependency (see pyproject.toml), so on a cluster it's almost always the
+    Singularity wrapper, and both launch paths need to agree on it."""
+    command_str = override or os.environ.get("GOVSCAPE_VLLM_COMMAND") or DEFAULT_VLLM_COMMAND
+    return shlex.split(command_str)
 
 
 class ServerStartupError(RuntimeError):
@@ -275,7 +289,11 @@ def endpoint_for(model_config: LLMModelConfig, base_url_override: Optional[str] 
         yield base_url_override, None
         return
     if model_config.serving == "local_vllm":
-        with LocalVLLMServer(model=model_config.model, extra_args=model_config.vllm_args) as server:
+        with LocalVLLMServer(
+            model=model_config.model,
+            extra_args=model_config.vllm_args,
+            vllm_command=resolve_vllm_command(),
+        ) as server:
             yield server.base_url, server.startup_seconds
         return
 

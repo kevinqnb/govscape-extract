@@ -1,0 +1,8 @@
+dataset: govscape
+splits:
+  sample:
+    input_dir: data/sample_ocr
+  validation:
+    input_dir: data/validation_ocr
+max_pages: 3
+max_chars: 9000

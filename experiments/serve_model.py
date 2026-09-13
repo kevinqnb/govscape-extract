@@ -19,15 +19,11 @@ experiments/README.md if that's a different box than the GPU box.
 from __future__ import annotations
 
 import argparse
-import os
-import shlex
 import signal
 import sys
 
 from experiments.config import MODEL_REGISTRY, LLMModelConfig
-from experiments.serving import ENDPOINTS_FILE, LocalVLLMServer, clear_endpoint, write_endpoint
-
-DEFAULT_VLLM_COMMAND = "vllm serve"
+from experiments.serving import ENDPOINTS_FILE, LocalVLLMServer, clear_endpoint, resolve_vllm_command, write_endpoint
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
@@ -61,8 +57,7 @@ def main() -> None:
     args = build_arg_parser().parse_args()
     model_config = MODEL_REGISTRY[args.model_key]
 
-    vllm_command_str = args.vllm_command or os.environ.get("GOVSCAPE_VLLM_COMMAND") or DEFAULT_VLLM_COMMAND
-    vllm_command = shlex.split(vllm_command_str)
+    vllm_command = resolve_vllm_command(args.vllm_command)
 
     server = LocalVLLMServer(
         model=model_config.model,
@@ -78,7 +73,7 @@ def main() -> None:
     # clears this model's entry from the endpoints file.
     signal.signal(signal.SIGTERM, _raise_keyboard_interrupt)
 
-    print(f"Starting {vllm_command_str!r} {model_config.model!r} on port {server.port} (this can take minutes for large models)...")
+    print(f"Starting {' '.join(vllm_command)!r} {model_config.model!r} on port {server.port} (this can take minutes for large models)...")
     try:
         server.start()
     except Exception as e:

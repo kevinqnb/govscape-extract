@@ -1,0 +1,22 @@
+key: gemma4-12b-it
+kind: llm
+model: google/gemma-4-12B-it
+role: candidate
+serving: local_vllm  # was "external"
+hardware:
+  device: cuda
+  min_vram_gb: 48
+  gpu_count: 1
+  gpu_compute_capability: "8.0"
+  max_walltime: "24:00:00"
+  notes: >-
+    ~12B params, ~24GB of bf16 weights. Gemma4UnifiedForConditionalGeneration -- an
+    encoder-free multimodal model, so vLLM reserves capacity for image/audio input
+    this text-only harness never sends; 48GB leaves room for that plus the KV cache.
+    Needs vLLM >= 0.24 (see model-configs/README.md on SIF image choice).
+vllm_args: ["--max-model-len", "16384"]
+notes: >-
+  Thinking-capable, but its chat template's enable_thinking already defaults to
+  false (verified against the published chat_template.jinja), and the non-thinking
+  branch pre-fills an empty thought channel -- nothing to pass, left out
+  deliberately rather than overlooked.

@@ -1,0 +1,22 @@
+key: qwen3-4b
+kind: llm
+model: Qwen/Qwen3-4B
+role: candidate
+serving: local_vllm  # was "external"
+hardware:
+  device: cuda
+  min_vram_gb: 16
+  gpu_count: 1
+  gpu_compute_capability: "8.0"
+  max_walltime: "24:00:00"
+  notes: "~4B params, ~8GB of bf16 weights; comfortable on a 24GB card."
+vllm_args: ["--max-model-len", "16384"]
+extra_body:
+  chat_template_kwargs: {enable_thinking: false}
+notes: >-
+  chat_template_kwargs={"enable_thinking": false} fully disables thinking, same as
+  qwen3-0.6b. --max-model-len 16384: this is a 32K-context model and vLLM sizes its
+  KV cache from the model's declared maximum; 16384 is chosen against measured
+  demand (largest prompt on disk is ~6.4K tokens + a 1024-token completion budget),
+  not guessed -- see model-configs/README.md's context-length caveat for the
+  failure mode if set too low.

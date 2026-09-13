@@ -1,0 +1,16 @@
+id: 2026-09-12-extraction-smoke-01
+project: govscape-extract
+description: >
+  Smoke test for the new run_extraction.py orchestrator (centralized
+  experiment infrastructure restructure). CPU-only (gliner2-base), no truth
+  comparison -- exercises the model-loop + --aggregate wiring only, not
+  evaluate.py's scoring path (already verified separately against the
+  existing baseline/candidate runs).
+seed: 0
+params:
+  experiment_type: extraction
+  dataset: govscape
+  split: sample
+  model_keys: [gliner2-base]
+  limit: 2
+  truth_run: null

@@ -4,8 +4,9 @@ Compares extraction models along two axes: computational time and accuracy.
 Accuracy has no gold-labeled dataset to check against, so it's measured by
 proxy -- the `GROUND_TRUTH_KEY` model's output is treated as ground truth,
 and the others are fuzzy-matched against it per document, per field. See
-`config.py`'s module docstring for the full reproducibility / serving /
-reasoning-mode design rationale.
+`model-configs/README.md` for the full reproducibility / serving /
+reasoning-mode design rationale, and each `model-configs/<key>.yaml`'s own
+`notes:` field for that model's specifics.
 
 Ground truth is `gpt-5.6-terra` (hosted OpenAI API) as of 2026-08-03;
 `gpt-oss-120b`, previously ground truth, is now scored as a candidate
@@ -27,26 +28,44 @@ described in `config.py`. Re-run it and you get slightly different truth.
 
 ## Layout
 
+Centralized experiment infrastructure, per-experiment-type orchestrators over
+shared building blocks:
+
 ```
-config.py       MODEL_REGISTRY + ExperimentConfig -- static, committed, "what did we intend to run"
-runtime.py       git sha / GPU / package-version capture -> RunManifest, per run
+model-configs/<key>.yaml               one file per model/method -- see model-configs/README.md
+dataset-configs/<dataset>.yaml         splits (input_dir) + default windowing for a dataset
+experiment-configs/<dataset>/<type>/<id>/<id>.yaml + out/    one committed config per experiment, run output colocated
+config.py       loads model-configs/ + dataset-configs/ into HardwareRequirement/LLMModelConfig/GlinerModelConfig/DatasetConfig
+utils.py         ExperimentSpec loading + the experiment-level out/run.json, out/metrics.json writers
+runtime.py       git sha / GPU / package-version capture -> RunManifest, per model run
 serving.py        LocalVLLMServer + endpoint_for()'s lookup order (file cache -> env var)
 serve_model.py      uv run -m experiments.serve_model -- start+register a server, foreground
-runner.py             uv run -m experiments.runner   -- extraction + timing
-similarity.py           fuzzy per-field comparators + FUSION_COMPARATORS / AGREEMENT_THRESHOLDS
-evaluate.py               uv run -m experiments.evaluate -- score a candidate run vs. ground truth
-fuse.py                     uv run -m experiments.fuse -- combine the frontier panel's runs into the gold set
-results.py                  uv run -m experiments.results  -- summary table + plots
-results.ipynb                  interactive counterpart to results.py -- same DataFrame + plots, inline
+runner.py             run_model() -- one model's extraction + timing over a dataset split; uv run -m experiments.runner is a thin CLI over it
+evaluate.py               evaluate_run() -- score a candidate run vs. a truth run; uv run -m experiments.evaluate is a thin CLI over it
+run_extraction.py           uv run -m experiments.run_extraction <config.yaml> [--model-key K] [--aggregate] -- "extraction" experiment type
+run_ground_truth.py           uv run -m experiments.run_ground_truth <config.yaml> [--model-key K] [--aggregate] [--promote] -- "ground_truth" experiment type
+results.py                      uv run -m experiments.results  -- summary table + plots
+results.ipynb                      interactive counterpart to results.py -- same DataFrame + plots, inline
 ```
 
-Outputs (`runs/`, `evaluations/`, `reports/` gitignored, regenerate on demand):
-```
-runs/<run_id>/                                 one per runner.py invocation
-evaluations/<candidate_run_id>__vs__<truth_run_id>/
-reports/{summary_table.csv, plots/*.png}
-data/validation_gold/                          the fused ground-truth set -- COMMITTED (see "Ground-truth dataset" below)
-```
+Fuzzy comparators (`FIELD_COMPARATORS`/`FUSION_COMPARATORS`/`AGREEMENT_THRESHOLDS`/`score_document`)
+and the consensus-voting algorithm (`fuse_scalar`/`fuse_list`) live in
+`govscape_extract/similarity.py` and `govscape_extract/consensus.py` -- package
+capability, not experiment-orchestration glue, colocated with `schema.py`
+which they're keyed to.
+
+Outputs: each experiment's `out/` is colocated with its config
+(`experiment-configs/.../<id>/out/`, gitignored), containing `run.json` /
+`config.snapshot.yaml` / `metrics.json` plus per-model run directories under
+`out/runs/<run_name>__<model_key>__<ts>/` (unchanged shape from before this
+restructure) and, for `extraction` experiments with a `truth_run`,
+`out/evaluations/<candidate>__vs__<truth>/`. A `ground_truth` experiment also
+writes `out/fused/` (manifest.json + metadata/ + status.json + flagged.csv +
+fusion_report.json) -- promoting a specific one to the committed
+`data/validation_gold/` is the separate, explicit `--promote` step.
+
+The legacy flat `runs/`, `evaluations/`, `reports/` directories (pre-dating
+this restructure) still hold historical runs and are left as-is.
 
 ## Ground-truth dataset (validation set)
 
@@ -63,25 +82,33 @@ frontier-model panel:
 
 Priority order (left to right) is also the tie-break: on a field with
 consensus, the gold value is taken **verbatim from the highest-ranked model
-in the agreeing set**. `VALIDATION_PANEL_KEYS` in `config.py` is the single
-source of both.
+in the agreeing set**. A `ground_truth`-type experiment's `params.model_keys`
+(in priority order) is the single source of both -- see
+`experiment-configs/govscape/ground_truth/2026-09-12-ground-truth-smoke-01/`
+for a worked example (CPU-only smoke, no live panel calls -- copy that
+config's `params` and point `split: validation` at a real run to do this for
+real).
 
 ```bash
 # 0. Build the validation set (disjoint from data/sample_ocr/)
 uv run data/build_validation.py -n 100 --seed 771
 
-# 1. Run each panel model over it. Smoke-test at --limit 3 first.
-#    All hosted APIs -> --skip-warmup. Needs real API keys in .env
-#    (GOVSCAPE_ANTHROPIC_API_KEY, GOVSCAPE_GEMINI_API_KEY; gpt-5.6-terra uses
-#    GOVSCAPE_LLM_API_KEY). Base URLs default in .env.example.
-uv run -m experiments.runner --model-key gpt-5.6-terra    --experiment validation --run-name gold --skip-warmup
-uv run -m experiments.runner --model-key claude-sonnet-5  --experiment validation --run-name gold --skip-warmup
-uv run -m experiments.runner --model-key gemini-3.7-flash --experiment validation --run-name gold --skip-warmup
+# 1. Run each panel model over it (needs real API keys in .env --
+#    GOVSCAPE_ANTHROPIC_API_KEY, GOVSCAPE_GEMINI_API_KEY; gpt-5.6-terra uses
+#    GOVSCAPE_LLM_API_KEY). Smoke-test with --limit 3 first.
+uv run -m experiments.run_ground_truth <config.yaml> --model-key gpt-5.6-terra
+uv run -m experiments.run_ground_truth <config.yaml> --model-key claude-sonnet-5
+uv run -m experiments.run_ground_truth <config.yaml> --model-key gemini-3.7-flash
 
-# 2. Fuse. With no --run it picks the latest run per VALIDATION_PANEL_KEYS.
-uv run -m experiments.fuse
+# 2. Fuse the three runs + write the experiment-level out/run.json, out/metrics.json:
+uv run -m experiments.run_ground_truth <config.yaml> --aggregate
 
-# 3. Score any candidate run (over data/validation_ocr) against the gold set:
+# 3. Review out/fused/fusion_report.json + flagged.csv, then promote to the
+#    committed gold set (never automatic -- a routine or smoke run should
+#    never silently overwrite it):
+uv run -m experiments.run_ground_truth <config.yaml> --promote
+
+# 4. Score any candidate run (over data/validation_ocr) against the gold set:
 uv run -m experiments.evaluate --truth-run data/validation_gold \
     --candidate-run <candidate run_id>
 ```
@@ -140,18 +167,15 @@ actually runs, e.g. `uv tool install vllm`.
 ## Serving the self-hosted models
 
 Six models are self-served: `gpt-oss-120b`, `qwen3-0.6b`, `qwen3-4b`,
-`olmo3-7b-instruct`, `gemma4-12b-it`, `gemma4-31b-it`. Each has a matching
-pair of SGE scripts in this directory, and each serve script uses a distinct
-port so several can share a node:
-
-| model key | HF model | port | `gpu_memory` | scripts |
-| --- | --- | --- | --- | --- |
-| `gpt-oss-120b` | `openai/gpt-oss-120b` | 8082 | 80G | `{serve,extract}_gpt_oss_120b.sh` |
-| `qwen3-0.6b` | `Qwen/Qwen3-0.6B` | 8082 | 24G | `{serve,extract}_qwen_3_0_6b.sh` |
-| `qwen3-4b` | `Qwen/Qwen3-4B` | 8083 | 24G | `{serve,extract}_qwen3_4b.sh` |
-| `olmo3-7b-instruct` | `allenai/Olmo-3-7B-Instruct` | 8084 | 24G | `{serve,extract}_olmo3_7b_instruct.sh` |
-| `gemma4-12b-it` | `google/gemma-4-12B-it` | 8085 | 48G | `{serve,extract}_gemma4_12b_it.sh` |
-| `gemma4-31b-it` | `google/gemma-4-31B-it` | 8086 | 80G | `{serve,extract}_gemma4_31b_it.sh` |
+`olmo3-7b-instruct`, `gemma4-12b-it`, `gemma4-31b-it`. Each declares
+`serving: local_vllm` in its `model-configs/<key>.yaml` -- **self-contained**:
+`bash experiments/submit.sh <experiment-id> --model-key <key>` submits one
+qsub job per model that starts its vLLM server, waits for health, runs the
+extraction, and tears the server down on exit (see `serving.py`'s
+`endpoint_for`) -- there is no separately-submitted server job a client job
+calls into over the network. GPU resource requests (`gpus`, `gpu_memory`,
+`gpu_c`, `h_rt`) come from that model's own `hardware` block, not a shared
+table -- see `model-configs/README.md`.
 
 The two Gemma entries are the **`-it`** (instruction-tuned) checkpoints, not
 the base `google/gemma-4-12B` / `google/gemma-4-31B` repos. That is not a
@@ -162,129 +186,62 @@ vLLM refuses to serve without one. Both Gemma 4 models are also multimodal
 (`image-text-to-text`); this harness only ever sends text, which is a
 supported subset, not a workaround.
 
-**Which SIF image**: all four new models need
-`vllm-openai_v0.24.0.sif`, which is what every `serve_*.sh` here already
-points at. Checked against the containers' actual model registries rather
-than assumed -- `vllm-gemma4.sif` is vLLM 0.18.2rc1 and, name
+**Which SIF image**: all four candidates added 2026-08-03 need
+`vllm-openai_v0.24.0.sif` -- checked against the containers' actual model
+registries rather than assumed. `vllm-gemma4.sif` is vLLM 0.18.2rc1 and, name
 notwithstanding, does *not* register `Gemma4UnifiedForConditionalGeneration`,
 the architecture `gemma4-12b-it` uses. It would fail on that model while
 succeeding on `gemma4-31b-it`, which is exactly the kind of half-working
-setup worth not discovering at 3am.
+setup worth not discovering at 3am. `experiments/run_job.sh` (the generic
+qsub body `submit.sh` invokes) points at this image and sets
+`$GOVSCAPE_VLLM_COMMAND` accordingly -- see its own comments for the module
+loads and cache-directory bootstrap, carried over from this cluster's
+previously-working (pre-restructure) recipe.
 
-All six default to `serving="external"` in `config.py` -- served manually on a
-remote/persistent GPU box, not launched by `runner.py`. Two ways to point the
-runner at them, in the order `endpoint_for()` tries them:
+vLLM is deliberately **not** a project dependency (it pins torch/transformers
+versions incompatible with `govscape`'s -- confirmed by trying);
+`serving.py`'s `LocalVLLMServer` only ever shells out to a `vllm serve`
+(or Singularity-wrapped `vllm serve`) subprocess, never imports it in-process.
 
-**1. `serve_model.py` (recommended -- no env var to re-set every session).**
-On the GPU box (in a `tmux`/`screen` session so it survives you disconnecting):
+**Manual/interactive serving** (smoke-testing a model without going through
+`submit.sh`/qsub at all) is still available via `serve_model.py`:
 
 ```bash
-uv run -m experiments.serve_model --model-key gpt-oss-120b   # port 8000 by default
 uv run -m experiments.serve_model --model-key qwen3-0.6b --port 8001
-```
-
-This wraps `vllm serve` (using the `vllm_args` already declared per model in
-`config.py`, e.g. gpt-oss-120b's `--reasoning-parser`), streams its normal
-startup logs, and once the health check passes, writes the resolved URL to
-`experiments/.endpoints.json` (gitignored). `runner.py`/`evaluate.py` then
-find it automatically -- no env var needed. Ctrl+C (or `kill`, not `kill -9`)
-stops the server and removes its entry.
-
-This only works automatically if whatever runs `experiments.runner` can see
-that same file -- i.e. you're also on the GPU box (or SSH'd into it), or it's
-on a filesystem shared with wherever the runner runs. A cached entry is only
-ever trusted after a live health check, so a stale or crashed server's row is
-harmless -- it just falls through to option 2. If your setup is genuinely two
-separate machines with no shared filesystem, use option 2 instead (or copy
-`experiments/.endpoints.json` over yourself).
-
-**Serving from a Singularity/Apptainer image instead of a bare `vllm` on
-PATH** (common on HPC clusters): override the base launch command with
-`--vllm-command` (or `$GOVSCAPE_VLLM_COMMAND` to set it once and not repeat
-it per invocation) -- everything else (health check, endpoint file, teardown)
-works unchanged, since Singularity/Apptainer share the host's network
-namespace by default (unlike Docker, no `-p` port mapping needed):
-
-```bash
+# or, from inside a Singularity image:
 uv run -m experiments.serve_model --model-key gpt-oss-120b \
     --vllm-command "singularity exec --nv /path/to/vllm.sif vllm serve"
-
-# or set it once for the session:
-export GOVSCAPE_VLLM_COMMAND="apptainer exec --nv /path/to/vllm.sif vllm serve"
-uv run -m experiments.serve_model --model-key gpt-oss-120b
 ```
 
-`--nv` passes the GPU through to the container. If your `.sif` image's model
-cache isn't already visible inside the container (Singularity mounts `$HOME`
-by default, so usually `~/.cache/huggingface` just works), add a `--bind
-<host-path>:<container-path>` into the `--vllm-command` string.
-
-**2. Env var fallback**, if you'd rather run `vllm serve` by hand or
-`serve_model.py`'s file cache isn't reachable from where the runner runs
-(add to a local `.env`, alongside the existing `GOVSCAPE_LLM_*` vars):
-
-```bash
-GOVSCAPE_GPT_OSS_120B_BASE_URL=http://<gpu-box>:8082/v1
-GOVSCAPE_QWEN3_0_6B_BASE_URL=http://<gpu-box>:8082/v1
-GOVSCAPE_QWEN3_4B_BASE_URL=http://<gpu-box>:8083/v1
-GOVSCAPE_OLMO3_7B_INSTRUCT_BASE_URL=http://<gpu-box>:8084/v1
-GOVSCAPE_GEMMA4_12B_IT_BASE_URL=http://<gpu-box>:8085/v1
-GOVSCAPE_GEMMA4_31B_IT_BASE_URL=http://<gpu-box>:8086/v1
-GOVSCAPE_LLM_API_KEY=EMPTY   # vLLM ignores it, but the OpenAI SDK requires a non-empty string
-```
-
-(These are also listed, blank, in the repo-root `.env.example`.)
-
-`--base-url` on `runner.py` overrides both of the above for a single
-invocation, e.g. for a quick test against Ollama.
+This streams `vllm serve`'s normal startup logs and, once healthy, writes the
+resolved URL to `experiments/.endpoints.json` (gitignored) -- but only
+matters for a model whose `model-configs/<key>.yaml` still says
+`serving: external` (a hosted API, or a self-served model you've
+deliberately reverted for manual testing); `local_vllm` models never consult
+that file, since `endpoint_for()` launches and owns the server itself.
+`--base-url` on `runner.py`/`run_extraction.py`/`run_ground_truth.py`
+overrides endpoint resolution entirely for a single invocation, e.g. for a
+quick test against Ollama.
 
 ## Usage
 
 ```bash
-# 0. On the GPU box: start the LLM servers (see above), leave them running.
-#    On SGE, submit the paired scripts instead of running these by hand --
-#    the extract job must be held until the server job is up, and -hold_jid
-#    has to be a qsub argument, not a directive inside the extract script:
-#      qsub serve_gemma4_31b_it.sh                             # note the job id
-#      qsub -hold_jid <that job id> extract_gemma4_31b_it.sh
-#    Submitting both unheld starts extraction before vLLM is listening, and
-#    endpoint_for() fails with "no reachable endpoint found".
-uv run -m experiments.serve_model --model-key gpt-oss-120b      --port 8082 &
-uv run -m experiments.serve_model --model-key qwen3-0.6b        --port 8082 &
-uv run -m experiments.serve_model --model-key qwen3-4b          --port 8083 &
-uv run -m experiments.serve_model --model-key olmo3-7b-instruct --port 8084 &
-uv run -m experiments.serve_model --model-key gemma4-12b-it     --port 8085 &
-uv run -m experiments.serve_model --model-key gemma4-31b-it     --port 8086 &
+# 0. Submit self-contained GPU jobs for the local-vllm candidates (each
+#    starts its own server, runs, tears down -- see "Serving" above), and
+#    run hosted-API / CPU model_keys directly (no GPU needed):
+bash experiments/submit.sh <experiment-id>                        # every params.model_keys entry
+bash experiments/submit.sh <experiment-id> --model-key qwen3-0.6b   # just one
 
-# 1. Run extraction for each model (writes runs/<run_id>/)
-#    gpt-5.6-terra is a hosted API: no server to start, but it needs a real
-#    GOVSCAPE_LLM_API_KEY in the repo-root .env (runner.py load_dotenv()s it).
-#    --skip-warmup: the warmup call amortizes local model load, which a
-#    hosted API doesn't have, so it just bills you for docs[0] twice.
-uv run -m experiments.runner --model-key gpt-5.6-terra     --run-name baseline --skip-warmup
-uv run -m experiments.runner --model-key gpt-oss-120b      --run-name baseline
-uv run -m experiments.runner --model-key qwen3-0.6b        --run-name baseline
-uv run -m experiments.runner --model-key gliner2-base      --run-name baseline
-uv run -m experiments.runner --model-key qwen3-4b          --run-name candidate
-uv run -m experiments.runner --model-key olmo3-7b-instruct --run-name candidate
-uv run -m experiments.runner --model-key gemma4-12b-it     --run-name candidate
-uv run -m experiments.runner --model-key gemma4-31b-it     --run-name candidate
+# 1. Once `qstat` shows the submitted jobs finished, score + write the
+#    experiment-level out/run.json and out/metrics.json:
+uv run -m experiments.run_extraction <config.yaml> --aggregate
 
-# 1b. If a run dies partway (network drop, walltime kill, Ctrl+C), continue it
-#     in place -- same run_id, same directory, no re-extraction of what's done:
-uv run -m experiments.runner --model-key gpt-5.6-terra --resume <run_id> --skip-warmup
+# 1b. If a run dies partway (network drop, walltime kill, Ctrl+C), continue
+#     it in place -- same run_id, same directory, no re-extraction of what's
+#     done. Find the run_id under out/runs/, then:
+uv run -m experiments.runner --model-key <key> --resume <run_id>
 
-# 2. Score each candidate against the ground-truth run (writes evaluations/<...>/)
-#    -- one invocation per candidate run_id, including the four added 2026-08-03.
-uv run -m experiments.evaluate --truth-run <gpt-5.6-terra run_id> --candidate-run <gpt-oss-120b run_id>
-uv run -m experiments.evaluate --truth-run <gpt-5.6-terra run_id> --candidate-run <qwen3-0.6b run_id>
-uv run -m experiments.evaluate --truth-run <gpt-5.6-terra run_id> --candidate-run <gliner2-base run_id>
-uv run -m experiments.evaluate --truth-run <gpt-5.6-terra run_id> --candidate-run <qwen3-4b run_id>
-uv run -m experiments.evaluate --truth-run <gpt-5.6-terra run_id> --candidate-run <olmo3-7b-instruct run_id>
-uv run -m experiments.evaluate --truth-run <gpt-5.6-terra run_id> --candidate-run <gemma4-12b-it run_id>
-uv run -m experiments.evaluate --truth-run <gpt-5.6-terra run_id> --candidate-run <gemma4-31b-it run_id>
-
-# 3. Compile the summary table + plots (writes reports/)
+# 2. Compile the summary table + plots (writes reports/)
 uv run -m experiments.results
 ```
 

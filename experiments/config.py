@@ -1,84 +1,48 @@
-"""Static, hand-authored experiment configuration -- the "what did we intend
-to run" half of reproducibility.
+"""Loads experiment configuration from `experiments/model-configs/*.yaml` and
+`experiments/dataset-configs/*.yaml` -- the "what did we intend to run" half of
+reproducibility.
 
 This module answers *intent*: which models, with which parameters, on what
-hardware. It should never be filled in by introspecting the machine it
-happens to run on -- that's experiments/runtime.py's job (git sha, detected
-GPU, installed package versions), captured fresh into a RunManifest at the
-start of every run and written alongside that run's output, not stored here.
+hardware, over which dataset split. It should never be filled in by
+introspecting the machine it happens to run on -- that's experiments/runtime.py's
+job (git sha, detected GPU, installed package versions), captured fresh into a
+RunManifest at the start of every run and written alongside that run's output,
+not stored here.
 
-Reproducibility caveat, stated plainly: `seed` + `temperature=0` is
-best-effort determinism, not a guarantee. GPU batched inference (vLLM, and
-torch under GLiNER) is not bit-reproducible across runs/hardware due to
-kernel/batching nondeterminism. The seed and temperature are captured for
-traceability, not promised as exact reproduction.
+Per-model rationale (reasoning-mode switches, context-length derivations,
+serving choices) lives in each model's own YAML `notes:` field; cross-cutting
+rationale lives in experiments/model-configs/README.md. This module only
+defines the schema those files are validated against (HardwareRequirement /
+LLMModelConfig / GlinerModelConfig / DatasetConfig) and loads them.
 
-Reasoning-mode caveat: several of the configured LLMs are "thinking" models,
-which inflates per-document latency and risks breaking the structured-JSON
-response format if left on. Where an off switch exists it is taken, so the
-models are compared as close to like-for-like as their families allow:
-  - qwen3-0.6b, qwen3-4b: `chat_template_kwargs={"enable_thinking": False}`
-    fully disables thinking.
-  - gemma4-12b-it, gemma4-31b-it: also thinking-capable, but their chat
-    template's `enable_thinking` already defaults to *false* (verified
-    against the published `chat_template.jinja`), and the non-thinking
-    branch pre-fills an empty thought channel. Nothing to pass -- left out
-    deliberately rather than overlooked.
-  - olmo3-7b-instruct: not a thinking model at all. Olmo 3 ships reasoning
-    as a separate `Olmo-3-7B-Think` checkpoint; the Instruct one configured
-    here has no reasoning mode to disable.
-  - gpt-oss-120b: `reasoning_effort="low"`. Harmony-format gpt-oss models
-    always do *some* reasoning -- there is no full "off" switch analogous to
-    Qwen3's -- so "low" is the closest available approximation. This means
-    gpt-oss-120b's timing/accuracy numbers carry a residual reasoning-token
-    cost that the others' don't; that asymmetry is a known limitation of
-    comparing these specific model families, not something this harness can
-    equalize, and should be called out when interpreting results.py's
-    output.
-
-Context-length caveat: the four candidates added on 2026-08-03 (qwen3-4b,
-olmo3-7b-instruct, gemma4-{12b,31b}-it) each pin `--max-model-len 16384` in
-`vllm_args`; gpt-oss-120b and qwen3-0.6b deliberately keep the settings they
-were already served and scored with. These are 32K-256K-context models,
-and vLLM sizes its KV cache from the model's *declared* maximum, so left
-alone gemma4-31b-it's 256K window fails to allocate on an 80GB card before
-it serves a single request. 16384 is chosen against measured demand, not
-guessed: the largest prompt across the runs on disk is ~6.4K tokens, plus a
-1024-token completion budget. Note the failure mode if it were set too low
--- a mid-run 400 on one long document, not a startup error -- which is why
-the headroom is deliberate rather than tight.
-
-Serving: the self-served LLMs default to `serving="external"` -- served
-manually on a remote/persistent GPU box, not launched by the runner.
-`base_url_env` names the environment variable (set in a local `.env`, never
-hardcoded here) that holds the actual endpoint URL; `vllm_args` doubles as
-documentation of the `vllm serve` invocation expected on that remote box,
-even though this project doesn't invoke it directly. See experiments/README.md
-for the exact commands. A local-launch path (serving="local_vllm") exists
-via experiments/serving.py for future convenience/smoke-testing, but is not
-the default for any model configured below.
-
-"External" also covers a commercial API, which is the same situation from
-this project's point of view -- somebody else owns the server's lifecycle.
-Such a model simply declares no `base_url_env`, and endpoint_for() resolves
-it to None, i.e. the OpenAI SDK's own default endpoint. It still needs an
-API key in `api_key_env`, and unlike the vLLM boxes that key is real.
+MODEL_REGISTRY's declaration order matters -- results.py assigns plot colors by
+it -- so it comes from MODEL_KEY_ORDER (fixed here, not from directory-listing
+order, which is not a stable thing to depend on).
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Literal, Optional, Union
+
+import yaml
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+MODEL_CONFIGS_DIR = Path(__file__).resolve().parent / "model-configs"
+DATASET_CONFIGS_DIR = Path(__file__).resolve().parent / "dataset-configs"
 
 
 @dataclass(frozen=True)
 class HardwareRequirement:
     """Declarative hardware expectation -- documentation plus a guard the
-    runner can check, not an auto-provisioner."""
+    runner/submit.sh can check, not an auto-provisioner."""
 
     device: Literal["cpu", "cuda", "mps", "none"] = "cpu"
     min_vram_gb: Optional[float] = None  # None => no GPU needed
     gpu_count: int = 0
+    gpu_compute_capability: Optional[str] = None  # submit.sh's `-l gpu_c=...`
+    max_walltime: str = "24:00:00"  # submit.sh's `-l h_rt=...`
     notes: str = ""
 
 
@@ -88,7 +52,7 @@ class LLMModelConfig:
     model: str  # passed to LLMExtractor(model=...) / expected `vllm serve <model>` name
     role: Literal["ground_truth", "candidate"] = "candidate"
     serving: Literal["local_vllm", "external"] = "external"
-    base_url_env: Optional[str] = None  # env var *name* holding the endpoint URL
+    base_url_env: Optional[str] = None  # env var *name* holding the endpoint URL (serving="external" only)
     api_key_env: str = "GOVSCAPE_LLM_API_KEY"
     hardware: HardwareRequirement = field(default_factory=HardwareRequirement)
     vllm_args: list[str] = field(default_factory=list)  # local_vllm argv, or documents the expected remote invocation
@@ -100,10 +64,10 @@ class LLMModelConfig:
     extra_body: dict = field(default_factory=dict)  # passthrough chat-completion kwargs (thinking-mode knobs)
     # Structured-output hint sent to the endpoint. `{"type": "json_object"}` for
     # most; None to omit it entirely (Anthropic's OpenAI-compat layer 400s on
-    # json_object -- "response_format.type: Input should be 'json_schema'"). JSON
-    # parsing does not depend on this either way -- LLMExtractor.loads_lenient
-    # handles fenced / unstructured output.
+    # json_object). JSON parsing does not depend on this either way --
+    # LLMExtractor.loads_lenient handles fenced / unstructured output.
     response_format: Optional[dict] = field(default_factory=lambda: {"type": "json_object"})
+    notes: str = ""  # model-specific rationale not captured by another field
 
 
 @dataclass(frozen=True)
@@ -116,250 +80,82 @@ class GlinerModelConfig:
             device="cpu", notes="runs on CPU; GPU is an optional speedup, not required."
         )
     )
+    notes: str = ""
 
 
 ModelConfig = Union[LLMModelConfig, GlinerModelConfig]
 
-
-MODEL_REGISTRY: dict[str, ModelConfig] = {
-    "gpt-5.6-terra": LLMModelConfig(
-        key="gpt-5.6-terra",
-        model="gpt-5.6-terra",
-        role="ground_truth",
-        serving="external",  # commercial API; no base_url_env => SDK default endpoint
-        base_url_env=None,
-        hardware=HardwareRequirement(
-            device="none",
-            notes="hosted API -- no local hardware; wall-clock timings include "
-            "network + provider queueing and are NOT comparable to the "
-            "locally-served models on results.py's computational-time axis.",
-        ),
-        # This model rejects `max_tokens` outright ("use max_completion_tokens
-        # instead"), so the budget goes through extra_body. 4096 rather than
-        # the 1024 the self-served models use: reasoning tokens count against
-        # the completion budget, and a truncated response fails json.loads.
-        max_tokens=None,
-        extra_body={"max_completion_tokens": 4096},
-        # Rejects any explicit temperature ("only the default (1) is
-        # supported"), so temperature=0 determinism is not available here at
-        # all -- see the reproducibility caveat in this module's docstring.
-        temperature=None,
-        # The API accepts `seed`, but it's meaningless at temperature 1 --
-        # None so the manifest doesn't record a seed implying determinism
-        # this run doesn't have.
-        seed=None,
-        # 1000 sequential calls with no resume path: a transient 429/5xx
-        # that exhausts retries writes a null for that document and it's
-        # only recoverable by re-running the whole set.
-        max_retries=6,
-    ),
-    "gpt-oss-120b": LLMModelConfig(
-        key="gpt-oss-120b",
-        model="openai/gpt-oss-120b",
-        role="candidate",  # demoted: gpt-5.6-terra is the ground truth as of 2026-08-03
-        serving="external",
-        base_url_env="GOVSCAPE_GPT_OSS_120B_BASE_URL",
-        hardware=HardwareRequirement(
-            device="cuda",
-            min_vram_gb=80,
-            gpu_count=1,
-            notes="~120B params / ~5B active MoE; needs 80GB-class VRAM even quantized "
-            "(A100/H100 80GB, or multi-GPU tensor-parallel).",
-        ),
-        vllm_args=["--reasoning-parser", "openai_gptoss"],
-        extra_body={"reasoning_effort": "low"},
-    ),
-    "qwen3-0.6b": LLMModelConfig(
-        key="qwen3-0.6b",
-        model="Qwen/Qwen3-0.6B",
-        role="candidate",
-        serving="external",
-        base_url_env="GOVSCAPE_QWEN3_0_6B_BASE_URL",
-        hardware=HardwareRequirement(
-            device="cuda",
-            min_vram_gb=4,
-            gpu_count=1,
-            notes="trivially small; also runs on CPU for smoke testing, just slow.",
-        ),
-        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
-    ),
-    "gliner2-base": GlinerModelConfig(key="gliner2-base"),
-    # --- candidates added 2026-08-03. Appended rather than slotted in beside
-    # the other LLMs on purpose: results.py assigns plot colors by this dict's
-    # declaration order, so inserting above gliner2-base would silently
-    # recolor it in every previously-generated report.
-    "qwen3-4b": LLMModelConfig(
-        key="qwen3-4b",
-        model="Qwen/Qwen3-4B",
-        role="candidate",
-        serving="external",
-        base_url_env="GOVSCAPE_QWEN3_4B_BASE_URL",
-        hardware=HardwareRequirement(
-            device="cuda",
-            min_vram_gb=16,
-            gpu_count=1,
-            notes="~4B params, ~8GB of bf16 weights; comfortable on a 24GB card.",
-        ),
-        vllm_args=["--max-model-len", "16384"],
-        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
-    ),
-    "olmo3-7b-instruct": LLMModelConfig(
-        key="olmo3-7b-instruct",
-        model="allenai/Olmo-3-7B-Instruct",
-        role="candidate",
-        serving="external",
-        base_url_env="GOVSCAPE_OLMO3_7B_INSTRUCT_BASE_URL",
-        hardware=HardwareRequirement(
-            device="cuda",
-            min_vram_gb=24,
-            gpu_count=1,
-            notes="~7.3B params, ~15GB of bf16 weights; a 24GB card leaves enough "
-            "for the KV cache at the 16384 context pinned below.",
-        ),
-        vllm_args=["--max-model-len", "16384"],
-        # No thinking knob: reasoning is a separate Olmo-3-7B-Think checkpoint.
-    ),
-    "gemma4-12b-it": LLMModelConfig(
-        key="gemma4-12b-it",
-        model="google/gemma-4-12B-it",
-        role="candidate",
-        serving="external",
-        base_url_env="GOVSCAPE_GEMMA4_12B_IT_BASE_URL",
-        hardware=HardwareRequirement(
-            device="cuda",
-            min_vram_gb=48,
-            gpu_count=1,
-            notes="~12B params, ~24GB of bf16 weights. Gemma4UnifiedForConditionalGeneration "
-            "-- an encoder-free multimodal model, so vLLM reserves capacity for image/audio "
-            "input this text-only harness never sends; 48GB leaves room for that plus the KV "
-            "cache. Needs vLLM >= 0.24 (see experiments/README.md on SIF image choice).",
-        ),
-        vllm_args=["--max-model-len", "16384"],
-        # Thinking-capable, but its chat template's `enable_thinking` already
-        # defaults to false -- see this module's reasoning-mode caveat.
-    ),
-    "gemma4-31b-it": LLMModelConfig(
-        key="gemma4-31b-it",
-        model="google/gemma-4-31B-it",
-        role="candidate",
-        serving="external",
-        base_url_env="GOVSCAPE_GEMMA4_31B_IT_BASE_URL",
-        hardware=HardwareRequirement(
-            device="cuda",
-            min_vram_gb=80,
-            gpu_count=1,
-            notes="~32.7B params, ~65GB of bf16 weights -- 80GB-class VRAM (A100/H100 80GB) "
-            "or multi-GPU tensor-parallel. Largest model here that isn't MoE, so all 65GB is "
-            "active weight, unlike gpt-oss-120b's ~5B active.",
-        ),
-        vllm_args=["--max-model-len", "16384"],
-        # Same as gemma4-12b-it: thinking defaults off in the chat template.
-    ),
-    # --- Frontier-model consensus panel for the "validation" experiment.
-    # These three run over data/validation_ocr and their outputs are fused by
-    # experiments/fuse.py into the committed ground-truth set
-    # (data/validation_gold/). role="candidate" because none of them is THE
-    # single ground truth -- the fused result is (see VALIDATION_PANEL_KEYS).
-    # Both are reached through their provider's OpenAI-compat endpoint, so
-    # the existing LLMExtractor works unchanged; the base URL and a *real* API
-    # key come from the env vars named below (set them in the repo-root .env,
-    # blank templates in .env.example).
-    "claude-sonnet-5": LLMModelConfig(
-        key="claude-sonnet-5",
-        model="claude-sonnet-5",
-        role="candidate",
-        serving="external",  # commercial API -- Anthropic owns the server lifecycle
-        base_url_env="GOVSCAPE_ANTHROPIC_BASE_URL",  # e.g. https://api.anthropic.com/v1/
-        api_key_env="GOVSCAPE_ANTHROPIC_API_KEY",
-        hardware=HardwareRequirement(
-            device="none",
-            notes="hosted API (Anthropic OpenAI-compat endpoint); wall-clock timings "
-            "include network + provider queueing.",
-        ),
-        # Anthropic's OpenAI-compat layer 400s on response_format={"type":
-        # "json_object"} ("Input should be 'json_schema'"). JSON reliability
-        # rests on the prompt plus LLMExtractor's lenient parse.
-        response_format=None,
-        # This model 400s on an explicit temperature ("`temperature` is
-        # deprecated for this model") -- None omits the parameter. seed is
-        # likewise meaningless here, so None rather than a value implying a
-        # determinism this run doesn't have (same reasoning as gpt-5.6-terra).
-        temperature=None,
-        seed=None,
-        # 8192, not the self-served 1024: Sonnet 5 emits reasoning tokens that
-        # count against this budget, and at 2048 a handful of documents hit
-        # finish_reason="length" with the JSON never emitted (empty content).
-        # Same failure mode gpt-5.6-terra's max_completion_tokens=4096 guards
-        # against; headroom is cheap on a 100-doc ground-truth pass.
-        max_tokens=8192,
-    ),
-    "gemini-3.7-flash": LLMModelConfig(
-        key="gemini-3.7-flash",
-        model="gemini-3.7-flash",
-        role="candidate",
-        serving="external",  # commercial API -- Google owns the server lifecycle
-        base_url_env="GOVSCAPE_GEMINI_BASE_URL",  # e.g. https://generativelanguage.googleapis.com/v1beta/openai/
-        api_key_env="GOVSCAPE_GEMINI_API_KEY",
-        hardware=HardwareRequirement(
-            device="none",
-            notes="hosted API (Google Gemini OpenAI-compat endpoint); wall-clock "
-            "timings include network + provider queueing.",
-        ),
-        # Gemini's OpenAI-compat endpoint rejects an unknown `seed` field
-        # ("Unknown name \"seed\": Cannot find field"); it accepts temperature
-        # and response_format={"type": "json_object"}.
-        seed=None,
-        max_tokens=2048,
-    ),
-}
+# Fixed, repo-wide: which models exist and the display order results.py colors
+# plots by. Adding a model means adding it here *and* a model-configs/<key>.yaml;
+# load_model_registry() asserts the two stay in sync.
+MODEL_KEY_ORDER: list[str] = [
+    "gpt-5.6-terra",
+    "gpt-oss-120b",
+    "qwen3-0.6b",
+    "gliner2-base",
+    "qwen3-4b",
+    "olmo3-7b-instruct",
+    "gemma4-12b-it",
+    "gemma4-31b-it",
+    "claude-sonnet-5",
+    "gemini-3.7-flash",
+]
 
 GROUND_TRUTH_KEY = "gpt-5.6-terra"
 
-# The three models whose per-field outputs experiments/fuse.py combines by
-# 2-of-3 fuzzy agreement into data/validation_gold/. Order is the tie-break
-# priority: when a field has consensus, the value is taken verbatim from the
-# highest-ranked model present in the agreeing set.
+# The frontier panel experiments.run_ground_truth fuses by 2-of-3 fuzzy
+# agreement into data/validation_gold/. Order is the tie-break priority: when a
+# field has consensus, the value is taken verbatim from the highest-ranked
+# model present in the agreeing set.
 VALIDATION_PANEL_KEYS = ["gpt-5.6-terra", "claude-sonnet-5", "gemini-3.7-flash"]
 
 
+def _hardware_from_dict(data: Optional[dict]) -> HardwareRequirement:
+    return HardwareRequirement(**(data or {}))
+
+
+def _load_model_config(path: Path) -> ModelConfig:
+    data = yaml.safe_load(path.read_text())
+    kind = data.pop("kind")
+    hardware = _hardware_from_dict(data.pop("hardware", None))
+    if kind == "llm":
+        config = LLMModelConfig(hardware=hardware, **data)
+    elif kind == "gliner":
+        config = GlinerModelConfig(hardware=hardware, **data)
+    else:
+        raise ValueError(f"{path}: unknown kind {kind!r} (expected 'llm' or 'gliner')")
+    assert config.key == path.stem, f"{path}: key {config.key!r} does not match filename"
+    return config
+
+
+def load_model_registry(directory: Path = MODEL_CONFIGS_DIR, order: list[str] = MODEL_KEY_ORDER) -> dict[str, ModelConfig]:
+    loaded = {path.stem: _load_model_config(path) for path in sorted(directory.glob("*.yaml"))}
+    missing = set(order) - set(loaded)
+    extra = set(loaded) - set(order)
+    assert not missing and not extra, (
+        f"MODEL_KEY_ORDER out of sync with {directory}: missing={sorted(missing)} extra={sorted(extra)}"
+    )
+    return {key: loaded[key] for key in order}
+
+
 @dataclass(frozen=True)
-class ExperimentConfig:
-    name: str
-    model_keys: list[str]
-    input_dir: str = "data/sample_ocr"
-    limit: Optional[int] = None
+class DatasetSplit:
+    input_dir: str
+
+
+@dataclass(frozen=True)
+class DatasetConfig:
+    dataset: str
+    splits: dict[str, DatasetSplit]
     max_pages: int = 3
     max_chars: int = 9000
-    seed: int = 0
-    output_root: str = "experiments/runs"
 
 
-DEFAULT_EXPERIMENT = ExperimentConfig(
-    name="baseline",
-    model_keys=[
-        "gpt-5.6-terra",
-        "gpt-oss-120b",
-        "qwen3-0.6b",
-        "gliner2-base",
-        "qwen3-4b",
-        "olmo3-7b-instruct",
-        "gemma4-12b-it",
-        "gemma4-31b-it",
-    ],
-)
+def load_dataset_config(name: str, directory: Path = DATASET_CONFIGS_DIR) -> DatasetConfig:
+    path = directory / f"{name}.yaml"
+    data = yaml.safe_load(path.read_text())
+    splits = {split_name: DatasetSplit(**split) for split_name, split in data.pop("splits").items()}
+    return DatasetConfig(splits=splits, **data)
 
-# The frontier-model panel run over the held-out validation set. Same
-# windowing as the baseline experiment (so a candidate scored against the
-# fused gold set and against the baseline sees identical input text), but a
-# different input directory. fuse.py asserts all three panel runs share this
-# windowing before combining them.
-VALIDATION_EXPERIMENT = ExperimentConfig(
-    name="validation",
-    model_keys=list(VALIDATION_PANEL_KEYS),
-    input_dir="data/validation_ocr",
-)
 
-EXPERIMENT_REGISTRY: dict[str, ExperimentConfig] = {
-    DEFAULT_EXPERIMENT.name: DEFAULT_EXPERIMENT,
-    VALIDATION_EXPERIMENT.name: VALIDATION_EXPERIMENT,
-}
+MODEL_REGISTRY: dict[str, ModelConfig] = load_model_registry()

@@ -1,0 +1,24 @@
+key: gpt-oss-120b
+kind: llm
+model: openai/gpt-oss-120b
+role: candidate  # demoted: gpt-5.6-terra is the ground truth as of 2026-08-03
+serving: local_vllm  # was "external" -- self-contained job now starts+stops its own server
+hardware:
+  device: cuda
+  min_vram_gb: 80
+  gpu_count: 1
+  gpu_compute_capability: "9.0"
+  max_walltime: "24:00:00"
+  notes: >-
+    ~120B params / ~5B active MoE; needs 80GB-class VRAM even quantized (A100/H100
+    80GB, or multi-GPU tensor-parallel).
+vllm_args: ["--reasoning-parser", "openai_gptoss"]
+extra_body:
+  reasoning_effort: low
+notes: >-
+  reasoning_effort="low": harmony-format gpt-oss models always do some reasoning --
+  there is no full "off" switch analogous to Qwen3's -- so "low" is the closest
+  available approximation. This means this model's timing/accuracy numbers carry a
+  residual reasoning-token cost the others don't; a known limitation of comparing
+  these specific model families, not something this harness can equalize, and should
+  be called out when interpreting results.py's output.
