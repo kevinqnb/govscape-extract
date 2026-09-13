@@ -1,0 +1,18 @@
+key: qwen3-0.6b
+kind: llm
+model: Qwen/Qwen3-0.6B
+role: candidate
+serving: local_vllm  # was "external"
+hardware:
+  device: cuda
+  min_vram_gb: 4
+  gpu_count: 1
+  gpu_compute_capability: "7.0"
+  max_walltime: "24:00:00"
+  notes: "trivially small; also runs on CPU for smoke testing, just slow."
+extra_body:
+  chat_template_kwargs: {enable_thinking: false}
+notes: >-
+  chat_template_kwargs={"enable_thinking": false} fully disables Qwen3's thinking
+  mode, so timing/accuracy stay comparable to the non-thinking model families (see
+  model-configs/README.md's reasoning-mode caveat).

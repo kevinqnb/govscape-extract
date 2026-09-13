@@ -1,0 +1,7 @@
+key: gliner2-base
+kind: gliner
+model_name: fastino/gliner2-base-v1
+threshold: 0.5
+hardware:
+  device: cpu
+  notes: "runs on CPU; GPU is an optional speedup, not required."

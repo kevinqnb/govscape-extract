@@ -1,0 +1,13 @@
+id: 2026-09-12-ground-truth-smoke-01
+project: govscape-extract
+description: >
+  Smoke test for run_ground_truth.py's --aggregate (centralized experiment
+  infrastructure restructure). Uses copies of pre-existing panel runs already
+  on disk (no new frontier-model API calls) to verify the ported fusion logic
+  against experiments/fuse.py's original output on the same data.
+seed: 771
+params:
+  experiment_type: ground_truth
+  dataset: govscape
+  split: validation
+  model_keys: [gpt-5.6-terra, claude-sonnet-5, gemini-3.7-flash]

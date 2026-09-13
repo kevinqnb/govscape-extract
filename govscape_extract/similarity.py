@@ -1,5 +1,6 @@
 """Fuzzy field-level comparators for scoring extracted metadata against a
-ground-truth model's output (see experiments/evaluate.py).
+ground-truth model's output (see experiments/evaluate.py) and for fusing a
+panel's outputs into a ground-truth value (see govscape_extract/consensus.py).
 
 There's no gold-labeled dataset for this task, so extracted strings are
 compared to another model's output rather than a fixed reference -- they
@@ -11,6 +12,10 @@ function's docstring for the rationale.
 Null-handling convention applied uniformly by every comparator: both sides
 empty -> 1.0 (agreement that the field isn't present); exactly one side
 empty -> 0.0; both present -> the comparator's real score.
+
+Requires the `experiments` extra (`rapidfuzz`, `python-dateutil`) -- not a
+core govscape_extract dependency, since nothing in the package's default
+import path (govscape_extract/__init__.py) pulls this module in eagerly.
 """
 
 from __future__ import annotations
@@ -215,17 +220,18 @@ assert set(FIELD_COMPARATORS) == {f.name for f in FIELDS}, (
 )
 
 
-# --- Fusion (experiments/fuse.py) -------------------------------------------
-# Combining three models' outputs into one ground-truth value asks a
-# *boolean* question -- "are these two the same value?" -- which needs a
-# stricter bar than evaluate.py's "does this candidate deserve partial
-# credit?". Two knobs, both with drift asserts against FIELDS:
+# --- Fusion (govscape_extract/consensus.py) ---------------------------------
+# Combining a panel's outputs into one ground-truth value asks a *boolean*
+# question -- "are these two the same value?" -- which needs a stricter bar
+# than evaluate.py's "does this candidate deserve partial credit?". Two
+# knobs, both with drift asserts against FIELDS:
 #
 #   FUSION_COMPARATORS   -- same shape as FIELD_COMPARATORS, but free-text
 #                           fields use a length-guarded comparator.
-#   AGREEMENT_THRESHOLDS -- score at/above which fuse.py treats two values as
-#                           equal. Higher than evaluate.py's 0.75 for free
-#                           text; exact (1.0) for closed sets and identifiers.
+#   AGREEMENT_THRESHOLDS -- score at/above which consensus.py treats two
+#                           values as equal. Higher than evaluate.py's 0.75
+#                           for free text; exact (1.0) for closed sets and
+#                           identifiers.
 
 
 def guarded_free_text_similarity(a: Optional[str], b: Optional[str]) -> float:
@@ -256,8 +262,8 @@ def guarded_free_text_similarity(a: Optional[str], b: Optional[str]) -> float:
 
 
 def list_element_similarity(a: Optional[str], b: Optional[str]) -> float:
-    """One element vs one element, for fuse.py's element-wise consensus on
-    `authors` / `geographic_coverage`.
+    """One element vs one element, for consensus.py's element-wise consensus
+    on `authors` / `geographic_coverage`.
 
     `authors_similarity` (evaluate.py) uses bare `token_set_ratio` here, which
     is fine for partial-credit scoring but manufactures consensus during
@@ -289,7 +295,7 @@ FUSION_COMPARATORS = {
 }
 
 # Per-field "same value" thresholds. authors / geographic_coverage are scored
-# per element by fuse.py (not as whole lists), so their entry is the
+# per element by consensus.py (not as whole lists), so their entry is the
 # element-match bar, matching authors_similarity's calibrated 0.75.
 AGREEMENT_THRESHOLDS = {
     "title": 0.90,

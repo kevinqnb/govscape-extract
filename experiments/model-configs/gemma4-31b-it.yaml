@@ -1,0 +1,17 @@
+key: gemma4-31b-it
+kind: llm
+model: google/gemma-4-31B-it
+role: candidate
+serving: local_vllm  # was "external"
+hardware:
+  device: cuda
+  min_vram_gb: 80
+  gpu_count: 1
+  gpu_compute_capability: "9.0"
+  max_walltime: "24:00:00"
+  notes: >-
+    ~32.7B params, ~65GB of bf16 weights -- 80GB-class VRAM (A100/H100 80GB) or
+    multi-GPU tensor-parallel. Largest model here that isn't MoE, so all 65GB is
+    active weight, unlike gpt-oss-120b's ~5B active.
+vllm_args: ["--max-model-len", "16384"]
+notes: "Same as gemma4-12b-it: thinking defaults off in the chat template."

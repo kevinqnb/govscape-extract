@@ -1,0 +1,30 @@
+key: gpt-5.6-terra
+kind: llm
+model: gpt-5.6-terra
+role: ground_truth
+serving: external  # commercial API; no base_url_env => SDK default endpoint
+hardware:
+  device: none
+  notes: >-
+    hosted API -- no local hardware; wall-clock timings include network + provider
+    queueing and are NOT comparable to the locally-served models on results.py's
+    computational-time axis.
+# Rejects max_tokens outright ("use max_completion_tokens instead"), so the budget
+# goes through extra_body.
+max_tokens: null
+extra_body:
+  max_completion_tokens: 4096  # not the self-served 1024: reasoning tokens count against
+                                # this budget, and a truncated response fails json.loads.
+# Rejects any explicit temperature ("only the default (1) is supported") -- see
+# model-configs/README.md's reproducibility caveat.
+temperature: null
+# Meaningless at temperature 1 -- null rather than implying a determinism this run
+# doesn't have.
+seed: null
+# 1000 sequential calls with no resume path: a transient 429/5xx that exhausts
+# retries writes a null for that document, recoverable only by re-running the whole set.
+max_retries: 6
+notes: >-
+  Ground truth for the "extraction" experiment type as of 2026-08-03. Also
+  the highest-priority member of the frontier panel used by the "ground_truth"
+  experiment type (see VALIDATION_PANEL_KEYS in config.py).

@@ -241,12 +241,15 @@ experiments/evaluations/
 experiments/reports/
 experiments/.endpoints.json
 
+# Per-experiment run output under the centralized experiment-configs/ layout --
+# scoped to the out/ segment only, so the sibling <id>.yaml stays tracked.
+experiments/experiment-configs/**/out/
+
 # Claude
 CLAUDE.md
 
 # Experiments
 *.DS_Store
 experiments/out/*
-experiments/*.sh
 notes
 CLAUDE.local.md

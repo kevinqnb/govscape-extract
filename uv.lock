@@ -839,7 +839,9 @@ experiments = [
     { name = "ipykernel" },
     { name = "matplotlib" },
     { name = "pandas" },
+    { name = "pytest" },
     { name = "python-dateutil" },
+    { name = "pyyaml" },
     { name = "rapidfuzz" },
 ]
 
@@ -854,8 +856,10 @@ requires-dist = [
     { name = "openai", specifier = ">=2.46.0" },
     { name = "pandas", marker = "extra == 'experiments'", specifier = ">=2.2" },
     { name = "pydantic", specifier = ">=2.13.4" },
+    { name = "pytest", marker = "extra == 'experiments'", specifier = ">=8.0" },
     { name = "python-dateutil", marker = "extra == 'experiments'", specifier = ">=2.9" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
+    { name = "pyyaml", marker = "extra == 'experiments'", specifier = ">=6.0" },
     { name = "rapidfuzz", marker = "extra == 'experiments'", specifier = ">=3.0" },
 ]
 provides-extras = ["experiments"]

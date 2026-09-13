@@ -1,0 +1,20 @@
+key: gemini-3.7-flash
+kind: llm
+model: gemini-3.7-flash
+role: candidate
+serving: external  # commercial API -- Google owns the server lifecycle
+base_url_env: GOVSCAPE_GEMINI_BASE_URL  # e.g. https://generativelanguage.googleapis.com/v1beta/openai/
+api_key_env: GOVSCAPE_GEMINI_API_KEY
+hardware:
+  device: none
+  notes: >-
+    hosted API (Google Gemini OpenAI-compat endpoint); wall-clock timings include
+    network + provider queueing.
+# Gemini's OpenAI-compat endpoint rejects an unknown `seed` field ("Unknown name
+# \"seed\": Cannot find field"); it accepts temperature and
+# response_format={"type": "json_object"}.
+seed: null
+max_tokens: 2048
+notes: >-
+  Member of the frontier-model consensus panel for the "ground_truth" experiment
+  type (see VALIDATION_PANEL_KEYS in config.py).

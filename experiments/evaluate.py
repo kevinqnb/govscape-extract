@@ -21,7 +21,7 @@ import statistics
 from pathlib import Path
 from typing import Optional
 
-from experiments.similarity import FIELD_COMPARATORS, authors_similarity, score_document
+from govscape_extract.similarity import FIELD_COMPARATORS, authors_similarity, score_document
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_RUNS_ROOT = REPO_ROOT / "experiments" / "runs"
@@ -62,32 +62,19 @@ def _is_present(value) -> bool:
     return bool(str(value).strip())
 
 
-def build_arg_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--truth-run", required=True, help="run_id under --runs-root, or a direct path to a run directory")
-    parser.add_argument("--candidate-run", required=True)
-    parser.add_argument("--runs-root", type=Path, default=DEFAULT_RUNS_ROOT)
-    parser.add_argument(
-        "--allow-unfinished",
-        action="store_true",
-        help="Score a run that stopped partway. Its unprocessed documents count as extraction "
-        "failures, so the resulting scores understate the model -- use only deliberately.",
-    )
-    parser.add_argument("--output-root", type=Path, default=DEFAULT_EVALUATIONS_ROOT)
-    parser.add_argument(
-        "--match-threshold",
-        type=float,
-        default=0.75,
-        help="Passed through to similarity.authors_similarity (see its docstring for calibration)",
-    )
-    return parser
-
-
-def main() -> None:
-    args = build_arg_parser().parse_args()
-
-    truth_dir = _resolve_run_dir(args.truth_run, args.runs_root)
-    candidate_dir = _resolve_run_dir(args.candidate_run, args.runs_root)
+def evaluate_run(
+    truth_dir: Path,
+    candidate_dir: Path,
+    *,
+    output_root: Path = DEFAULT_EVALUATIONS_ROOT,
+    match_threshold: float = 0.75,
+    allow_unfinished: bool = False,
+) -> dict:
+    """Score `candidate_dir` against `truth_dir`; writes
+    <output_root>/<candidate_run_id>__vs__<truth_run_id>/{evaluation.json,
+    per_document.csv} and returns the evaluation dict. This is evaluate.py's
+    callable seam -- main() and experiments/run_extraction.py's --aggregate
+    both go through here instead of duplicating the scoring logic."""
     truth_manifest = _load_manifest(truth_dir)
     candidate_manifest = _load_manifest(candidate_dir)
 
@@ -107,14 +94,14 @@ def main() -> None:
     # genuine extraction failure. `finished_at is None` is runner.py's marker
     # for a run that stopped partway; say so rather than scoring it silently.
     for label, manifest, run_dir in [("truth", truth_manifest, truth_dir), ("candidate", candidate_manifest, candidate_dir)]:
-        if not manifest.get("finished_at") and not args.allow_unfinished:
+        if not manifest.get("finished_at") and not allow_unfinished:
             done = manifest.get("n_completed")
             raise SystemExit(
                 f"The {label} run {manifest['run_id']} never finished"
                 + (f" ({done}/{manifest['n_documents']} documents extracted)" if done is not None else "")
                 + ". Its missing documents would score as extraction failures. Finish it with "
                 f"`uv run -m experiments.runner --model-key {manifest['model_key']} "
-                f"--resume {run_dir.name}`, or pass --allow-unfinished to score it as-is."
+                f"--resume {run_dir.name}`, or pass allow_unfinished=True to score it as-is."
             )
 
     truth_digests = set(truth_manifest["digests"])
@@ -133,7 +120,7 @@ def main() -> None:
         print(f"WARNING: coverage {coverage:.1%} -- {len(missing_in_candidate)} truth digest(s) not scored")
 
     field_comparators = dict(FIELD_COMPARATORS)
-    field_comparators["authors"] = functools.partial(authors_similarity, match_threshold=args.match_threshold)
+    field_comparators["authors"] = functools.partial(authors_similarity, match_threshold=match_threshold)
 
     per_document = []
     field_names = list(FIELD_COMPARATORS)
@@ -171,7 +158,7 @@ def main() -> None:
         "truth_model_key": truth_manifest["model_key"],
         "candidate_run_id": candidate_manifest["run_id"],
         "candidate_model_key": candidate_manifest["model_key"],
-        "match_threshold": args.match_threshold,
+        "match_threshold": match_threshold,
         "n_truth_documents": len(truth_digests),
         "n_candidate_documents": len(candidate_digests),
         "n_compared": len(per_document),
@@ -198,7 +185,7 @@ def main() -> None:
         },
     }
 
-    output_dir = args.output_root / f"{candidate_manifest['run_id']}__vs__{truth_manifest['run_id']}"
+    output_dir = output_root / f"{candidate_manifest['run_id']}__vs__{truth_manifest['run_id']}"
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "evaluation.json").write_text(json.dumps(evaluation, indent=2))
 
@@ -214,6 +201,41 @@ def main() -> None:
         f"{candidate_manifest['model_key']} vs {truth_manifest['model_key']}: "
         f"{len(per_document)} compared, overall_mean={evaluation['aggregate']['overall_mean']:.3f} "
         f"-> {output_dir}"
+    )
+    return evaluation
+
+
+def build_arg_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--truth-run", required=True, help="run_id under --runs-root, or a direct path to a run directory")
+    parser.add_argument("--candidate-run", required=True)
+    parser.add_argument("--runs-root", type=Path, default=DEFAULT_RUNS_ROOT)
+    parser.add_argument(
+        "--allow-unfinished",
+        action="store_true",
+        help="Score a run that stopped partway. Its unprocessed documents count as extraction "
+        "failures, so the resulting scores understate the model -- use only deliberately.",
+    )
+    parser.add_argument("--output-root", type=Path, default=DEFAULT_EVALUATIONS_ROOT)
+    parser.add_argument(
+        "--match-threshold",
+        type=float,
+        default=0.75,
+        help="Passed through to similarity.authors_similarity (see its docstring for calibration)",
+    )
+    return parser
+
+
+def main() -> None:
+    args = build_arg_parser().parse_args()
+    truth_dir = _resolve_run_dir(args.truth_run, args.runs_root)
+    candidate_dir = _resolve_run_dir(args.candidate_run, args.runs_root)
+    evaluate_run(
+        truth_dir,
+        candidate_dir,
+        output_root=args.output_root,
+        match_threshold=args.match_threshold,
+        allow_unfinished=args.allow_unfinished,
     )
 
 

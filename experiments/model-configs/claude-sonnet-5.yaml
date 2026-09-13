@@ -1,0 +1,30 @@
+key: claude-sonnet-5
+kind: llm
+model: claude-sonnet-5
+role: candidate
+serving: external  # commercial API -- Anthropic owns the server lifecycle
+base_url_env: GOVSCAPE_ANTHROPIC_BASE_URL  # e.g. https://api.anthropic.com/v1/
+api_key_env: GOVSCAPE_ANTHROPIC_API_KEY
+hardware:
+  device: none
+  notes: >-
+    hosted API (Anthropic OpenAI-compat endpoint); wall-clock timings include
+    network + provider queueing.
+# Anthropic's OpenAI-compat layer 400s on response_format={"type": "json_object"}
+# ("Input should be 'json_schema'"). JSON reliability rests on the prompt plus
+# LLMExtractor's lenient parse.
+response_format: null
+# 400s on an explicit temperature ("temperature is deprecated for this model") --
+# null omits the parameter. seed is likewise meaningless here.
+temperature: null
+seed: null
+# 8192, not the self-served 1024: Sonnet 5 emits reasoning tokens that count
+# against this budget, and at 2048 a handful of documents hit
+# finish_reason="length" with the JSON never emitted (empty content). Same
+# failure mode gpt-5.6-terra's max_completion_tokens=4096 guards against;
+# headroom is cheap on a 100-doc ground-truth pass.
+max_tokens: 8192
+notes: >-
+  Member of the frontier-model consensus panel for the "ground_truth" experiment
+  type (see VALIDATION_PANEL_KEYS in config.py). Priority order in that list is
+  also the fusion tie-break.
